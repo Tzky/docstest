@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SpongePowered API Documentation">
+    <meta name="author" content="SpongePowered">
+
+    
+     <title>Event Listeners &mdash; Sponge 4.1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cosmo/bootstrap.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:400italic,700italic,700,400' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="../../../_static/tomorrow.css" type="text/css" />
+  <link id="syntax-highlighting-ref" rel="stylesheet" href="../../../_static/tomorrow_night.css" type="text/css" />
+      
+  <script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+      URL_ROOT:    '../../../',
+      VERSION:     '4.1.0',
+      COLLAPSE_INDEX: false,
+      FILE_SUFFIX: '',
+      HAS_SOURCE:  true
+    };
+  </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/store.min.js"></script>
+    <script type="text/javascript" src="../../../_static/lights.js"></script>
+      <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="up" title="Events" href="../" />
+        <link rel="next" title="Event Causes" href="../causes/" />
+        <link rel="prev" title="Events" href="../" />
+    
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59476017-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+    
+  {§#curver§}
+  {|#langs|}
+  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
+  {|/langs|}
+  {§/curver§}
+  <link rel="alternate" hreflang="x-default" href="/"> 
+  </head>
+
+  <body role="document" id="page-top">
+    <div class="topbar">
+<!-- Navigation -->
+<nav class="navbar navbar-default">
+<div class="container col-lg-8 col-lg-offset-2">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Sponge</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
+      <li><a href="/">Home</a></li>
+      <li><a href="/downloads">Downloads</a></li>
+      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
+      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          Code <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <!-- <li class="divider"></li> -->
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+    </div>
+
+    <div class="container col-lg-8 col-lg-offset-2">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-lg-9">
+<div id="searchbox" style="display: none" role="search">
+    <form class="search" action="../../../search/" method="get">
+      <div class="form-group">
+        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
+        <input name="check_keywords" value="yes" type="hidden">
+        <input name="area" value="default" type="hidden">
+      </div>
+      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
+    </form>
+    <p class="searchtip" style="font-size: 90%"></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+          </div>
+          <div class="col-lg-3">
+            <ul class="pagination pagination-sm pull-right">
+              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
+                <li><a href="../../" >Creating a Plugin</a></li>
+                <li><a href="../" accesskey="U">Events</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="event-listeners">
+<h1>Event Listeners<a class="headerlink" href="#event-listeners" title="Permalink to this headline">¶</a></h1>
+<p>In order to listen for an event, an event listener must be registered. This is done by making a method with any name,
+defining the first parameter to be the desired event type, and then affixing the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/Listener.html">Listener</a> annotation to the
+method, as illustrated below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.Listener</span><span class="o">;</span>
+
+<span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSomeEvent</span><span class="o">(</span><span class="n">SomeEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Do something with the event</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In addition, the class containing these methods must be registered with the event manager:</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For event listeners on your main plugin class (annotated by <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/plugin/Plugin.html">Plugin</a>), you do not need to register the
+object for events as Sponge will do it automatically.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The event bus <strong>supports supertypes</strong>. For example, <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/block/ChangeBlockEvent.Break.html">ChangeBlockEvent.Break</a> extends
+<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/block/ChangeBlockEvent.html">ChangeBlockEvent</a>. Therefore, a plugin could listen to <code class="docutils literal"><span class="pre">ChangeBlockEvent</span></code> and still receive
+<code class="docutils literal"><span class="pre">ChangeBlockEvent.Break</span></code>s. However, a plugin listening to just <code class="docutils literal"><span class="pre">ChangeBlockEvent.Break</span></code> would not be notified
+of other types of <code class="docutils literal"><span class="pre">ChangeBlockEvent</span></code>.</p>
+</div>
+<div class="section" id="registering-and-unregistering-event-listeners">
+<h2>Registering and Unregistering Event Listeners<a class="headerlink" href="#registering-and-unregistering-event-listeners" title="Permalink to this headline">¶</a></h2>
+<p>To register event listeners annotated by <code class="docutils literal"><span class="pre">&#64;Listener</span></code> that are not in the main plugin class, you can use
+<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/EventManager.html#registerListeners-java.lang.Object-java.lang.Object-">EventManager#registerListeners(Object, Object)</a>, which accepts a reference to the plugin and an instance of
+the class containing the event listeners.</p>
+<p><strong>Example: Registering Event Listeners in Other Classes</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.Sponge</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleListener</span> <span class="o">{</span>
+
+    <span class="nd">@Listener</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSomeEvent</span><span class="o">(</span><span class="n">SomeEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Do something with the event</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">registerListeners</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="k">new</span> <span class="n">ExampleListener</span><span class="o">());</span>
+</pre></div>
+</div>
+<div class="section" id="dynamically-registering-event-listeners">
+<h3>Dynamically Registering Event Listeners<a class="headerlink" href="#dynamically-registering-event-listeners" title="Permalink to this headline">¶</a></h3>
+<p>Some plugins (such as scripting plugins) may wish to dynamically register an event listener. In that case the event
+listener is not a method annotated with <code class="docutils literal"><span class="pre">&#64;Listener</span></code>, but rather a class implementing the <code class="docutils literal"><span class="pre">EventListener</span></code> interface.
+This event listener can then be registered by calling <code class="docutils literal"><span class="pre">EventManager#registerListener</span></code>, which accepts a reference to the
+plugin as the first argument, the <code class="docutils literal"><span class="pre">Class</span></code> of events handled as the second argument, and the listener itself as the
+final argument. Optionally, you can specify an <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/Order.html">Order</a> to run the event listener in as the third argument or a
+boolean value as the fourth argument (before the instance of the listener) which determines whether to call the listener
+before other server modifications.</p>
+<p><strong>Example: Implementing EventListener</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.EventListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.block.ChangeBlockEvent</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleListener</span> <span class="kd">implements</span> <span class="n">EventListener</span><span class="o">&lt;</span><span class="n">ChangeBlockEvent</span><span class="o">.</span><span class="na">Break</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handle</span><span class="o">(</span><span class="n">ChangeBlockEvent</span><span class="o">.</span><span class="na">Break</span> <span class="n">event</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><strong>Example: Dynamically Registering the Event Listener</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">EventListener</span><span class="o">&lt;</span><span class="n">ChangeBlockEvent</span><span class="o">.</span><span class="na">Break</span><span class="o">&gt;</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ExampleListener</span><span class="o">();</span>
+<span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">registerListener</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">ChangeBlockEvent</span><span class="o">.</span><span class="na">Break</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">listener</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">For event listeners created with the <code class="docutils literal"><span class="pre">&#64;Listener</span></code> annotation, the order of the execution can be configured
+(see also <a class="reference internal" href="#id1">About &#64;Listener</a>). For dynamically registered listeners this is possible by passing an <code class="docutils literal"><span class="pre">Order</span></code>
+to the third argument the <code class="docutils literal"><span class="pre">EventManager#registerListener</span></code> method.</p>
+</div>
+</div>
+<div class="section" id="unregistering-event-listeners">
+<h3>Unregistering Event Listeners<a class="headerlink" href="#unregistering-event-listeners" title="Permalink to this headline">¶</a></h3>
+<p>To unregister a single event listener, you can use the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/EventManager.html#unregisterListeners-java.lang.Object-">EventManager#unregisterListeners(Object)</a> method,
+which accepts an instance of the class containing the event listeners.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">EventListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">unregisterListeners</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Alternatively, you can use <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/EventManager.html#unregisterPluginListeners-java.lang.Object-">EventManager#unregisterPluginListeners(Object)</a>, passing in a reference to the
+plugin, to unregister all event listeners associated with that plugin. Note that this will remove <em>all</em> of the plugin&#8217;s
+event listeners, including those registered with <code class="docutils literal"><span class="pre">&#64;Listener</span></code> annotations.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">MyPlugin</span> <span class="n">plugin</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">unregisterPluginListeners</span><span class="o">(</span><span class="n">plugin</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="about-listener">
+<span id="id1"></span><h3>About &#64;Listener<a class="headerlink" href="#about-listener" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">&#64;Listener</span></code> annotation has a few configurable fields:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">order</span></code> is the priority in which the event listener is to be run. See the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/Order.html">Order</a> enum in the SpongeAPI to
+see the available options.</li>
+<li><code class="docutils literal"><span class="pre">beforeModifications</span></code> specifies if the event listener should be called before other server mods, such as Forge
+mods. By default, this is set to false.</li>
+</ul>
+<p>By default, <code class="docutils literal"><span class="pre">&#64;Listener</span></code> is configured so that your event listener will <em>not</em> be called if the event in question is
+cancellable and has been cancelled (such as by another plugin).</p>
+</div>
+<div class="section" id="gamereloadevent">
+<span id="game-reload"></span><h3>GameReloadEvent<a class="headerlink" href="#gamereloadevent" title="Permalink to this headline">¶</a></h3>
+<p>To prevent all plugins providing their own reload commands, Sponge provides a built in callback for plugins to listen
+to, and when executed, perform any reloading actions. What constitutes as a &#8216;reloading action&#8217; is purely up to the
+plugin to decide. The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/GameReloadEvent.html">GameReloadEvent</a> will fire when a player executes the
+<code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">plugins</span> <span class="pre">reload</span></code> command. The event is not necessarily limited to reloading configuration.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.game.GameReloadEvent</span><span class="o">;</span>
+
+<span class="nd">@Listener</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">reload</span><span class="o">(</span><span class="n">GameReloadEvent</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Do reload stuff</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Note that this is different for what generally is considered a &#8216;reload&#8217;, as the event is purely all callback for
+plugins and does not do any reloading on its own.</p>
+</div>
+</div>
+<div class="section" id="firing-events">
+<h2>Firing Events<a class="headerlink" href="#firing-events" title="Permalink to this headline">¶</a></h2>
+<p>To dispatch an event, you need an object that implements the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/Event.html">Event</a> interface.</p>
+<p>You can fire events using the event bus (<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/EventManager.html">EventManager</a>):</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kt">boolean</span> <span class="n">cancelled</span> <span class="o">=</span> <span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">post</span><span class="o">(</span><span class="n">theEventObject</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The method returns <code class="docutils literal"><span class="pre">true</span></code> if the event was cancelled, <code class="docutils literal"><span class="pre">false</span></code> if not.</p>
+<div class="section" id="firing-sponge-events">
+<h3>Firing Sponge Events<a class="headerlink" href="#firing-sponge-events" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to generate instances of built-in events with the static <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/SpongeEventFactory.html">SpongeEventFactory</a>. The events
+created by the <code class="docutils literal"><span class="pre">SpongeEventFactory</span></code> are then passed to <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/EventManager.html#post-org.spongepowered.api.event.Event-">EventManager#post(Event)</a>.</p>
+</div>
+<div class="section" id="example-firing-lightningevent">
+<h3>Example: Firing LightningEvent<a class="headerlink" href="#example-firing-lightningevent" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.event.SpongeEventFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.action.LightningEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.event.cause.Cause</span><span class="o">;</span>
+
+<span class="n">LightningEvent</span> <span class="n">lightningEvent</span> <span class="o">=</span> <span class="n">SpongeEventFactory</span><span class="o">.</span><span class="na">createLightningEvent</span><span class="o">(</span><span class="n">Cause</span><span class="o">.</span><span class="na">source</span><span class="o">(</span><span class="n">plugin</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+<span class="n">Sponge</span><span class="o">.</span><span class="na">getEventManager</span><span class="o">().</span><span class="na">post</span><span class="o">(</span><span class="n">lightningEvent</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">A <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/cause/Cause.html">Cause</a> can never be empty. At the very least it should contain your plugin container.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div> 
+    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+    <form class="search" action="../../../search/" method="get">
+      <div class="form-group">
+        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
+        <input name="check_keywords" value="yes" type="hidden">
+        <input name="area" value="default" type="hidden">
+      </div>
+      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
+    </form>
+    <p class="searchtip" style="font-size: 90%"></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><h3><a href="../../../">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../server/">Creating a Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../server/getting-started/">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/jre/">Installing Java</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/migrating/">Migrating to Sponge</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/implementations/">Choosing an Implementation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/implementations/spongeforge/">Installing SpongeForge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/implementations/spongevanilla/">Installing SpongeVanilla</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/launch-script/">Creating a Launch Script</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/port-forward/">Port Forwarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/bungeecord/">Using Sponge with BungeeCord</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/getting-started/configuration/">Configuring Sponge</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/configuration/hocon/">Introduction to HOCON</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/configuration/json/">JSON Syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/configuration/sponge-conf/">global.conf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../server/getting-started/configuration/server-properties/">server.properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../server/management/">Server Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/whitelist/">Managing the Whitelist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/bans/">Managing Bans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/permissions/">Managing Permissions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/plugins/">Installing Plugins</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/exploit-patches/">Exploit Patches</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/management/performance-tweaks/">Performance Tweaks</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../server/spongineer/">Becoming an Expert Spongineer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/spongineer/commands/">Commands</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/spongineer/troubleshooting/">Troubleshooting</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/spongineer/logs/">Log Files</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/spongineer/debugging/">Debugging</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../server/spongineer/bugreport/">Reporting Bugs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preparing/">Preparing for Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../preparing/jdk/">Installing the JDK</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../preparing/ide/">Installing an IDE</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../preparing/text/">Installing a Text Editor</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../preparing/git/">Installing Git</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../">Creating a Plugin</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../buildsystem/">Build Systems</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../workspace/">Setting Up Your Workspace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../workspace/idea/">Setting Up IntelliJ IDEA</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../workspace/eclipse/">Setting Up Eclipse</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../project/">Setting Up Your Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../project/gradle/">Setting Up Gradle</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../project/maven/">Setting Up Maven</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-identifier/">Plugin Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-class/">Main Plugin Class</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lifecycle/">Plugin Lifecycle</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../injection/">Dependency Injection</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../practices/">Best Practices</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../optional/">Optionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../optional/basic/">Optionals Explained</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../optional/usage/">Usage Examples</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../logging/">Logging and Debugging</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands/">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/creating/">Building a Command</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/arguments/">Argument Parsing</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/flags/">Command Flags</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/childcommands/">Child Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/service/">The Command Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../commands/commandcallable/">Low-Level Command API</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../">Events</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Event Listeners</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../causes/">Event Causes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../filters/">Event Filters</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../custom/">Custom Events</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../assets/">The Asset API</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/">Configuring Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/loaders/">Configuration Loaders</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/nodes/">Configuration Nodes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/serialization/">Serializing Objects</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../text/">Text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../text/text/">Creating Text</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../text/representations/">Text Serializers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../text/representations/formatting-code-legacy/">Formatting Code &amp; Legacy Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../text/representations/xml/">TextXML Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../text/representations/json/">JSON Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../text/representations/configurate/">Configuration Format</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../text/pagination/">The Pagination Service</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../text/messagechannels/">Message Channels</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../text/templates/">TextTemplates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/">The Data API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/keys/">Using Keys</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datamanipulators/">Data Manipulators</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/transactions/">Transactions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/serialization/">Serializing Data</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../blocks/">Blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../blocks/concepts/">Concepts</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../blocks/accessing/">Accessing Blocks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../blocks/modifying/">Modifying Blocks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../blocks/tileentities/">Tile Entities</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../blocks/virtualblock/">Virtual Block Changes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../entities/">Entities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entities/spawning/">Spawning an Entity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entities/modifying/">Modifying an Entity</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../items/">Items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../items/usage/">Basic Item Usage</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../items/creating/">Creating an ItemStack</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../effects/">Effects</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../scheduler/">Scheduler</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../services/">Services</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../database/">Databases</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../permissions/">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bans/">Bans</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bookview/">Book Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../economy/">Economy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../economy/basics/">Basic Concepts</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../economy/using/">Using the Economy API</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../economy/practices/">Economy API Best Practices</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../economy/implementing/">Implementing the Economy API</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../wgen/">World Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../wgen/modifiers/">WorldGeneratorModifiers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../wgen/customwgen/">Modifying World Generation</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../manager/">Plugin Manager</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../game-profile-manager/">Game Profile Manager</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../offline-userplayer-data/">Offline Player Data</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../debugging/">Plugin Debugging</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tab-lists/">Tab Lists</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../plugin-meta/">Plugin Metadata</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ray-tracing/">Ray Tracing</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bukkit-sponge-compare/">Comparing Bukkit to SpongeAPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/">Tutorials</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing/">Contributing to Sponge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/guidelines/">Contribution Guidelines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/howtogit/">How to Git(Hub)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/implementation/">Developing Sponge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/codestyle/">Code Style</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/git-implementation/">Git Workflow for API and Implementations</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/pr/">Submitting a Pull-Request</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/debugging/">Debugging Sponge Within the IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/mixins/">Mixins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../contributing/implementation/datamanipulator/">Implementing DataManipulators</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/spongedocs/">SpongeDocs Writing</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/porting/">Porting Sponge to Other Platforms</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../contributing/versioning/">Versioning System and Repository Branch Layout</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/">About the Sponge Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/introduction/">Introduction</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/faq/">Frequently Asked Questions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/structure/">The Structure of the Sponge Project</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/future/">Plans for the Future</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/license/">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/posting/">Forum Posting Guidelines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/rules/">Forum &amp; IRC Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/staff/">Staff</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/glossary/">Sponge Glossary</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/assets/">Art Assets</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../about/history/">The History of Sponge</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../downloads/">Download</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+      </div>
+    </div> 
+    </div>
+    <footer class="col-lg-12">
+        <div class="footer" role="contentinfo">
+              &copy; Copyright 2014-2016, Sponge Contributors.
+            Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        </div>
+    </footer>
+  </body>
+</html>
