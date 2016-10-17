@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Art Assets &mdash; Sponge 4.1.0 documentation</title>
+     <title>Art Assets &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="About the Sponge Project" href="../" />
         <link rel="next" title="The History of Sponge" href="../history/" />
         <link rel="prev" title="Sponge Glossary" href="../glossary/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,119 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/about/assets.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../glossary/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../history/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">About the Sponge Project</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="art-assets">
-<h1>Art Assets<a class="headerlink" href="#art-assets" title="Permalink to this headline">¶</a></h1>
-<p>This page provides the official SpongePowered logo and mascot. Feel free to use them to spread the word about Sponge.
-However note that these images are <strong>not</strong> provided under the MIT License.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you&#8217;re reading a translated version, please note that the English license is the one which counts. Translated
-licenses are only provided for informational purposes.</p>
-</div>
-<p>You may:</p>
-<ul class="simple">
-<li>Make minor modifications to Spongie’s facial expressions - such as making a cute smile,
-making them perplexed or sad, adding a hat, and so on. It should be easily recognizable that the Spongie you create
-is the Spongie mascot, but wearing a different expression or clothing.</li>
-<li>Use Spongie or the SpongePowered logo in an article or blog post about the Sponge project, and to spread the word.</li>
-<li>Use the Spongepowered Logo to link to <a class="reference external" href="http://spongepowered.org">Sponge Homepage</a>
-(for example in your signature on forums etc.)</li>
-</ul>
-<p>You may not:</p>
-<ul class="simple">
-<li>Use the mascot as a link to the Sponge project only. The SpongePowered logo (which retains Spongie’s form) is a better
-representation of the Sponge project when used as an affiliate or reference.</li>
-<li>Create a vastly modified version of Spongie, where they become unrecognizable or clearly different from the
-original Spongie mascot.</li>
-<li>Add your project image to Spongie, or vice versa.</li>
-<li>Claim Spongie as your own mascot, or use them as a mascot for your own project.</li>
-<li>Sell or use Spongie in commerce without permission.</li>
-<li>Change any colors or dimensions.</li>
-</ul>
-<div class="section" id="the-official-sponge-logo">
-<h2>The Official Sponge Logo<a class="headerlink" href="#the-official-sponge-logo" title="Permalink to this headline">¶</a></h2>
-<img alt="official SpongePowered logo" class="align-center" src="../../_images/logo-spongepowered.png" />
-</div>
-<div class="section" id="spongie-the-official-sponge-mascot">
-<h2>Spongie - The Official Sponge Mascot<a class="headerlink" href="#spongie-the-official-sponge-mascot" title="Permalink to this headline">¶</a></h2>
-<img alt="Spongie the SpongePowered mascot" class="align-center" src="../../_images/logo-spongie.png" />
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">About the Sponge Project</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -592,6 +539,60 @@ original Spongie mascot.</li>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="art-assets">
+<h1>Art Assets<a class="headerlink" href="#art-assets" title="Permalink to this headline">¶</a></h1>
+<p>This page provides the official SpongePowered logo and mascot. Feel free to use them to spread the word about Sponge.
+However note that these images are <strong>not</strong> provided under the MIT License.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you&#8217;re reading a translated version, please note that the English license is the one which counts. Translated
+licenses are only provided for informational purposes.</p>
+</div>
+<p>You may:</p>
+<ul class="simple">
+<li>Make minor modifications to Spongie’s facial expressions - such as making a cute smile,
+making them perplexed or sad, adding a hat, and so on. It should be easily recognizable that the Spongie you create
+is the Spongie mascot, but wearing a different expression or clothing.</li>
+<li>Use Spongie or the SpongePowered logo in an article or blog post about the Sponge project, and to spread the word.</li>
+<li>Use the Spongepowered Logo to link to <a class="reference external" href="http://spongepowered.org">Sponge Homepage</a>
+(for example in your signature on forums etc.)</li>
+</ul>
+<p>You may not:</p>
+<ul class="simple">
+<li>Use the mascot as a link to the Sponge project only. The SpongePowered logo (which retains Spongie’s form) is a better
+representation of the Sponge project when used as an affiliate or reference.</li>
+<li>Create a vastly modified version of Spongie, where they become unrecognizable or clearly different from the
+original Spongie mascot.</li>
+<li>Add your project image to Spongie, or vice versa.</li>
+<li>Claim Spongie as your own mascot, or use them as a mascot for your own project.</li>
+<li>Sell or use Spongie in commerce without permission.</li>
+<li>Change any colors or dimensions.</li>
+</ul>
+<div class="section" id="the-official-sponge-logo">
+<h2>The Official Sponge Logo<a class="headerlink" href="#the-official-sponge-logo" title="Permalink to this headline">¶</a></h2>
+<img alt="official SpongePowered logo" class="align-center" src="../../_images/logo-spongepowered.png" />
+</div>
+<div class="section" id="spongie-the-official-sponge-mascot">
+<h2>Spongie - The Official Sponge Mascot<a class="headerlink" href="#spongie-the-official-sponge-mascot" title="Permalink to this headline">¶</a></h2>
+<img alt="Spongie the SpongePowered mascot" class="align-center" src="../../_images/logo-spongie.png" />
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Basic Item Usage &mdash; Sponge 4.1.0 documentation</title>
+     <title>Basic Item Usage &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Items" href="../" />
         <link rel="next" title="Creating an ItemStack" href="../creating/" />
         <link rel="prev" title="Items" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,175 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/items/usage.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../creating/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">Items</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="basic-item-usage">
-<h1>Basic Item Usage<a class="headerlink" href="#basic-item-usage" title="Permalink to this headline">¶</a></h1>
-<p>Items are represented through an <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a>. An <code class="docutils literal"><span class="pre">ItemStack</span></code> is an inventory item with information such as
-the amount of the item in the stack, the type of the item, and extra data such as durability. An <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/entity/Item.html">Item</a> itself
-is the graphical representation of an <code class="docutils literal"><span class="pre">ItemStack</span></code> as an entity. Be aware that you&#8217;ll always get a copy and <em>not</em> the
-actual <code class="docutils literal"><span class="pre">ItemStack</span></code> and thus, you will need to set it back into an inventory if desired.</p>
-<div class="section" id="checking-an-item-s-type">
-<h2>Checking an Item&#8217;s Type<a class="headerlink" href="#checking-an-item-s-type" title="Permalink to this headline">¶</a></h2>
-<p>Checking the type of the item is very simple. You just need to call the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/item/inventory/ItemStack.html#getItem--">ItemStack#getItem()</a> method.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemType</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isStick</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">ItemType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">getItem</span><span class="o">();</span>
-    <span class="k">return</span> <span class="n">type</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">ItemTypes</span><span class="o">.</span><span class="na">STICK</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>See how simple that is? Because sticks can stack, we can also find out how many are present.</p>
-<p>Getting the amount of items in an <code class="docutils literal"><span class="pre">ItemStack</span></code> is relatively easy. The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> method will
-handle this for us.</p>
-</div>
-<div class="section" id="modifying-itemstack-data">
-<h2>Modifying ItemStack Data<a class="headerlink" href="#modifying-itemstack-data" title="Permalink to this headline">¶</a></h2>
-<p>Manipulating data such as durability or the lore of an item is accomplished by simply using keys. You just need to
-specify the key that needs to be changed:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUnbreakable</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">stack</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">UNBREAKABLE</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>In this, we specified that the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/key/Keys.html#UNBREAKABLE">Keys#UNBREAKABLE</a> key is the key that we would like to change. We then set its
-value to <code class="docutils literal"><span class="pre">true</span></code> to imply that the item will never break. All of this is enclosed within the <code class="docutils literal"><span class="pre">offer()</span></code> method of the
-<code class="docutils literal"><span class="pre">ItemStack</span></code> to return our changes back to the <code class="docutils literal"><span class="pre">ItemStack</span></code>.</p>
-<p>Different keys will require different values based on their job. For example, to change the lore of an item, one would
-need to specify a <code class="docutils literal"><span class="pre">List</span></code> of <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/text/Text.html">Text</a> rather than an boolean or other value. It is also important to perform
-checks to see if the key can actually apply to the item. For example, some items might not have durability or may
-already have lore applied to the item.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLore</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">itemLore</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">ITEM_LORE</span><span class="o">).</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
-        <span class="n">stack</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">ITEM_LORE</span><span class="o">,</span> <span class="n">itemLore</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="item-properties">
-<h2>Item Properties<a class="headerlink" href="#item-properties" title="Permalink to this headline">¶</a></h2>
-<p>Certain items may hold specific properties. For example, certain items can mine specific blocks, such as a diamond
-pickaxe to obsidian. Properties are used for determining if an item can cause an action without actually checking up
-the type of the item. We can check if a block can mine obsidian by using the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> of that item.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.item.HarvestingProperty</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canMineObsidian</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HarvestingProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span>
-        <span class="n">stack</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">HarvestingProperty</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-
-    <span class="k">if</span> <span class="o">(</span><span class="n">optional</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
-        <span class="n">HarvestingProperty</span> <span class="n">property</span> <span class="o">=</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">property</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="n">BlockTypes</span><span class="o">.</span><span class="na">OBSIDIAN</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>This code will check to see if the item has a <code class="docutils literal"><span class="pre">HarvestingProperty</span></code>, such as a pickaxe. If present, it will then
-return if this item can harvest obsidian without the need to check the type of the item. This is useful in the event
-that a mod or a Minecraft update adds a new tool with the capabilities of mining obsidian.</p>
-</div>
-<div class="section" id="comparing-itemstacks">
-<h2>Comparing ItemStacks<a class="headerlink" href="#comparing-itemstacks" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">ItemStack</span></code> class contains a neat method for comparing two <code class="docutils literal"><span class="pre">ItemStack</span></code>s. By using the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/item/inventory/ItemStack.html#equalTo-org.spongepowered.api.item.inventory.ItemStack-">ItemStack#equalTo(ItemStack)</a> method off of an already existing <code class="docutils literal"><span class="pre">ItemStack</span></code>, we can see if the two
-<code class="docutils literal"><span class="pre">ItemStack</span></code>s are &#8216;equal&#8217;. That is, they share the same stack size, <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/item/ItemType.html">ItemType</a>, and data. An example is
-show below:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEqual</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack1</span><span class="o">,</span> <span class="n">ItemStack</span> <span class="n">stack2</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">stack1</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="n">stack2</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">Items</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -648,6 +540,115 @@ show below:</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="basic-item-usage">
+<h1>Basic Item Usage<a class="headerlink" href="#basic-item-usage" title="Permalink to this headline">¶</a></h1>
+<p>Items are represented through an <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/item/inventory/ItemStack.html">ItemStack</a>. An <code class="docutils literal"><span class="pre">ItemStack</span></code> is an inventory item with information such as
+the amount of the item in the stack, the type of the item, and extra data such as durability. An <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/entity/Item.html">Item</a> itself
+is the graphical representation of an <code class="docutils literal"><span class="pre">ItemStack</span></code> as an entity. Be aware that you&#8217;ll always get a copy and <em>not</em> the
+actual <code class="docutils literal"><span class="pre">ItemStack</span></code> and thus, you will need to set it back into an inventory if desired.</p>
+<div class="section" id="checking-an-item-s-type">
+<h2>Checking an Item&#8217;s Type<a class="headerlink" href="#checking-an-item-s-type" title="Permalink to this headline">¶</a></h2>
+<p>Checking the type of the item is very simple. You just need to call the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/item/inventory/ItemStack.html#getItem--">ItemStack#getItem()</a> method.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.ItemTypes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.item.inventory.ItemStack</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isStick</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ItemType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">getItem</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">type</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">ItemTypes</span><span class="o">.</span><span class="na">STICK</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>See how simple that is? Because sticks can stack, we can also find out how many are present.</p>
+<p>Getting the amount of items in an <code class="docutils literal"><span class="pre">ItemStack</span></code> is relatively easy. The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/item/inventory/ItemStack.html#getQuantity--">ItemStack#getQuantity()</a> method will
+handle this for us.</p>
+</div>
+<div class="section" id="modifying-itemstack-data">
+<h2>Modifying ItemStack Data<a class="headerlink" href="#modifying-itemstack-data" title="Permalink to this headline">¶</a></h2>
+<p>Manipulating data such as durability or the lore of an item is accomplished by simply using keys. You just need to
+specify the key that needs to be changed:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUnbreakable</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">stack</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">UNBREAKABLE</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In this, we specified that the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/key/Keys.html#UNBREAKABLE">Keys#UNBREAKABLE</a> key is the key that we would like to change. We then set its
+value to <code class="docutils literal"><span class="pre">true</span></code> to imply that the item will never break. All of this is enclosed within the <code class="docutils literal"><span class="pre">offer()</span></code> method of the
+<code class="docutils literal"><span class="pre">ItemStack</span></code> to return our changes back to the <code class="docutils literal"><span class="pre">ItemStack</span></code>.</p>
+<p>Different keys will require different values based on their job. For example, to change the lore of an item, one would
+need to specify a <code class="docutils literal"><span class="pre">List</span></code> of <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/text/Text.html">Text</a> rather than an boolean or other value. It is also important to perform
+checks to see if the key can actually apply to the item. For example, some items might not have durability or may
+already have lore applied to the item.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLore</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">&gt;</span> <span class="n">itemLore</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">ITEM_LORE</span><span class="o">).</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">stack</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">ITEM_LORE</span><span class="o">,</span> <span class="n">itemLore</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="item-properties">
+<h2>Item Properties<a class="headerlink" href="#item-properties" title="Permalink to this headline">¶</a></h2>
+<p>Certain items may hold specific properties. For example, certain items can mine specific blocks, such as a diamond
+pickaxe to obsidian. Properties are used for determining if an item can cause an action without actually checking up
+the type of the item. We can check if a block can mine obsidian by using the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> of that item.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.block.BlockTypes</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.property.item.HarvestingProperty</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Optional</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canMineObsidian</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">HarvestingProperty</span><span class="o">&gt;</span> <span class="n">optional</span> <span class="o">=</span>
+        <span class="n">stack</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">HarvestingProperty</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">optional</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">HarvestingProperty</span> <span class="n">property</span> <span class="o">=</span> <span class="n">optional</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">property</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="n">BlockTypes</span><span class="o">.</span><span class="na">OBSIDIAN</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This code will check to see if the item has a <code class="docutils literal"><span class="pre">HarvestingProperty</span></code>, such as a pickaxe. If present, it will then
+return if this item can harvest obsidian without the need to check the type of the item. This is useful in the event
+that a mod or a Minecraft update adds a new tool with the capabilities of mining obsidian.</p>
+</div>
+<div class="section" id="comparing-itemstacks">
+<h2>Comparing ItemStacks<a class="headerlink" href="#comparing-itemstacks" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">ItemStack</span></code> class contains a neat method for comparing two <code class="docutils literal"><span class="pre">ItemStack</span></code>s. By using the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/item/inventory/ItemStack.html#equalTo-org.spongepowered.api.item.inventory.ItemStack-">ItemStack#equalTo(ItemStack)</a> method off of an already existing <code class="docutils literal"><span class="pre">ItemStack</span></code>, we can see if the two
+<code class="docutils literal"><span class="pre">ItemStack</span></code>s are &#8216;equal&#8217;. That is, they share the same stack size, <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/item/ItemType.html">ItemType</a>, and data. An example is
+show below:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEqual</span><span class="o">(</span><span class="n">ItemStack</span> <span class="n">stack1</span><span class="o">,</span> <span class="n">ItemStack</span> <span class="n">stack2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">stack1</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="n">stack2</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Logging and Debugging &mdash; Sponge 4.1.0 documentation</title>
+     <title>Logging and Debugging &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="Creating a Plugin" href="../" />
         <link rel="next" title="Commands" href="../commands/" />
         <link rel="prev" title="Usage Examples" href="../optional/usage/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,158 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/logging.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../optional/usage/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../commands/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">Creating a Plugin</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="logging-and-debugging">
-<h1>Logging and Debugging<a class="headerlink" href="#logging-and-debugging" title="Permalink to this headline">¶</a></h1>
-<p>There are a few logging frameworks available for use in Java. Logging is preferable to printing to stdout or stderr with
-<code class="docutils literal"><span class="pre">System.out.println()</span></code> for a number of reasons:</p>
-<ul class="simple">
-<li>Logged messages are labeled with a source name, making it easier to figure out where the logged messages are coming from.</li>
-<li>Logged messages have a severity level which allows for simple filtering (e.g. disable all non-critical notices).</li>
-<li>The available logger frameworks allow you to enable or disable messages from certain sources.</li>
-</ul>
-<p>Sponge uses <code class="docutils literal"><span class="pre">org.slf4j.Logger</span></code>, not <code class="docutils literal"><span class="pre">java.util.logging.Logger</span></code>.</p>
-<div class="section" id="getting-a-logger">
-<h2>Getting a Logger<a class="headerlink" href="#getting-a-logger" title="Permalink to this headline">¶</a></h2>
-<p>The Guice module used during the initialization of plugins has a plugin-scoped logger. This allows you to annotate a
-field, method, or constructor with <code class="docutils literal"><span class="pre">&#64;Inject</span></code> to get the logger for your plugin, which is pre-configured with the
-correct plugin ID.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">See <a class="reference internal" href="../plugin-class/"><em>Main Plugin Class</em></a> for information on configuring your plugin ID.</p>
-</div>
-<p><strong>Example - Field</strong></p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
-</pre></div>
-</div>
-<p><strong>Example - Method</strong></p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="kd">private</span> <span class="kt">void</span> <span class="nf">setLogger</span><span class="o">(</span><span class="n">Logger</span> <span class="n">logger</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p><strong>Example - Constructor</strong></p>
-<div class="highlight-java"><div class="highlight"><pre><span class="c1">// For the purpose of this example, &quot;Banana&quot; is the class name</span>
-
-<span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="kd">public</span> <span class="nf">Banana</span><span class="o">(</span><span class="n">Logger</span> <span class="n">logger</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>It is recommended to set your logger in your main plugin class, as it is instantiated with the Guice injector when the
-plugin is loaded.</p>
-<p>Creating a getter method for your logger in the same class in which it was set is also ideal, although optional. An
-example getter method is illustrated below.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="n">Logger</span> <span class="nf">getLogger</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">logger</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="emitting-messages">
-<h2>Emitting Messages<a class="headerlink" href="#emitting-messages" title="Permalink to this headline">¶</a></h2>
-<p>Emitting a message with your logger is very simple.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The following example assumes that the getter method for your logger is named <code class="docutils literal"><span class="pre">getLogger()</span></code>, as shown in the
-previous section. This may differ for you depending on what you named your getter method.</p>
-</div>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">getLogger</span><span class="o">().</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
-<span class="n">getLogger</span><span class="o">().</span><span class="na">debug</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
-<span class="n">getLogger</span><span class="o">().</span><span class="na">warn</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
-<span class="n">getLogger</span><span class="o">().</span><span class="na">error</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
-</pre></div>
-</div>
-<p>The String is the message you wish to emit. For example:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="n">getLogger</span><span class="o">().</span><span class="na">warn</span><span class="o">(</span><span class="s">&quot;This is a warning!&quot;</span><span class="o">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">Creating a Plugin</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -631,6 +539,99 @@ previous section. This may differ for you depending on what you named your gette
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="logging-and-debugging">
+<h1>Logging and Debugging<a class="headerlink" href="#logging-and-debugging" title="Permalink to this headline">¶</a></h1>
+<p>There are a few logging frameworks available for use in Java. Logging is preferable to printing to stdout or stderr with
+<code class="docutils literal"><span class="pre">System.out.println()</span></code> for a number of reasons:</p>
+<ul class="simple">
+<li>Logged messages are labeled with a source name, making it easier to figure out where the logged messages are coming from.</li>
+<li>Logged messages have a severity level which allows for simple filtering (e.g. disable all non-critical notices).</li>
+<li>The available logger frameworks allow you to enable or disable messages from certain sources.</li>
+</ul>
+<p>Sponge uses <code class="docutils literal"><span class="pre">org.slf4j.Logger</span></code>, not <code class="docutils literal"><span class="pre">java.util.logging.Logger</span></code>.</p>
+<div class="section" id="getting-a-logger">
+<h2>Getting a Logger<a class="headerlink" href="#getting-a-logger" title="Permalink to this headline">¶</a></h2>
+<p>The Guice module used during the initialization of plugins has a plugin-scoped logger. This allows you to annotate a
+field, method, or constructor with <code class="docutils literal"><span class="pre">&#64;Inject</span></code> to get the logger for your plugin, which is pre-configured with the
+correct plugin ID.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="../plugin-class/"><em>Main Plugin Class</em></a> for information on configuring your plugin ID.</p>
+</div>
+<p><strong>Example - Field</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
+</pre></div>
+</div>
+<p><strong>Example - Method</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">setLogger</span><span class="o">(</span><span class="n">Logger</span> <span class="n">logger</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><strong>Example - Constructor</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="c1">// For the purpose of this example, &quot;Banana&quot; is the class name</span>
+
+<span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="kd">public</span> <span class="nf">Banana</span><span class="o">(</span><span class="n">Logger</span> <span class="n">logger</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">logger</span> <span class="o">=</span> <span class="n">logger</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>It is recommended to set your logger in your main plugin class, as it is instantiated with the Guice injector when the
+plugin is loaded.</p>
+<p>Creating a getter method for your logger in the same class in which it was set is also ideal, although optional. An
+example getter method is illustrated below.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kd">public</span> <span class="n">Logger</span> <span class="nf">getLogger</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">logger</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emitting-messages">
+<h2>Emitting Messages<a class="headerlink" href="#emitting-messages" title="Permalink to this headline">¶</a></h2>
+<p>Emitting a message with your logger is very simple.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The following example assumes that the getter method for your logger is named <code class="docutils literal"><span class="pre">getLogger()</span></code>, as shown in the
+previous section. This may differ for you depending on what you named your getter method.</p>
+</div>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">getLogger</span><span class="o">().</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
+<span class="n">getLogger</span><span class="o">().</span><span class="na">debug</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
+<span class="n">getLogger</span><span class="o">().</span><span class="na">warn</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
+<span class="n">getLogger</span><span class="o">().</span><span class="na">error</span><span class="o">(</span><span class="n">String</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The String is the message you wish to emit. For example:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="n">getLogger</span><span class="o">().</span><span class="na">warn</span><span class="o">(</span><span class="s">&quot;This is a warning!&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

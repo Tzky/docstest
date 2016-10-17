@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Installing Java &mdash; Sponge 4.1.0 documentation</title>
+     <title>Installing Java &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Getting Started" href="../" />
         <link rel="next" title="Migrating to Sponge" href="../migrating/" />
         <link rel="prev" title="Getting Started" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,112 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/server/getting-started/jre.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../migrating/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Server</a></li>
-                <li><a href="../" accesskey="U">Getting Started</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="installing-java">
-<h1>Installing Java<a class="headerlink" href="#installing-java" title="Permalink to this headline">¶</a></h1>
-<p>Java is needed to run Sponge and Minecraft. You most likely already have Java, but you may need to update it.</p>
-<p>Sponge requires Java 8 (specifically <code class="docutils literal"><span class="pre">1.8.0_40</span></code> or above) at this time. Older Java versions are deprecated and will not
-work with Sponge. The difference between major versions of Java (6, 7, 8) is significant, and older versions cannot run
-Sponge properly.</p>
-<div class="section" id="id1">
-<h2>Installing Java<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>If you have Windows or Mac OS X for your computer, you can <a class="reference external" href="https://java.com/en/download/manual.jsp">download Java from the official website</a>.</p>
-<p>Linux users can install OpenJDK via their package manager. OpenJDK is the open source version of the Oracle version of
-Java, and it should work just as well, if not better. However, it&#8217;s also possible to <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">download the Oracle version for
-Linux</a>, but be aware that many Java-dependent
-Linux packages will still install OpenJDK anyway.</p>
-<div class="section" id="bit-vs-64-bit">
-<h3>32-bit vs. 64-bit<a class="headerlink" href="#bit-vs-64-bit" title="Permalink to this headline">¶</a></h3>
-<p>If your computer supports it, you should use 64-bit versions of Java whenever possible. The Java installers from the
-linked website should detect whether your computer is ready for 64-bit.</p>
-<p>Because the 64-bit version of Java runs considerably better, and also lets Java use more than ~3 GB of your RAM (memory),
-we always recommend it over 32-bit.</p>
-<p>Most modern computers support 64-bit.</p>
-</div>
-<div class="section" id="jdk-vs-jre">
-<h3>JDK vs. JRE<a class="headerlink" href="#jdk-vs-jre" title="Permalink to this headline">¶</a></h3>
-<p>The JRE (Java Runtime Environment) is used to run Java applications. The download page linked above provides the JRE.</p>
-<p>The JDK (Java Development Kit) is used to create Java applications, and you do not need it unless you plan to make
-Sponge plugins or work on Sponge. However, in some cases, you may need the JDK to diagnose a running Java application
-such as Sponge. You can download the JDK <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">from a different site</a>.</p>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Server</a></li>
+            <li><a href="../" accesskey="U">Getting Started</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -585,6 +540,52 @@ such as Sponge. You can download the JDK <a class="reference external" href="htt
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="installing-java">
+<h1>Installing Java<a class="headerlink" href="#installing-java" title="Permalink to this headline">¶</a></h1>
+<p>Java is needed to run Sponge and Minecraft. You most likely already have Java, but you may need to update it.</p>
+<p>Sponge requires Java 8 (specifically <code class="docutils literal"><span class="pre">1.8.0_40</span></code> or above) at this time. Older Java versions are deprecated and will not
+work with Sponge. The difference between major versions of Java (6, 7, 8) is significant, and older versions cannot run
+Sponge properly.</p>
+<div class="section" id="id1">
+<h2>Installing Java<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>If you have Windows or Mac OS X for your computer, you can <a class="reference external" href="https://java.com/en/download/manual.jsp">download Java from the official website</a>.</p>
+<p>Linux users can install OpenJDK via their package manager. OpenJDK is the open source version of the Oracle version of
+Java, and it should work just as well, if not better. However, it&#8217;s also possible to <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">download the Oracle version for
+Linux</a>, but be aware that many Java-dependent
+Linux packages will still install OpenJDK anyway.</p>
+<div class="section" id="bit-vs-64-bit">
+<h3>32-bit vs. 64-bit<a class="headerlink" href="#bit-vs-64-bit" title="Permalink to this headline">¶</a></h3>
+<p>If your computer supports it, you should use 64-bit versions of Java whenever possible. The Java installers from the
+linked website should detect whether your computer is ready for 64-bit.</p>
+<p>Because the 64-bit version of Java runs considerably better, and also lets Java use more than ~3 GB of your RAM (memory),
+we always recommend it over 32-bit.</p>
+<p>Most modern computers support 64-bit.</p>
+</div>
+<div class="section" id="jdk-vs-jre">
+<h3>JDK vs. JRE<a class="headerlink" href="#jdk-vs-jre" title="Permalink to this headline">¶</a></h3>
+<p>The JRE (Java Runtime Environment) is used to run Java applications. The download page linked above provides the JRE.</p>
+<p>The JDK (Java Development Kit) is used to create Java applications, and you do not need it unless you plan to make
+Sponge plugins or work on Sponge. However, in some cases, you may need the JDK to diagnose a running Java application
+such as Sponge. You can download the JDK <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">from a different site</a>.</p>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

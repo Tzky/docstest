@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Plugin Lifecycle &mdash; Sponge 4.1.0 documentation</title>
+     <title>Plugin Lifecycle &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="Creating a Plugin" href="../" />
         <link rel="next" title="Dependency Injection" href="../injection/" />
         <link rel="prev" title="Main Plugin Class" href="../plugin-class/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,159 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/lifecycle.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../plugin-class/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../injection/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">Creating a Plugin</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="plugin-lifecycle">
-<h1>Plugin Lifecycle<a class="headerlink" href="#plugin-lifecycle" title="Permalink to this headline">¶</a></h1>
-<p>Prior to any states that make the plugin visible, the plugin loader first sorts through the available plugins, determines
-if all dependencies are present, and sorts plugins by dependency order. Lifecycle events are given to plugins in this
-order. For example, plugin A containing &#8220;[required-]after:B&#8221; will get each event after plugin B has completed work for
-the given state. Additionally, lifecycle states are global. This means that all plugins visible to each other must be
-transitioned through all states at once.</p>
-<div class="section" id="state-events">
-<h2>State Events<a class="headerlink" href="#state-events" title="Permalink to this headline">¶</a></h2>
-<p>There are three categories of state events:</p>
-<ol class="arabic simple">
-<li><strong>Initialization:</strong> When Sponge and plugins are loading, before the actual game has started. Initialization states
-only occur once.</li>
-<li><strong>Running:</strong> When the game and world are loading. Running states may occur multiple times.</li>
-<li><strong>Stopping:</strong> When the game is shutting down. Stopping states, like initialization states, only occur once.</li>
-</ol>
-</div>
-<div class="section" id="initialization-states">
-<h2>Initialization States<a class="headerlink" href="#initialization-states" title="Permalink to this headline">¶</a></h2>
-<p>Initialization states only occur once during a single run.</p>
-<p><strong>CONSTRUCTION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> is triggered.
-During this state, the <code class="docutils literal"><span class="pre">&#64;Plugin</span></code> class instance for each plugin is triggered.</p>
-<p><strong>PRE_INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> is triggered.
-During this state, the plugin gets ready for initialization. Access to a default logger instance and access to
-information regarding preferred configuration file locations is available.</p>
-<p><strong>INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> is triggered.
-During this state, the plugin should finish any work needed in order to be functional. Global event handlers should get
-registered in this stage.</p>
-<p><strong>POST_INITIALIZATION</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> is triggered.
-By this state, inter-plugin communication should be ready to occur. Plugins providing an API should be ready to accept
-basic requests.</p>
-<p><strong>LOAD_COMPLETE</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
-By this state, all plugin initialization should be completed.</p>
-</div>
-<div class="section" id="running-states">
-<h2>Running States<a class="headerlink" href="#running-states" title="Permalink to this headline">¶</a></h2>
-<p>Running States can occur multiple times during a single run. <code class="docutils literal"><span class="pre">SERVER_ABOUT_TO_START</span></code> may follow <code class="docutils literal"><span class="pre">SERVER_STOPPED</span></code>,
-and <code class="docutils literal"><span class="pre">SERVER_STOPPED</span></code> may occur at any point during the process if there is an error.</p>
-<p><strong>SERVER_ABOUT_TO_START</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> event is triggered.
-The server instance exists, but worlds are not yet loaded.</p>
-<p><strong>SERVER_STARTING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> is triggered.
-The server instance exists, and worlds are loaded. Command registration is handled during this state.</p>
-<p><strong>SERVER_STARTED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> event is triggered.
-The server instance exists, and worlds are loaded.</p>
-<p><strong>SERVER_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
-This state occurs immediately before the final tick, before the worlds are saved.</p>
-<p><strong>SERVER_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
-During this state, no players are connected and no changes to worlds are saved.</p>
-</div>
-<div class="section" id="stopping-states">
-<h2>Stopping States<a class="headerlink" href="#stopping-states" title="Permalink to this headline">¶</a></h2>
-<p>Stopping states never occur more than once during a single run. They occur when the game stops normally. (On Servers:
-the <code class="docutils literal"><span class="pre">/stop</span></code> command is typed. On Clients: The &#8220;Close&#8221; button or the &#8220;Quit Game&#8221; button are clicked)</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Stopping states are not guaranteed to be run during shutdown. They may <strong>not</strong> fire if the game is force-stopped via
-Ctrl-C, Task Manager, a computer crash, or similar situations.</p>
-</div>
-<p><strong>GAME_STOPPING</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
-This state occurs immediately before <code class="docutils literal"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
-basic requests.</p>
-<p><strong>GAME_STOPPED</strong></p>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
-Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
-should be attempted at this point.</p>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">Creating a Plugin</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -632,6 +539,105 @@ should be attempted at this point.</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="plugin-lifecycle">
+<h1>Plugin Lifecycle<a class="headerlink" href="#plugin-lifecycle" title="Permalink to this headline">¶</a></h1>
+<p>Prior to any states that make the plugin visible, the plugin loader first sorts through the available plugins, determines
+if all dependencies are present, and sorts plugins by dependency order. Lifecycle events are given to plugins in this
+order. For example, plugin A containing &#8220;[required-]after:B&#8221; will get each event after plugin B has completed work for
+the given state. Additionally, lifecycle states are global. This means that all plugins visible to each other must be
+transitioned through all states at once.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The Sponge <code class="docutils literal"><span class="pre">Server</span></code> object is not always available. Availability can be checked using the method
+<code class="docutils literal"><span class="pre">Sponge.isServerAvailable()</span></code> or <code class="docutils literal"><span class="pre">Game.isServerAvailable()</span></code>.</p>
+</div>
+<div class="section" id="state-events">
+<h2>State Events<a class="headerlink" href="#state-events" title="Permalink to this headline">¶</a></h2>
+<p>There are three categories of state events:</p>
+<ol class="arabic simple">
+<li><strong>Initialization:</strong> When Sponge and plugins are loading, before the actual game has started. Initialization states
+only occur once.</li>
+<li><strong>Running:</strong> When the game and world are loading. Running states may occur multiple times.</li>
+<li><strong>Stopping:</strong> When the game is shutting down. Stopping states, like initialization states, only occur once.</li>
+</ol>
+</div>
+<div class="section" id="initialization-states">
+<h2>Initialization States<a class="headerlink" href="#initialization-states" title="Permalink to this headline">¶</a></h2>
+<p>Initialization states only occur once during a single run.</p>
+<p><strong>CONSTRUCTION</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameConstructionEvent.html">GameConstructionEvent</a> is triggered.
+During this state, the <code class="docutils literal"><span class="pre">&#64;Plugin</span></code> class instance for each plugin is triggered.</p>
+<p><strong>PRE_INITIALIZATION</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GamePreInitializationEvent.html">GamePreInitializationEvent</a> is triggered.
+During this state, the plugin gets ready for initialization. Access to a default logger instance and access to
+information regarding preferred configuration file locations is available.</p>
+<p><strong>INITIALIZATION</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameInitializationEvent.html">GameInitializationEvent</a> is triggered.
+During this state, the plugin should finish any work needed in order to be functional. Global event handlers should get
+registered in this stage.</p>
+<p><strong>POST_INITIALIZATION</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GamePostInitializationEvent.html">GamePostInitializationEvent</a> is triggered.
+By this state, inter-plugin communication should be ready to occur. Plugins providing an API should be ready to accept
+basic requests.</p>
+<p><strong>LOAD_COMPLETE</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameLoadCompleteEvent.html">GameLoadCompleteEvent</a> is triggered.
+By this state, all plugin initialization should be completed.</p>
+</div>
+<div class="section" id="running-states">
+<h2>Running States<a class="headerlink" href="#running-states" title="Permalink to this headline">¶</a></h2>
+<p>Running States can occur multiple times during a single run. <code class="docutils literal"><span class="pre">SERVER_ABOUT_TO_START</span></code> may follow <code class="docutils literal"><span class="pre">SERVER_STOPPED</span></code>,
+and <code class="docutils literal"><span class="pre">SERVER_STOPPED</span></code> may occur at any point during the process if there is an error.</p>
+<p><strong>SERVER_ABOUT_TO_START</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameAboutToStartServerEvent.html">GameAboutToStartServerEvent</a> event is triggered.
+The server instance exists, but worlds are not yet loaded.</p>
+<p><strong>SERVER_STARTING</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStartingServerEvent.html">GameStartingServerEvent</a> is triggered.
+The server instance exists, and worlds are loaded. Command registration is handled during this state.</p>
+<p><strong>SERVER_STARTED</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStartedServerEvent.html">GameStartedServerEvent</a> event is triggered.
+The server instance exists, and worlds are loaded.</p>
+<p><strong>SERVER_STOPPING</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
+This state occurs immediately before the final tick, before the worlds are saved.</p>
+<p><strong>SERVER_STOPPED</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
+During this state, no players are connected and no changes to worlds are saved.</p>
+</div>
+<div class="section" id="stopping-states">
+<h2>Stopping States<a class="headerlink" href="#stopping-states" title="Permalink to this headline">¶</a></h2>
+<p>Stopping states never occur more than once during a single run. They occur when the game stops normally. (On Servers:
+the <code class="docutils literal"><span class="pre">/stop</span></code> command is typed. On Clients: The &#8220;Close&#8221; button or the &#8220;Quit Game&#8221; button are clicked)</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Stopping states are not guaranteed to be run during shutdown. They may <strong>not</strong> fire if the game is force-stopped via
+Ctrl-C, Task Manager, a computer crash, or similar situations.</p>
+</div>
+<p><strong>GAME_STOPPING</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStoppingServerEvent.html">GameStoppingServerEvent</a> is triggered.
+This state occurs immediately before <code class="docutils literal"><span class="pre">GAME_STOPPED</span></code>. Plugins providing an API should still be capable of accepting
+basic requests.</p>
+<p><strong>GAME_STOPPED</strong></p>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/game/state/GameStoppedServerEvent.html">GameStoppedServerEvent</a> is triggered.
+Once this event has finished executing, Minecraft will shut down. No further interaction with the game or other plugins
+should be attempted at this point.</p>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

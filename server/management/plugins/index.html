@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Installing Plugins &mdash; Sponge 4.1.0 documentation</title>
+     <title>Installing Plugins &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Server Management" href="../" />
         <link rel="next" title="Exploit Patches" href="../exploit-patches/" />
         <link rel="prev" title="Managing Permissions" href="../permissions/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,128 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/server/management/plugins.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../permissions/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../exploit-patches/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Server</a></li>
-                <li><a href="../" accesskey="U">Server Management</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="installing-plugins">
-<h1>Installing Plugins<a class="headerlink" href="#installing-plugins" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-are-plugins">
-<h2>What Are Plugins<a class="headerlink" href="#what-are-plugins" title="Permalink to this headline">¶</a></h2>
-<p>Plugins are files written in Java that change the way the server works, generally adding features. They allow server
-owners to do a lot of modifications, such as adding an economy system, managing teleports and permissions, etc.</p>
-</div>
-<div class="section" id="finding-plugins">
-<h2>Finding Plugins<a class="headerlink" href="#finding-plugins" title="Permalink to this headline">¶</a></h2>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Do not download plugins from untrustworthy sources! Malicious plugins can be used to give others unauthorized access
-to your server or computer.</p>
-</div>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="spongeforge">
-<h3>SpongeForge<a class="headerlink" href="#spongeforge" title="Permalink to this headline">¶</a></h3>
-<p>In order to install plugins, place them into the &#8220;mods&#8221; folder of your game or server directory.</p>
-<p>If your download came in a .zip file, then you may need to extract it to find a .jar file inside.</p>
-</div>
-<div class="section" id="spongevanilla">
-<h3>SpongeVanilla<a class="headerlink" href="#spongevanilla" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">For consistency between SpongeForge and SpongeVanilla, plugins are stored in the mods directory on SpongeVanilla.</p>
-</div>
-<p>In order to install plugins, place them into the &#8220;mods&#8221; folder of your game or server directory.</p>
-<p>If your download came in a .zip file, then you may need to extract it to find a .jar file inside.</p>
-</div>
-</div>
-<div class="section" id="common-problems">
-<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
-<p>If you are having problems with a plugin, consider the following things:</p>
-<ul class="simple">
-<li>Is the plugin compatible with your Minecraft version? While Sponge tries to keep old plugins working, this is sometimes
-not possible. In most cases, plugins based on a stable release should continue functioning without being updated.</li>
-<li>Do you run a current Java version? Sponge is built for Java 8 and is known to trigger a bug in the JRE 1.8.0_40, so
-make sure you use a version newer than that.</li>
-<li>The plugin may be outdated. Is there a newer version of the plugin?</li>
-<li>Does the plugin need a specific Implementation and/or Build of Sponge?  Some plugins may bypass the Sponge API, or
-otherwise rely on details that change between versions or platforms. Check at the site you downloaded it from.</li>
-</ul>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Server</a></li>
+            <li><a href="../" accesskey="U">Server Management</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -601,6 +540,68 @@ otherwise rely on details that change between versions or platforms. Check at th
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="installing-plugins">
+<h1>Installing Plugins<a class="headerlink" href="#installing-plugins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-plugins">
+<h2>What Are Plugins<a class="headerlink" href="#what-are-plugins" title="Permalink to this headline">¶</a></h2>
+<p>Plugins are files written in Java that change the way the server works, generally adding features. They allow server
+owners to do a lot of modifications, such as adding an economy system, managing teleports and permissions, etc.</p>
+</div>
+<div class="section" id="finding-plugins">
+<h2>Finding Plugins<a class="headerlink" href="#finding-plugins" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not download plugins from untrustworthy sources! Malicious plugins can be used to give others unauthorized access
+to your server or computer.</p>
+</div>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="spongeforge">
+<h3>SpongeForge<a class="headerlink" href="#spongeforge" title="Permalink to this headline">¶</a></h3>
+<p>In order to install plugins, place them into the &#8220;mods&#8221; folder of your game or server directory.</p>
+<p>If your download came in a .zip file, then you may need to extract it to find a .jar file inside.</p>
+</div>
+<div class="section" id="spongevanilla">
+<h3>SpongeVanilla<a class="headerlink" href="#spongevanilla" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For consistency between SpongeForge and SpongeVanilla, plugins are stored in the mods directory on SpongeVanilla.</p>
+</div>
+<p>In order to install plugins, place them into the &#8220;mods&#8221; folder of your game or server directory.</p>
+<p>If your download came in a .zip file, then you may need to extract it to find a .jar file inside.</p>
+</div>
+</div>
+<div class="section" id="common-problems">
+<h2>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h2>
+<p>If you are having problems with a plugin, consider the following things:</p>
+<ul class="simple">
+<li>Is the plugin compatible with your Minecraft version? While Sponge tries to keep old plugins working, this is sometimes
+not possible. In most cases, plugins based on a stable release should continue functioning without being updated.</li>
+<li>Do you run a current Java version? Sponge is built for Java 8 and is known to trigger a bug in the JRE 1.8.0_40, so
+make sure you use a version newer than that.</li>
+<li>The plugin may be outdated. Is there a newer version of the plugin?</li>
+<li>Does the plugin need a specific Implementation and/or Build of Sponge?  Some plugins may bypass the Sponge API, or
+otherwise rely on details that change between versions or platforms. Check at the site you downloaded it from.</li>
+</ul>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

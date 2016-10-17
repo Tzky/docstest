@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Basic Concepts &mdash; Sponge 4.1.0 documentation</title>
+     <title>Basic Concepts &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Economy" href="../" />
         <link rel="next" title="Using the Economy API" href="../using/" />
         <link rel="prev" title="Economy" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,143 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/economy/basics.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../using/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">Economy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="basic-concepts">
-<h1>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h1>
-<p>The Sponge Economy API has a few basic components that developers should be familiar with:</p>
-<ul class="simple">
-<li>EconomyService</li>
-<li>Currency</li>
-<li>Accounts</li>
-<li>Transactions</li>
-</ul>
-<div class="section" id="the-economyservice">
-<h2>The EconomyService<a class="headerlink" href="#the-economyservice" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> is the basis of the Economy API. It is used to interact via the Economy API, stores an
-economy&#8217;s currencies and provides methods for account management.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Sponge does not provide a default implementation for the <code class="docutils literal"><span class="pre">EconomyService</span></code>. It&#8217;s completely up to plugins to
-implement the Economy API. This means that you have to rely on another plugin which implements the service or you&#8217;ll
-have to implement it yourself, if you want to make use of it.</p>
-</div>
-</div>
-<div class="section" id="currency">
-<h2>Currency<a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal"><span class="pre">Currency</span></code> stores a display name (plural and singular),
-a symbol, the amount of fractional digits, and whether the currency is the default currency for the economy. If the
-economy plugin chooses, it can support multiple currencies.</p>
-</div>
-<div class="section" id="accounts">
-<h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
-business, entity). There are two account types in the Sponge Economy API:</p>
-<div class="section" id="virtual-accounts">
-<h3>Virtual Accounts<a class="headerlink" href="#virtual-accounts" title="Permalink to this headline">¶</a></h3>
-<p>Virtual accounts are tied to an identifier, which is stored as a string. Virtual accounts can be tied to almost
-anything, but are commonly used for things such as banks, or non-players. To get the id of a virtual account, use
-<code class="docutils literal"><span class="pre">getIdentifier()</span></code>.</p>
-</div>
-<div class="section" id="unique-accounts">
-<h3>Unique Accounts<a class="headerlink" href="#unique-accounts" title="Permalink to this headline">¶</a></h3>
-<p>Unique accounts are tied to a UUID, usually a player. To get the UUID of an unique account, use <code class="docutils literal"><span class="pre">getUUID()</span></code>.</p>
-</div>
-</div>
-<div class="section" id="transactions">
-<h2>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h2>
-<p>Transactions represent an account&#8217;s change in balance. There are currently three types of transactions:</p>
-<ul class="simple">
-<li>Deposit: Occurs when an account has funds added to it</li>
-<li>Withdraw: Occurs when an account has funds removed from it</li>
-<li>Transfer: Occurs when an account exchanges funds with another account</li>
-</ul>
-<p>When a transfer occurs, the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
-<ul class="simple">
-<li>Account involved</li>
-<li>Currency involved</li>
-<li>Amount of currency involved</li>
-<li>Transaction type</li>
-<li>Result of the transaction</li>
-</ul>
-<p>You can view all possible transaction results on the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">Economy</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -616,6 +540,83 @@ anything, but are commonly used for things such as banks, or non-players. To get
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="basic-concepts">
+<h1>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Permalink to this headline">¶</a></h1>
+<p>The Sponge Economy API has a few basic components that developers should be familiar with:</p>
+<ul class="simple">
+<li>EconomyService</li>
+<li>Currency</li>
+<li>Accounts</li>
+<li>Transactions</li>
+</ul>
+<div class="section" id="the-economyservice">
+<h2>The EconomyService<a class="headerlink" href="#the-economyservice" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/service/economy/EconomyService.html">EconomyService</a> is the basis of the Economy API. It is used to interact via the Economy API, stores an
+economy&#8217;s currencies and provides methods for account management.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Sponge does not provide a default implementation for the <code class="docutils literal"><span class="pre">EconomyService</span></code>. It&#8217;s completely up to plugins to
+implement the Economy API. This means that you have to rely on another plugin which implements the service or you&#8217;ll
+have to implement it yourself, if you want to make use of it.</p>
+</div>
+</div>
+<div class="section" id="currency">
+<h2>Currency<a class="headerlink" href="#currency" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/service/economy/Currency.html">Currency</a> object represents a form of Currency. <code class="docutils literal"><span class="pre">Currency</span></code> stores a display name (plural and singular),
+a symbol, the amount of fractional digits, and whether the currency is the default currency for the economy. If the
+economy plugin chooses, it can support multiple currencies.</p>
+</div>
+<div class="section" id="accounts">
+<h2>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/service/economy/account/Account.html">Account</a>s are used to store economy information about a specific player or other object (i.e. bank,
+business, entity). There are two account types in the Sponge Economy API:</p>
+<div class="section" id="virtual-accounts">
+<h3>Virtual Accounts<a class="headerlink" href="#virtual-accounts" title="Permalink to this headline">¶</a></h3>
+<p>Virtual accounts are tied to an identifier, which is stored as a string. Virtual accounts can be tied to almost
+anything, but are commonly used for things such as banks, or non-players. To get the id of a virtual account, use
+<code class="docutils literal"><span class="pre">getIdentifier()</span></code>.</p>
+</div>
+<div class="section" id="unique-accounts">
+<h3>Unique Accounts<a class="headerlink" href="#unique-accounts" title="Permalink to this headline">¶</a></h3>
+<p>Unique accounts are tied to a UUID, usually a player. To get the UUID of an unique account, use <code class="docutils literal"><span class="pre">getUUID()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="transactions">
+<h2>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h2>
+<p>Transactions represent an account&#8217;s change in balance. There are currently three types of transactions:</p>
+<ul class="simple">
+<li>Deposit: Occurs when an account has funds added to it</li>
+<li>Withdraw: Occurs when an account has funds removed from it</li>
+<li>Transfer: Occurs when an account exchanges funds with another account</li>
+</ul>
+<p>When a transfer occurs, the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/event/economy/EconomyTransactionEvent.html">EconomyTransactionEvent</a> is fired. Using this event, you can get the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/service/economy/transaction/TransactionResult.html">TransactionResult</a>. The <code class="docutils literal"><span class="pre">TransactionResult</span></code> stores data about the transaction that occurred, including:</p>
+<ul class="simple">
+<li>Account involved</li>
+<li>Currency involved</li>
+<li>Amount of currency involved</li>
+<li>Transaction type</li>
+<li>Result of the transaction</li>
+</ul>
+<p>You can view all possible transaction results on the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/service/economy/transaction/ResultType.html">ResultType</a> JavaDocs page.</p>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

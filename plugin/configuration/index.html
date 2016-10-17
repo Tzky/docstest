@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Configuring Plugins &mdash; Sponge 4.1.0 documentation</title>
+     <title>Configuring Plugins &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="Creating a Plugin" href="../" />
         <link rel="next" title="Configuration Loaders" href="loaders/" />
         <link rel="prev" title="The Asset API" href="../assets/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,181 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/configuration/index.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../assets/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="loaders/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">Creating a Plugin</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="configuring-plugins">
-<h1>Configuring Plugins<a class="headerlink" href="#configuring-plugins" title="Permalink to this headline">¶</a></h1>
-<p>Configuration files allow plugins to store data, as well as allow server administrators to easily take control over
-specific portions of a plugin, if you so choose to let them. Sponge uses Configurate to allow you to easily
-manipulate configuration files. These pages will explain how to utilize Configurate in order to use configuration
-files to full advantage.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">See the official <a class="reference external" href="https://github.com/zml2008/configurate/wiki">Configurate wiki</a> to gain more in-depth information
-about working with its components.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Sponge makes use of the HOCON configuration format, a superset of JSON, as the default format for saving
-configuration files. The rest of this guide will assume you are using HOCON as well. See
-<a class="reference internal" href="../../server/getting-started/configuration/hocon/"><em>Introduction to HOCON</em></a> more for information regarding the HOCON format.
-Working with different formats is made relatively similar by the Configurate system, so it should not
-pose too much of an issue if you use an alternate format instead.</p>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="loaders/">Configuration Loaders</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nodes/">Configuration Nodes</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="serialization/">Serializing Objects</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="quick-start">
-<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="creating-a-default-plugin-configuration">
-<h3>Creating a Default Plugin Configuration<a class="headerlink" href="#creating-a-default-plugin-configuration" title="Permalink to this headline">¶</a></h3>
-<p>Plugins using the Sponge API have the option to use one or more configuration files. Configuration files allow plugins
-to store data, and they allow server administrators to customize plugin options (if applicable).</p>
-</div>
-<div class="section" id="getting-your-default-plugin-configuration">
-<span id="getting-default-config"></span><h3>Getting your Default Plugin Configuration<a class="headerlink" href="#getting-your-default-plugin-configuration" title="Permalink to this headline">¶</a></h3>
-<p>The Sponge API offers the use of the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
-<code class="docutils literal"><span class="pre">Path</span></code> to get the default configuration file for your plugin.</p>
-<p>The <code class="docutils literal"><span class="pre">&#64;DefaultConfig</span></code> annotation requires a <code class="docutils literal"><span class="pre">sharedRoot</span></code> boolean. If you set <code class="docutils literal"><span class="pre">sharedRoot</span></code> to <code class="docutils literal"><span class="pre">true</span></code>, then the
-returned pathname will be in a shared configuration directory. In that case, the configuration file for your plugin
-will be <code class="docutils literal"><span class="pre">your_plugin_id.conf</span></code> (with &#8220;your_plugin_id&#8221; replaced with your plugin&#8217;s specified ID).</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">See <a class="reference internal" href="../plugin-class/"><em>Main Plugin Class</em></a> for information on configuring your plugin ID.</p>
-</div>
-<p>If you set <code class="docutils literal"><span class="pre">sharedRoot</span></code> to <code class="docutils literal"><span class="pre">false</span></code>, the returned pathname will refer to a file named <code class="docutils literal"><span class="pre">{pluginname}.conf</span></code> in a
-directory specific to your plugin.</p>
-<p>If you are unsure of what to set the value of <code class="docutils literal"><span class="pre">sharedRoot</span></code> to, consider the following:</p>
-<ul class="simple">
-<li>If you plan on having multiple configuration files (complex plugins) in the future, set the value to <code class="docutils literal"><span class="pre">false</span></code>.</li>
-<li>If you plan on having a single configuration file (less-complex plugins), set the value to <code class="docutils literal"><span class="pre">true</span></code>.</li>
-</ul>
-<p>You can also obtain a <code class="docutils literal"><span class="pre">Path</span></code> instance pointing to the config directory instead of a particular file. Just
-have it injected using the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> annotation, either with <code class="docutils literal"><span class="pre">sharedRoot</span></code> set to <code class="docutils literal"><span class="pre">false</span></code> for a plugin
-specific directory or to <code class="docutils literal"><span class="pre">true</span></code> to get the shared configuration directory.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">While it may be possible to get a <code class="docutils literal"><span class="pre">File</span></code> instead of a <code class="docutils literal"><span class="pre">Path</span></code>, Configurate (and Sponge) recommend using <code class="docutils literal"><span class="pre">Path</span></code>.</p>
-</div>
-<p><strong>Example - Field using</strong> <code class="docutils literal"><span class="pre">&#64;DefaultConfig</span></code></p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.ConfigDir</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.DefaultConfig</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="nd">@DefaultConfig</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-<span class="kd">private</span> <span class="n">Path</span> <span class="n">defaultConfig</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="nd">@DefaultConfig</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-<span class="kd">private</span> <span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">configManager</span><span class="o">;</span>
-
-<span class="nd">@Inject</span>
-<span class="nd">@ConfigDir</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
-<span class="kd">private</span> <span class="n">Path</span> <span class="n">privateConfigDir</span><span class="o">;</span>
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">When your plugin is running for the first time, returned pathnames for configuration files and directories may not
-yet exist. If you delegate all reading / writing of files to Configurate, you do not need to worry about
-non-existant paths as the library will handle them appropriately.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The use of YAML format (<a class="reference external" href="http://yaml.org/spec/1.1/">http://yaml.org/spec/1.1/</a>) is also supported, but the preferred config format for Sponge
-plugins is HOCON. Conversion from YAML to HOCON can be automated by using a <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/yaml/YAMLConfigurationLoader.html">YAMLConfigurationLoader</a> to
-load the old config and then saving it using a <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a>.</p>
-</div>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">Creating a Plugin</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -654,6 +539,122 @@ load the old config and then saving it using a <a class="reference external" hre
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="configuring-plugins">
+<h1>Configuring Plugins<a class="headerlink" href="#configuring-plugins" title="Permalink to this headline">¶</a></h1>
+<p>Configuration files allow plugins to store data, as well as allow server administrators to easily take control over
+specific portions of a plugin, if you so choose to let them. Sponge uses Configurate to allow you to easily
+manipulate configuration files. These pages will explain how to utilize Configurate in order to use configuration
+files to full advantage.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">See the official <a class="reference external" href="https://github.com/zml2008/configurate/wiki">Configurate wiki</a> to gain more in-depth information
+about working with its components.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sponge makes use of the HOCON configuration format, a superset of JSON, as the default format for saving
+configuration files. The rest of this guide will assume you are using HOCON as well. See
+<a class="reference internal" href="../../server/getting-started/configuration/hocon/"><em>Introduction to HOCON</em></a> more for information regarding the HOCON format.
+Working with different formats is made relatively similar by the Configurate system, so it should not
+pose too much of an issue if you use an alternate format instead.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="loaders/">Configuration Loaders</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nodes/">Configuration Nodes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization/">Serializing Objects</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-default-plugin-configuration">
+<h3>Creating a Default Plugin Configuration<a class="headerlink" href="#creating-a-default-plugin-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Plugins using the Sponge API have the option to use one or more configuration files. Configuration files allow plugins
+to store data, and they allow server administrators to customize plugin options (if applicable).</p>
+</div>
+<div class="section" id="getting-your-default-plugin-configuration">
+<span id="getting-default-config"></span><h3>Getting your Default Plugin Configuration<a class="headerlink" href="#getting-your-default-plugin-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The Sponge API offers the use of the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/config/DefaultConfig.html">DefaultConfig</a> annotation on a field or setter method with the type
+<code class="docutils literal"><span class="pre">Path</span></code> to get the default configuration file for your plugin.</p>
+<p>The <code class="docutils literal"><span class="pre">&#64;DefaultConfig</span></code> annotation requires a <code class="docutils literal"><span class="pre">sharedRoot</span></code> boolean. If you set <code class="docutils literal"><span class="pre">sharedRoot</span></code> to <code class="docutils literal"><span class="pre">true</span></code>, then the
+returned pathname will be in a shared configuration directory. In that case, the configuration file for your plugin
+will be <code class="docutils literal"><span class="pre">your_plugin_id.conf</span></code> (with &#8220;your_plugin_id&#8221; replaced with your plugin&#8217;s specified ID).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">See <a class="reference internal" href="../plugin-class/"><em>Main Plugin Class</em></a> for information on configuring your plugin ID.</p>
+</div>
+<p>If you set <code class="docutils literal"><span class="pre">sharedRoot</span></code> to <code class="docutils literal"><span class="pre">false</span></code>, the returned pathname will refer to a file named <code class="docutils literal"><span class="pre">{pluginname}.conf</span></code> in a
+directory specific to your plugin.</p>
+<p>If you are unsure of what to set the value of <code class="docutils literal"><span class="pre">sharedRoot</span></code> to, consider the following:</p>
+<ul class="simple">
+<li>If you plan on having multiple configuration files (complex plugins) in the future, set the value to <code class="docutils literal"><span class="pre">false</span></code>.</li>
+<li>If you plan on having a single configuration file (less-complex plugins), set the value to <code class="docutils literal"><span class="pre">true</span></code>.</li>
+</ul>
+<p>You can also obtain a <code class="docutils literal"><span class="pre">Path</span></code> instance pointing to the config directory instead of a particular file. Just
+have it injected using the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/config/ConfigDir.html">ConfigDir</a> annotation, either with <code class="docutils literal"><span class="pre">sharedRoot</span></code> set to <code class="docutils literal"><span class="pre">false</span></code> for a plugin
+specific directory or to <code class="docutils literal"><span class="pre">true</span></code> to get the shared configuration directory.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While it may be possible to get a <code class="docutils literal"><span class="pre">File</span></code> instead of a <code class="docutils literal"><span class="pre">Path</span></code>, Configurate (and Sponge) recommend using <code class="docutils literal"><span class="pre">Path</span></code>.</p>
+</div>
+<p><strong>Example - Field using</strong> <code class="docutils literal"><span class="pre">&#64;DefaultConfig</span></code></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.inject.Inject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.ConfigDir</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.config.DefaultConfig</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@DefaultConfig</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">Path</span> <span class="n">defaultConfig</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@DefaultConfig</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">configManager</span><span class="o">;</span>
+
+<span class="nd">@Inject</span>
+<span class="nd">@ConfigDir</span><span class="o">(</span><span class="n">sharedRoot</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">Path</span> <span class="n">privateConfigDir</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When your plugin is running for the first time, returned pathnames for configuration files and directories may not
+yet exist. If you delegate all reading / writing of files to Configurate, you do not need to worry about
+non-existant paths as the library will handle them appropriately.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The use of YAML format (<a class="reference external" href="http://yaml.org/spec/1.1/">http://yaml.org/spec/1.1/</a>) is also supported, but the preferred config format for Sponge
+plugins is HOCON. Conversion from YAML to HOCON can be automated by using a <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/yaml/YAMLConfigurationLoader.html">YAMLConfigurationLoader</a> to
+load the old config and then saving it using a <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

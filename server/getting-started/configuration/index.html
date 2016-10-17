@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Configuring Sponge &mdash; Sponge 4.1.0 documentation</title>
+     <title>Configuring Sponge &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Getting Started" href="../" />
         <link rel="next" title="Introduction to HOCON" href="hocon/" />
         <link rel="prev" title="Using Sponge with BungeeCord" href="../bungeecord/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,178 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/server/getting-started/configuration/index.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../bungeecord/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="hocon/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Server</a></li>
-                <li><a href="../" accesskey="U">Getting Started</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="configuring-sponge">
-<h1>Configuring Sponge<a class="headerlink" href="#configuring-sponge" title="Permalink to this headline">¶</a></h1>
-<p>You can find all configuration files inside the &#8220;config&#8221; folder.</p>
-<div class="section" id="config-syntax">
-<h2>Config Syntax<a class="headerlink" href="#config-syntax" title="Permalink to this headline">¶</a></h2>
-<p>Most configuration files will make use of the <a class="reference internal" href="hocon/"><em>HOCON</em></a> format.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="hocon/">Introduction to HOCON</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="json/">JSON Syntax</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="what-you-can-configure">
-<h2>What You Can Configure<a class="headerlink" href="#what-you-can-configure" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sponge-conf/">global.conf</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="server-properties/">server.properties</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</div>
-<p>Plugins will also have their own configuration files in the &#8220;config&#8221; folder.</p>
-</div>
-<div class="section" id="world-configs">
-<h2>World Configs<a class="headerlink" href="#world-configs" title="Permalink to this headline">¶</a></h2>
-<p>There are three types of world configs:</p>
-<ul class="simple">
-<li>Global</li>
-<li>Dimension</li>
-<li>World</li>
-</ul>
-<p>Global configuration files can affect all of a server&#8217;s worlds and dimensions. This is the default level for configs.
-Dimension configuration files are used to affect a certain dimension or group of worlds. These types of configs will
-override the global config files. World configuration files are used to modify individual worlds only. World configs
-override dimension and global configs.</p>
-<div class="section" id="modifying-the-config-in-game">
-<h3>Modifying the Config In-Game<a class="headerlink" href="#modifying-the-config-in-game" title="Permalink to this headline">¶</a></h3>
-<p>It is possible to modify these configs through the in-game command <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">config</span></code>. The syntax for the config
-command looks like this:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>There are <em>flags</em> for specifying the target that you would wish to change. These flags are global, dimension, and world.</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">-g</span></code> is the flag for global</li>
-<li><code class="docutils literal"><span class="pre">-d</span> <span class="pre">&lt;dim&gt;</span></code> targets a dimension (replacing <em>&lt;dim&gt;</em> with the dimension you want to configure)</li>
-<li><code class="docutils literal"><span class="pre">-w</span> <span class="pre">&lt;world&gt;</span></code> targets one world (replacing <em>&lt;world&gt;</em> with your chosen world).</li>
-</ul>
-<p>The <em>key</em> is the value you want to change. The <em>value</em> is whatever you want to change the value of the key to.</p>
-<p>Here is an example of this command in action:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">-</span><span class="n">d</span> <span class="n">nether</span> <span class="n">logging</span><span class="o">.</span><span class="na">chunk</span><span class="o">-</span><span class="n">load</span> <span class="kc">true</span>
-</pre></div>
-</div>
-<p>This will set the config to log when chunks are loaded for the nether.</p>
-<p>If you need to check the value of a key, you would need to omit the <em>value</em>. Checking the value of a key such as
-<code class="docutils literal"><span class="pre">logging.chunk-load</span></code> in the nether would be done like so:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">-</span><span class="n">d</span> <span class="n">nether</span> <span class="n">logging</span><span class="o">.</span><span class="na">chunk</span><span class="o">-</span><span class="n">load</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="saving-a-world-config">
-<h3>Saving a World Config<a class="headerlink" href="#saving-a-world-config" title="Permalink to this headline">¶</a></h3>
-<p>Saving a world config to the file may be desired after making modifications. This would be useful in the event of an
-unexpected server crash. This would be done by using the <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">save</span></code> command on the sponge server. The syntax for
-this command is similar to the config command:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">save</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>Here is an example for saving the global config:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">save</span> <span class="o">-</span><span class="n">g</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="reloading-a-world-config">
-<h3>Reloading a World Config<a class="headerlink" href="#reloading-a-world-config" title="Permalink to this headline">¶</a></h3>
-<p>Sometimes it may be desired that a world config is reloaded while the server is still running. This would be useful if
-you have made changes to the local config file and would like to reload it for use on the live server. This is made
-possible by the command <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">reload</span></code>. The syntax for the command is as follows:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">reload</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>Here is an example of reloading the end world config file:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">reload</span> <span class="o">-</span><span class="n">d</span> <span class="n">the_end</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Server</a></li>
+            <li><a href="../" accesskey="U">Getting Started</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -651,6 +540,118 @@ possible by the command <code class="docutils literal"><span class="pre">/sponge
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="configuring-sponge">
+<h1>Configuring Sponge<a class="headerlink" href="#configuring-sponge" title="Permalink to this headline">¶</a></h1>
+<p>You can find all configuration files inside the &#8220;config&#8221; folder.</p>
+<div class="section" id="config-syntax">
+<h2>Config Syntax<a class="headerlink" href="#config-syntax" title="Permalink to this headline">¶</a></h2>
+<p>Most configuration files will make use of the <a class="reference internal" href="hocon/"><em>HOCON</em></a> format.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hocon/">Introduction to HOCON</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="json/">JSON Syntax</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="what-you-can-configure">
+<h2>What You Can Configure<a class="headerlink" href="#what-you-can-configure" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sponge-conf/">global.conf</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server-properties/">server.properties</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+<p>Plugins will also have their own configuration files in the &#8220;config&#8221; folder.</p>
+</div>
+<div class="section" id="world-configs">
+<h2>World Configs<a class="headerlink" href="#world-configs" title="Permalink to this headline">¶</a></h2>
+<p>There are three types of world configs:</p>
+<ul class="simple">
+<li>Global</li>
+<li>Dimension</li>
+<li>World</li>
+</ul>
+<p>Global configuration files can affect all of a server&#8217;s worlds and dimensions. This is the default level for configs.
+Dimension configuration files are used to affect a certain dimension or group of worlds. These types of configs will
+override the global config files. World configuration files are used to modify individual worlds only. World configs
+override dimension and global configs.</p>
+<div class="section" id="modifying-the-config-in-game">
+<h3>Modifying the Config In-Game<a class="headerlink" href="#modifying-the-config-in-game" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to modify these configs through the in-game command <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">config</span></code>. The syntax for the config
+command looks like this:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>There are <em>flags</em> for specifying the target that you would wish to change. These flags are global, dimension, and world.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">-g</span></code> is the flag for global</li>
+<li><code class="docutils literal"><span class="pre">-d</span> <span class="pre">&lt;dim&gt;</span></code> targets a dimension (replacing <em>&lt;dim&gt;</em> with the dimension you want to configure)</li>
+<li><code class="docutils literal"><span class="pre">-w</span> <span class="pre">&lt;world&gt;</span></code> targets one world (replacing <em>&lt;world&gt;</em> with your chosen world).</li>
+</ul>
+<p>The <em>key</em> is the value you want to change. The <em>value</em> is whatever you want to change the value of the key to.</p>
+<p>Here is an example of this command in action:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">-</span><span class="n">d</span> <span class="n">nether</span> <span class="n">logging</span><span class="o">.</span><span class="na">chunk</span><span class="o">-</span><span class="n">load</span> <span class="kc">true</span>
+</pre></div>
+</div>
+<p>This will set the config to log when chunks are loaded for the nether.</p>
+<p>If you need to check the value of a key, you would need to omit the <em>value</em>. Checking the value of a key such as
+<code class="docutils literal"><span class="pre">logging.chunk-load</span></code> in the nether would be done like so:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">config</span> <span class="o">-</span><span class="n">d</span> <span class="n">nether</span> <span class="n">logging</span><span class="o">.</span><span class="na">chunk</span><span class="o">-</span><span class="n">load</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-a-world-config">
+<h3>Saving a World Config<a class="headerlink" href="#saving-a-world-config" title="Permalink to this headline">¶</a></h3>
+<p>Saving a world config to the file may be desired after making modifications. This would be useful in the event of an
+unexpected server crash. This would be done by using the <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">save</span></code> command on the sponge server. The syntax for
+this command is similar to the config command:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">save</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Here is an example for saving the global config:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">save</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reloading-a-world-config">
+<h3>Reloading a World Config<a class="headerlink" href="#reloading-a-world-config" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it may be desired that a world config is reloaded while the server is still running. This would be useful if
+you have made changes to the local config file and would like to reload it for use on the live server. This is made
+possible by the command <code class="docutils literal"><span class="pre">/sponge</span> <span class="pre">reload</span></code>. The syntax for the command is as follows:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">reload</span> <span class="o">&lt;</span><span class="n">flag</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Here is an example of reloading the end world config file:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="o">/</span><span class="n">sponge</span> <span class="n">reload</span> <span class="o">-</span><span class="n">d</span> <span class="n">the_end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

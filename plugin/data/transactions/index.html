@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Transactions &mdash; Sponge 4.1.0 documentation</title>
+     <title>Transactions &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="The Data API" href="../" />
         <link rel="next" title="Serializing Data" href="../serialization/" />
         <link rel="prev" title="Data Manipulators" href="../datamanipulators/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,191 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/data/transactions.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../datamanipulators/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../serialization/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">The Data API</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="transactions">
-<h1>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reading-the-result">
-<h2>Reading the Result<a class="headerlink" href="#reading-the-result" title="Permalink to this headline">¶</a></h2>
-<p>For everything you <code class="docutils literal"><span class="pre">offer</span></code> to a data holder, the <code class="docutils literal"><span class="pre">offer</span></code> method will yield a <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>. This
-object will contain the following:</p>
-<div class="section" id="type">
-<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/DataTransactionResult.Type.html">DataTransactionResult.Type</a> indicates whether the transaction was completed
-successfully and, if not, how it failed.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="84%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">UNDEFINED</span></code></td>
-<td>No clear result for the transaction - indicates that something went wrong</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">SUCCESS</span></code></td>
-<td>Transaction was completed successfully</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">FAILURE</span></code></td>
-<td>Transaction failed for expected reasons (e.g. incompatible data)</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">ERROR</span></code></td>
-<td>Transaction failed for unexpected reasons</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">CANCELLED</span></code></td>
-<td>An event for this transaction was cancelled</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="the-affected-data">
-<h3>The affected Data<a class="headerlink" href="#the-affected-data" title="Permalink to this headline">¶</a></h3>
-<p>The result also provides a couple of immutable lists containing immutable value containers representing
-the data that was involved in the transaction.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="28%" />
-<col width="72%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">getSuccessfulData()</span></code></td>
-<td>contains all data that was successfully set</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">getReplacedData()</span></code></td>
-<td>contains all data that got replaced by successfully set data</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">getRejectedData()</span></code></td>
-<td>contains all data that could not be set</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="healing-a-player">
-<h3>Healing a Player<a class="headerlink" href="#healing-a-player" title="Permalink to this headline">¶</a></h3>
-<p>Surely you remember the healing example in the <a class="reference internal" href="../keys/"><em>Using Keys</em></a> page. Imagine a player who is down to half a heart
-(which equals 1 health) being healed that way. The <code class="docutils literal"><span class="pre">DataTransactionResult</span></code> in that case would look like this:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">getType()</span></code> would return <code class="docutils literal"><span class="pre">SUCCESS</span></code></li>
-<li><code class="docutils literal"><span class="pre">getRejectedData()</span></code> would be an empty list</li>
-<li><code class="docutils literal"><span class="pre">getReplacedData()</span></code> would contain one value container for the <code class="docutils literal"><span class="pre">Keys.HEALTH</span></code> key with a value of 1.0</li>
-<li><code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> would contain one value container for the <code class="docutils literal"><span class="pre">Keys.HEALTH</span></code> key with a value of 20.0</li>
-</ul>
-<p>Now what would be different if we used the healing example from the <a class="reference internal" href="../datamanipulators/"><em>Data Manipulators</em></a> page instead? Since the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> data manipulator contains values for both the current and the maximum health, in addition to the
-above result, both the <code class="docutils literal"><span class="pre">getReplacedData()</span></code> list and the <code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> list would contain one more element:
-A value container for the <code class="docutils literal"><span class="pre">Keys.MAX_HEALTH</span></code> key with a value of 20.0.</p>
-</div>
-<div class="section" id="offering-healthdata-to-a-block-of-stone">
-<h3>Offering HealthData to a block of stone<a class="headerlink" href="#offering-healthdata-to-a-block-of-stone" title="Permalink to this headline">¶</a></h3>
-<p>Now our above-mentioned examples are coded in a such a way that they will fail silently rather than try to offer the
-incompatible data. But imagine we took a (fully healed) player&#8217;s <code class="docutils literal"><span class="pre">HealthData</span></code> and tried to offer it to the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/world/Location.html">Location</a> of the stone block he&#8217;s currently standing on. We can do this, since <code class="docutils literal"><span class="pre">Location</span></code> is also a data
-holder. And if we do, it would reward us with a <code class="docutils literal"><span class="pre">DataTransactionResult</span></code> like this:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">getType()</span></code> would return <code class="docutils literal"><span class="pre">FAILURE</span></code></li>
-<li><code class="docutils literal"><span class="pre">getRejectedData()</span></code> would contain two value containers for the <code class="docutils literal"><span class="pre">HEALTH</span></code> and <code class="docutils literal"><span class="pre">MAX_HEALTH</span></code> keys, each with a value of 20.0</li>
-<li><code class="docutils literal"><span class="pre">getReplacedData()</span></code> and <code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> would be empty lists</li>
-</ul>
-</div>
-</div>
-<div class="section" id="reverting-transactions">
-<h2>Reverting Transactions<a class="headerlink" href="#reverting-transactions" title="Permalink to this headline">¶</a></h2>
-<p>Since everything about a transaction result is immutable, it can serve for documentation of data changes. And it
-also allows for those changes it documents to be undone. For that, simply pass a transaction result to the data
-holder&#8217;s <code class="docutils literal"><span class="pre">undo()</span></code> method. This is particularly useful since some data offerings may be partially successful, so
-that one or more values are successfully written to the data holder, yet one more value cannot be accepted. Since
-you may wish to undo the partial successes.</p>
-<p><strong>Code Example: Reverting a transaction</strong></p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataHolder</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataTransactionResult</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.DataManipulator</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">safeOffer</span><span class="o">(</span><span class="n">DataHolder</span> <span class="n">target</span><span class="o">,</span> <span class="n">DataManipulator</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">DataTransactionResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getType</span><span class="o">()</span> <span class="o">!=</span> <span class="n">DataTransactionResult</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">target</span><span class="o">.</span><span class="na">undo</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">The Data API</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -664,6 +540,131 @@ you may wish to undo the partial successes.</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="transactions">
+<h1>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading-the-result">
+<h2>Reading the Result<a class="headerlink" href="#reading-the-result" title="Permalink to this headline">¶</a></h2>
+<p>For everything you <code class="docutils literal"><span class="pre">offer</span></code> to a data holder, the <code class="docutils literal"><span class="pre">offer</span></code> method will yield a <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/DataTransactionResult.html">DataTransactionResult</a>. This
+object will contain the following:</p>
+<div class="section" id="type">
+<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/DataTransactionResult.Type.html">DataTransactionResult.Type</a> indicates whether the transaction was completed
+successfully and, if not, how it failed.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">UNDEFINED</span></code></td>
+<td>No clear result for the transaction - indicates that something went wrong</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">SUCCESS</span></code></td>
+<td>Transaction was completed successfully</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">FAILURE</span></code></td>
+<td>Transaction failed for expected reasons (e.g. incompatible data)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ERROR</span></code></td>
+<td>Transaction failed for unexpected reasons</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">CANCELLED</span></code></td>
+<td>An event for this transaction was cancelled</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-affected-data">
+<h3>The affected Data<a class="headerlink" href="#the-affected-data" title="Permalink to this headline">¶</a></h3>
+<p>The result also provides a couple of immutable lists containing immutable value containers representing
+the data that was involved in the transaction.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">getSuccessfulData()</span></code></td>
+<td>contains all data that was successfully set</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">getReplacedData()</span></code></td>
+<td>contains all data that got replaced by successfully set data</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">getRejectedData()</span></code></td>
+<td>contains all data that could not be set</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="healing-a-player">
+<h3>Healing a Player<a class="headerlink" href="#healing-a-player" title="Permalink to this headline">¶</a></h3>
+<p>Surely you remember the healing example in the <a class="reference internal" href="../keys/"><em>Using Keys</em></a> page. Imagine a player who is down to half a heart
+(which equals 1 health) being healed that way. The <code class="docutils literal"><span class="pre">DataTransactionResult</span></code> in that case would look like this:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">getType()</span></code> would return <code class="docutils literal"><span class="pre">SUCCESS</span></code></li>
+<li><code class="docutils literal"><span class="pre">getRejectedData()</span></code> would be an empty list</li>
+<li><code class="docutils literal"><span class="pre">getReplacedData()</span></code> would contain one value container for the <code class="docutils literal"><span class="pre">Keys.HEALTH</span></code> key with a value of 1.0</li>
+<li><code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> would contain one value container for the <code class="docutils literal"><span class="pre">Keys.HEALTH</span></code> key with a value of 20.0</li>
+</ul>
+<p>Now what would be different if we used the healing example from the <a class="reference internal" href="../datamanipulators/"><em>Data Manipulators</em></a> page instead? Since the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a> data manipulator contains values for both the current and the maximum health, in addition to the
+above result, both the <code class="docutils literal"><span class="pre">getReplacedData()</span></code> list and the <code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> list would contain one more element:
+A value container for the <code class="docutils literal"><span class="pre">Keys.MAX_HEALTH</span></code> key with a value of 20.0.</p>
+</div>
+<div class="section" id="offering-healthdata-to-a-block-of-stone">
+<h3>Offering HealthData to a block of stone<a class="headerlink" href="#offering-healthdata-to-a-block-of-stone" title="Permalink to this headline">¶</a></h3>
+<p>Now our above-mentioned examples are coded in a such a way that they will fail silently rather than try to offer the
+incompatible data. But imagine we took a (fully healed) player&#8217;s <code class="docutils literal"><span class="pre">HealthData</span></code> and tried to offer it to the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/world/Location.html">Location</a> of the stone block he&#8217;s currently standing on. We can do this, since <code class="docutils literal"><span class="pre">Location</span></code> is also a data
+holder. And if we do, it would reward us with a <code class="docutils literal"><span class="pre">DataTransactionResult</span></code> like this:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">getType()</span></code> would return <code class="docutils literal"><span class="pre">FAILURE</span></code></li>
+<li><code class="docutils literal"><span class="pre">getRejectedData()</span></code> would contain two value containers for the <code class="docutils literal"><span class="pre">HEALTH</span></code> and <code class="docutils literal"><span class="pre">MAX_HEALTH</span></code> keys, each with a value of 20.0</li>
+<li><code class="docutils literal"><span class="pre">getReplacedData()</span></code> and <code class="docutils literal"><span class="pre">getSuccessfulData()</span></code> would be empty lists</li>
+</ul>
+</div>
+</div>
+<div class="section" id="reverting-transactions">
+<h2>Reverting Transactions<a class="headerlink" href="#reverting-transactions" title="Permalink to this headline">¶</a></h2>
+<p>Since everything about a transaction result is immutable, it can serve for documentation of data changes. And it
+also allows for those changes it documents to be undone. For that, simply pass a transaction result to the data
+holder&#8217;s <code class="docutils literal"><span class="pre">undo()</span></code> method. This is particularly useful since some data offerings may be partially successful, so
+that one or more values are successfully written to the data holder, yet one more value cannot be accepted. Since
+you may wish to undo the partial successes.</p>
+<p><strong>Code Example: Reverting a transaction</strong></p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataHolder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.DataTransactionResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.DataManipulator</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">safeOffer</span><span class="o">(</span><span class="n">DataHolder</span> <span class="n">target</span><span class="o">,</span> <span class="n">DataManipulator</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">DataTransactionResult</span> <span class="n">result</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getType</span><span class="o">()</span> <span class="o">!=</span> <span class="n">DataTransactionResult</span><span class="o">.</span><span class="na">Type</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">target</span><span class="o">.</span><span class="na">undo</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

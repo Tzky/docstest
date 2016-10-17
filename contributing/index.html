@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Contributing to Sponge &mdash; Sponge 4.1.0 documentation</title>
+     <title>Contributing to Sponge &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../_static/store.min.js"></script>
     <script type="text/javascript" src="../_static/lights.js"></script>
       <link rel="shortcut icon" href="../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../" />
         <link rel="next" title="Contribution Guidelines" href="guidelines/" />
         <link rel="prev" title="Tutorials" href="../plugin/tutorials/" />
     
@@ -50,14 +50,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -72,172 +65,72 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/contributing/index.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../plugin/tutorials/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="guidelines/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../">Sponge 4.1.0 documentation</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="contributing-to-sponge">
-<h1>Contributing to Sponge<a class="headerlink" href="#contributing-to-sponge" title="Permalink to this headline">¶</a></h1>
-<p>This sections intends to show you ways to get involved with Sponge.</p>
-<div class="section" id="what-are-the-projects-i-can-help-with">
-<h2>What are the projects I can help with?<a class="headerlink" href="#what-are-the-projects-i-can-help-with" title="Permalink to this headline">¶</a></h2>
-<p>The Sponge Project and its parts are maintained on <a class="reference external" href="https://github.com/spongepowered">GitHub</a>. If you&#8217;re unfamiliar
-with GitHub and the tool git, then take a look at <a class="reference internal" href="howtogit/"><em>How to Git(Hub)</em></a> first. A read of our <a class="reference internal" href="guidelines/"><em>Contribution Guidelines</em></a> is strongly
-advised before starting any work. There are several projects we&#8217;re currently maintaining:</p>
-<ul class="simple">
-<li>SpongeAPI</li>
-<li>SpongeForge</li>
-<li>SpongeVanilla</li>
-<li>SpongeCommon</li>
-<li>Mixin</li>
-<li>SpongeDocs</li>
-<li>Ore</li>
-</ul>
-<p>If you want to know more about the structure of the project and how everything is tied together, head over to
-<a class="reference internal" href="../about/structure/"><em>The Structure of the Sponge Project</em></a>.</p>
-</div>
-<div class="section" id="what-kind-of-help-is-needed">
-<h2>What kind of help is needed?<a class="headerlink" href="#what-kind-of-help-is-needed" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="basic-contributions">
-<h3>Basic contributions<a class="headerlink" href="#basic-contributions" title="Permalink to this headline">¶</a></h3>
-<p>This can be done by almost everyone. You don&#8217;t need to know a programming language like Java or Python to:</p>
-<ul class="simple">
-<li>test SpongeForge or SpongeVanilla and report bugs or usage quirks</li>
-<li>report or suggest any errors, faults or bugs you encounter</li>
-<li>post suggestions or idea you have which would make Sponge better</li>
-</ul>
-<p>Reporting bugs best via our <a class="reference external" href="https://github.com/spongepowered/">GitHub repositories</a>, suggestions fit onto our
-<a class="reference external" href="https://forums.spongepowered.org/">forums</a>. Just have a look at our
-<a class="reference internal" href="../server/spongineer/bugreport/"><em>Bug Reporting page</em></a> for further instructions.</p>
-</div>
-<div class="section" id="intermediate-contributions">
-<h3>Intermediate Contributions<a class="headerlink" href="#intermediate-contributions" title="Permalink to this headline">¶</a></h3>
-<p>You should at least have basic knowledge of Java, Python or reST to help out on the following tasks:</p>
-<ul class="simple">
-<li>help fixing bugs</li>
-<li>finish the implementation of the API (SpongeForge and SpongeVanilla)</li>
-<li><a class="reference internal" href="spongedocs/"><em>help writing the SpongeDocs</em></a></li>
-<li>help <a class="reference external" href="https://crowdin.com/project/sponge-docs">translate the Docs on Crowdin</a></li>
-<li>help out developing Ore</li>
-</ul>
-<p>The development of the <a class="reference external" href="https://github.com/spongepowered/SpongeAPI">Sponge API</a>,
-<a class="reference external" href="https://github.com/spongepowered/SpongeForge">SpongeForge</a>,
-<a class="reference external" href="https://github.com/spongepowered/SpongeVanilla">SpongeVanilla</a> and <a class="reference external" href="https://github.com/spongepowered/Ore">Ore</a> as
-well as the <a class="reference external" href="https://github.com/spongepowered/SpongeDocs">SpongeDocs</a> is done in several repositories hosted on GitHub.</p>
-</div>
-<div class="section" id="advanced-contributions">
-<h3>Advanced Contributions<a class="headerlink" href="#advanced-contributions" title="Permalink to this headline">¶</a></h3>
-<p>And finally these are the most difficult things you can help out with. Advanced knowledge of Java, Minecraft and at
-least basic knowledge of the <a class="reference external" href="https://github.com/spongepowered/SpongeAPI">Sponge API</a> and its
-<a class="reference external" href="https://jd.spongepowered.org">structure</a> is strongly advised before attempting to help out with:</p>
-<ul class="simple">
-<li>adding functionality to the API (<a class="reference internal" href="implementation/pr/"><em>Submitting a Pull-Request</em></a>)</li>
-<li>implementing advanced API functionality in the implementations</li>
-</ul>
-</div>
-</div>
-<div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="guidelines/">Contribution Guidelines</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="howtogit/">How to Git(Hub)</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="implementation/">Developing Sponge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="implementation/codestyle/">Code Style</a></li>
-<li class="toctree-l2"><a class="reference internal" href="implementation/git-implementation/">Git Workflow for API and Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="implementation/pr/">Submitting a Pull-Request</a></li>
-<li class="toctree-l2"><a class="reference internal" href="implementation/debugging/">Debugging Sponge Within the IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="implementation/mixins/">Mixins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="implementation/datamanipulator/">Implementing DataManipulators</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="spongedocs/">SpongeDocs Writing</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="porting/">Porting Sponge to Other Platforms</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="versioning/">Versioning System and Repository Branch Layout</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../">Sponge 5.0.0 documentation</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../search/" method="get">
@@ -644,6 +537,114 @@ least basic knowledge of the <a class="reference external" href="https://github.
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="contributing-to-sponge">
+<h1>Contributing to Sponge<a class="headerlink" href="#contributing-to-sponge" title="Permalink to this headline">¶</a></h1>
+<p>This sections intends to show you ways to get involved with Sponge.</p>
+<div class="section" id="what-are-the-projects-i-can-help-with">
+<h2>What are the projects I can help with?<a class="headerlink" href="#what-are-the-projects-i-can-help-with" title="Permalink to this headline">¶</a></h2>
+<p>The Sponge Project and its parts are maintained on <a class="reference external" href="https://github.com/spongepowered">GitHub</a>. If you&#8217;re unfamiliar
+with GitHub and the tool git, then take a look at <a class="reference internal" href="howtogit/"><em>How to Git(Hub)</em></a> first. A read of our <a class="reference internal" href="guidelines/"><em>Contribution Guidelines</em></a> is strongly
+advised before starting any work. There are several projects we&#8217;re currently maintaining:</p>
+<ul class="simple">
+<li>SpongeAPI</li>
+<li>SpongeForge</li>
+<li>SpongeVanilla</li>
+<li>SpongeCommon</li>
+<li>Mixin</li>
+<li>SpongeDocs</li>
+<li>Ore</li>
+</ul>
+<p>If you want to know more about the structure of the project and how everything is tied together, head over to
+<a class="reference internal" href="../about/structure/"><em>The Structure of the Sponge Project</em></a>.</p>
+</div>
+<div class="section" id="what-kind-of-help-is-needed">
+<h2>What kind of help is needed?<a class="headerlink" href="#what-kind-of-help-is-needed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-contributions">
+<h3>Basic contributions<a class="headerlink" href="#basic-contributions" title="Permalink to this headline">¶</a></h3>
+<p>This can be done by almost everyone. You don&#8217;t need to know a programming language like Java or Python to:</p>
+<ul class="simple">
+<li>test SpongeForge or SpongeVanilla and report bugs or usage quirks</li>
+<li>report or suggest any errors, faults or bugs you encounter</li>
+<li>post suggestions or idea you have which would make Sponge better</li>
+</ul>
+<p>Reporting bugs best via our <a class="reference external" href="https://github.com/spongepowered/">GitHub repositories</a>, suggestions fit onto our
+<a class="reference external" href="https://forums.spongepowered.org/">forums</a>. Just have a look at our
+<a class="reference internal" href="../server/spongineer/bugreport/"><em>Bug Reporting page</em></a> for further instructions.</p>
+</div>
+<div class="section" id="intermediate-contributions">
+<h3>Intermediate Contributions<a class="headerlink" href="#intermediate-contributions" title="Permalink to this headline">¶</a></h3>
+<p>You should at least have basic knowledge of Java, Python or reST to help out on the following tasks:</p>
+<ul class="simple">
+<li>help fixing bugs</li>
+<li>finish the implementation of the API (SpongeForge and SpongeVanilla)</li>
+<li><a class="reference internal" href="spongedocs/"><em>help writing the SpongeDocs</em></a></li>
+<li>help <a class="reference external" href="https://crowdin.com/project/sponge-docs">translate the Docs on Crowdin</a></li>
+<li>help out developing Ore</li>
+</ul>
+<p>The development of the <a class="reference external" href="https://github.com/spongepowered/SpongeAPI">Sponge API</a>,
+<a class="reference external" href="https://github.com/spongepowered/SpongeForge">SpongeForge</a>,
+<a class="reference external" href="https://github.com/spongepowered/SpongeVanilla">SpongeVanilla</a> and <a class="reference external" href="https://github.com/spongepowered/Ore">Ore</a> as
+well as the <a class="reference external" href="https://github.com/spongepowered/SpongeDocs">SpongeDocs</a> is done in several repositories hosted on GitHub.</p>
+</div>
+<div class="section" id="advanced-contributions">
+<h3>Advanced Contributions<a class="headerlink" href="#advanced-contributions" title="Permalink to this headline">¶</a></h3>
+<p>And finally these are the most difficult things you can help out with. Advanced knowledge of Java, Minecraft and at
+least basic knowledge of the <a class="reference external" href="https://github.com/spongepowered/SpongeAPI">Sponge API</a> and its
+<a class="reference external" href="https://jd.spongepowered.org">structure</a> is strongly advised before attempting to help out with:</p>
+<ul class="simple">
+<li>adding functionality to the API (<a class="reference internal" href="implementation/pr/"><em>Submitting a Pull-Request</em></a>)</li>
+<li>implementing advanced API functionality in the implementations</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guidelines/">Contribution Guidelines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtogit/">How to Git(Hub)</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementation/">Developing Sponge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementation/codestyle/">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/git-implementation/">Git Workflow for API and Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/pr/">Submitting a Pull-Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/debugging/">Debugging Sponge Within the IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/mixins/">Mixins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation/datamanipulator/">Implementing DataManipulators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spongedocs/">SpongeDocs Writing</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="porting/">Porting Sponge to Other Platforms</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="versioning/">Versioning System and Repository Branch Layout</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

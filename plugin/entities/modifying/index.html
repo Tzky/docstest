@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Modifying an Entity &mdash; Sponge 4.1.0 documentation</title>
+     <title>Modifying an Entity &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Entities" href="../" />
         <link rel="next" title="Items" href="../../items/" />
         <link rel="prev" title="Spawning an Entity" href="../spawning/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,151 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/entities/modifying.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../spawning/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../../items/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">Entities</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="modifying-an-entity">
-<h1>Modifying an Entity<a class="headerlink" href="#modifying-an-entity" title="Permalink to this headline">¶</a></h1>
-<p>Sure, spawning a regular-old entity is nice and all, but there has to be something more interesting than that? This is
-where <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>s come into play. An <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/entity/Entity.html">Entity</a> is a <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>, which means that
-our <code class="docutils literal"><span class="pre">Entity</span></code> can hold data. More on <code class="docutils literal"><span class="pre">DataHolder</span></code>s can be found in the <a class="reference internal" href="../../data/"><em>data documentation</em></a>.</p>
-<p><code class="docutils literal"><span class="pre">DataManipulator</span></code>s that apply to <code class="docutils literal"><span class="pre">Entity</span></code>s are things such as <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/FoodData.html">FoodData</a> or <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>. A
-list of applicable <code class="docutils literal"><span class="pre">DataManipulator</span></code>s can be found at <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> and
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/package-summary.html">org.spongepowered.api.data.manipulator.mutable.entity</a>. Note that not all <code class="docutils literal"><span class="pre">DataManipulator</span></code>s found there
-may apply to all entities.</p>
-<div class="section" id="entity-type">
-<h2>Entity Type<a class="headerlink" href="#entity-type" title="Permalink to this headline">¶</a></h2>
-<p>Before we can jump behind the wheel with our <code class="docutils literal"><span class="pre">Entity</span></code>, we should check what type of <code class="docutils literal"><span class="pre">Entity</span></code> it is, as we may
-receive an <code class="docutils literal"><span class="pre">Entity</span></code> we didn&#8217;t create and thus, do not know it&#8217;s type. Doing this is a simple equality check. Here is
-an example of checking if our <code class="docutils literal"><span class="pre">Entity</span></code> is a creeper:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isCreeper</span><span class="o">(</span><span class="n">Entity</span> <span class="n">entity</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">EntityTypes</span><span class="o">.</span><span class="na">CREEPER</span><span class="o">))</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="entity-data-manipulators">
-<h2>Entity Data Manipulators<a class="headerlink" href="#entity-data-manipulators" title="Permalink to this headline">¶</a></h2>
-<p>Now that we are certain that our <code class="docutils literal"><span class="pre">Entity</span></code> is a creeper, we can apply creeper specific <code class="docutils literal"><span class="pre">DataManipulator</span></code>s to it.
-For example, <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosiveRadiusData.html">ExplosiveRadiusData</a> is a <code class="docutils literal"><span class="pre">DataManipulator</span></code> that creepers can have, but not all <code class="docutils literal"><span class="pre">Entity</span></code>s.
-An example of changing an <code class="docutils literal"><span class="pre">Entity</span></code>s explosive radius to 50 can be seen below:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.ExplosiveRadiusData</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">explosionRadius50</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">ExplosiveRadiusData</span> <span class="n">radiusData</span> <span class="o">=</span> <span class="n">creeper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ExplosiveRadiusData</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
-    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">radiusData</span><span class="o">.</span><span class="na">explosiveRadius</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>This will get the <code class="docutils literal"><span class="pre">ExplosiveRadiusData</span></code> of our <code class="docutils literal"><span class="pre">Entity</span></code> for our use. We then use that data to set the explosive
-radius of our creeper to 50. We then have to offer the data back to the creeper, as the data we received from our
-<code class="docutils literal"><span class="pre">Entity</span></code> is only a copy of the live data.</p>
-<p>Perhaps we want to give our <code class="docutils literal"><span class="pre">Entity</span></code> a name to customize it a bit! This would be done by using
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. An example of this in action can be seen below:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.DisplayNameData</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDisplayName</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">DisplayNameData</span> <span class="n">displayData</span> <span class="o">=</span> <span class="n">creeper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">DisplayNameData</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
-    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">displayData</span><span class="o">.</span><span class="na">displayName</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">DARK_AQUA</span><span class="o">,</span>
-                                                          <span class="s">&quot;Inscrutable&quot;</span><span class="o">)));</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>Another, shorter way to do this is by just using <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/key/Keys.html">Keys</a> on our <code class="docutils literal"><span class="pre">Entity</span></code> instead of using
-<code class="docutils literal"><span class="pre">DataManipulator</span></code>s. This would be done like so:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">explosionRadius50</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">EXPLOSIVE_RADIUS</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
-    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">DISPLAY_NAME</span><span class="o">,</span> <span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">DARK_AQUA</span><span class="o">,</span> <span class="s">&quot;Inscrutable&quot;</span><span class="o">));</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>This would neaten our code and is easier to perform. See the <a class="reference internal" href="../../data/datamanipulators/"><em>data documentation</em></a> on
-the specific benefits of using either <code class="docutils literal"><span class="pre">DataManipulator</span></code>s or just <code class="docutils literal"><span class="pre">Keys</span></code>.</p>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">Entities</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -624,6 +540,91 @@ the specific benefits of using either <code class="docutils literal"><span class
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="modifying-an-entity">
+<h1>Modifying an Entity<a class="headerlink" href="#modifying-an-entity" title="Permalink to this headline">¶</a></h1>
+<p>Sure, spawning a regular-old entity is nice and all, but there has to be something more interesting than that? This is
+where <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/DataManipulator.html">DataManipulator</a>s come into play. An <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/entity/Entity.html">Entity</a> is a <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a>, which means that
+our <code class="docutils literal"><span class="pre">Entity</span></code> can hold data. More on <code class="docutils literal"><span class="pre">DataHolder</span></code>s can be found in the <a class="reference internal" href="../../data/"><em>data documentation</em></a>.</p>
+<p><code class="docutils literal"><span class="pre">DataManipulator</span></code>s that apply to <code class="docutils literal"><span class="pre">Entity</span></code>s are things such as <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/FoodData.html">FoodData</a> or <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>. A
+list of applicable <code class="docutils literal"><span class="pre">DataManipulator</span></code>s can be found at <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/package-summary.html">org.spongepowered.api.data.manipulator.mutable</a> and
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/package-summary.html">org.spongepowered.api.data.manipulator.mutable.entity</a>. Note that not all <code class="docutils literal"><span class="pre">DataManipulator</span></code>s found there
+may apply to all entities.</p>
+<div class="section" id="entity-type">
+<h2>Entity Type<a class="headerlink" href="#entity-type" title="Permalink to this headline">¶</a></h2>
+<p>Before we can jump behind the wheel with our <code class="docutils literal"><span class="pre">Entity</span></code>, we should check what type of <code class="docutils literal"><span class="pre">Entity</span></code> it is, as we may
+receive an <code class="docutils literal"><span class="pre">Entity</span></code> we didn&#8217;t create and thus, do not know it&#8217;s type. Doing this is a simple equality check. Here is
+an example of checking if our <code class="docutils literal"><span class="pre">Entity</span></code> is a creeper:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.entity.EntityTypes</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isCreeper</span><span class="o">(</span><span class="n">Entity</span> <span class="n">entity</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">entity</span><span class="o">.</span><span class="na">getType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">EntityTypes</span><span class="o">.</span><span class="na">CREEPER</span><span class="o">))</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="entity-data-manipulators">
+<h2>Entity Data Manipulators<a class="headerlink" href="#entity-data-manipulators" title="Permalink to this headline">¶</a></h2>
+<p>Now that we are certain that our <code class="docutils literal"><span class="pre">Entity</span></code> is a creeper, we can apply creeper specific <code class="docutils literal"><span class="pre">DataManipulator</span></code>s to it.
+For example, <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/ExplosionRadiusData.html">ExplosionRadiusData</a> is a <code class="docutils literal"><span class="pre">DataManipulator</span></code> that creepers can have, but not all <code class="docutils literal"><span class="pre">Entity</span></code>s.
+An example of changing an <code class="docutils literal"><span class="pre">Entity</span></code>s explosive radius to 50 can be seen below:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.entity.ExplosiveRadiusData</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">explosionRadius50</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ExplosiveRadiusData</span> <span class="n">radiusData</span> <span class="o">=</span> <span class="n">creeper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ExplosiveRadiusData</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">radiusData</span><span class="o">.</span><span class="na">explosiveRadius</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This will get the <code class="docutils literal"><span class="pre">ExplosiveRadiusData</span></code> of our <code class="docutils literal"><span class="pre">Entity</span></code> for our use. We then use that data to set the explosive
+radius of our creeper to 50. We then have to offer the data back to the creeper, as the data we received from our
+<code class="docutils literal"><span class="pre">Entity</span></code> is only a copy of the live data.</p>
+<p>Perhaps we want to give our <code class="docutils literal"><span class="pre">Entity</span></code> a name to customize it a bit! This would be done by using
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/DisplayNameData.html">DisplayNameData</a>. An example of this in action can be seen below:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.manipulator.mutable.DisplayNameData</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDisplayName</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">DisplayNameData</span> <span class="n">displayData</span> <span class="o">=</span> <span class="n">creeper</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">DisplayNameData</span><span class="o">.</span><span class="na">class</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">displayData</span><span class="o">.</span><span class="na">displayName</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">DARK_AQUA</span><span class="o">,</span>
+                                                          <span class="s">&quot;Inscrutable&quot;</span><span class="o">)));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Another, shorter way to do this is by just using <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/key/Keys.html">Keys</a> on our <code class="docutils literal"><span class="pre">Entity</span></code> instead of using
+<code class="docutils literal"><span class="pre">DataManipulator</span></code>s. This would be done like so:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.data.key.Keys</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">explosionRadius50</span><span class="o">(</span><span class="n">Entity</span> <span class="n">creeper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">EXPLOSIVE_RADIUS</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+    <span class="n">creeper</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="n">Keys</span><span class="o">.</span><span class="na">DISPLAY_NAME</span><span class="o">,</span> <span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">DARK_AQUA</span><span class="o">,</span> <span class="s">&quot;Inscrutable&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This would neaten our code and is easier to perform. See the <a class="reference internal" href="../../data/datamanipulators/"><em>data documentation</em></a> on
+the specific benefits of using either <code class="docutils literal"><span class="pre">DataManipulator</span></code>s or just <code class="docutils literal"><span class="pre">Keys</span></code>.</p>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

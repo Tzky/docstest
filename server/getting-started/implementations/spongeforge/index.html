@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Installing SpongeForge &mdash; Sponge 4.1.0 documentation</title>
+     <title>Installing SpongeForge &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../../" />
         <link rel="up" title="Choosing an Implementation" href="../" />
         <link rel="next" title="Installing SpongeVanilla" href="../spongevanilla/" />
         <link rel="prev" title="Choosing an Implementation" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,213 +66,75 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/server/getting-started/implementations/spongeforge.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../spongevanilla/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../../" >Creating a Server</a></li>
-                <li><a href="../../" >Getting Started</a></li>
-                <li><a href="../" accesskey="U">Choosing an Implementation</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="installing-spongeforge">
-<h1>Installing SpongeForge<a class="headerlink" href="#installing-spongeforge" title="Permalink to this headline">¶</a></h1>
-<p>SpongeForge integrates <a class="reference external" href="http://www.minecraftforge.net/">Minecraft Forge</a> so you can also run Minecraft Forge mods.
-In fact, it&#8217;s more like Sponge itself is a Forge mod that then loads Sponge plugins, but this is a technical detail.</p>
-<p>Users who do not want to use Minecraft Forge can consider <a class="reference internal" href="../spongevanilla/"><em>SpongeVanilla</em></a>.</p>
-<div class="section" id="download">
-<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p>Check <a class="reference internal" href="../../../../downloads/"><em>Download</em></a> for further information.</p>
-</div>
-<div class="section" id="reading-the-download-filename">
-<h2>Reading the Download Filename<a class="headerlink" href="#reading-the-download-filename" title="Permalink to this headline">¶</a></h2>
-<p>When you download SpongeForge, the name of the file will provide some important version information. It includes a
-Forge build number which this version of SpongeForge is compatible with. Other builds, even ones differing by only a
-few build numbers are not supported.</p>
-<p>However, SpongeForge usually updates to a new Forge build fairly soon after it&#8217;s released, so you needn&#8217;t
-worry about always having to run an outdated Forge version in order to use SpongeForge.</p>
-<p>The format of the filename is <code class="docutils literal"><span class="pre">spongeforge-{MCVersion}-{ForgeVersion}-{SpongeAPIVersion}-{SpongeBuildId}</span></code></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="19%" />
-<col width="81%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">MCVersion</span></code></td>
-<td>The Minecraft version. Only clients compatible with this version can connect.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">ForgeVersion</span></code></td>
-<td>The version of Forge this file is built for. Preferably your server should run this exact
-version of Forge.</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">SpongeAPIVersion</span></code></td>
-<td>The version of the SpongeAPI implemented by this file. This is what Sponge plugins depend on.</td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">SpongeBuildId</span></code></td>
-<td>The build number of Sponge. This is what you should supply when reporting bugs or seeking
-support.</td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<p>The file name <code class="docutils literal"><span class="pre">spongeforge-1.8-1577-3.0.0-BETA-1000.jar</span></code> is compatible with Minecraft version <code class="docutils literal"><span class="pre">1.8</span></code>, requires build
-<code class="docutils literal"><span class="pre">1.8-11.14.4.1577</span></code> of Forge, provides SpongeAPI <code class="docutils literal"><span class="pre">3.0.0</span></code> and was build <code class="docutils literal"><span class="pre">1000</span></code> of SpongeForge.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Normal Forge mods can usually run on any build of Forge for a given Minecraft version (e.g. 1.8.0) without
-any problems. However, SpongeForge needs to access, among other things, internal parts of Forge, which
-most mods shouldn&#8217;t be touching, let alone modifying as Sponge does. Since Forge is free to change internal
-code whenever they want to, its normal guarantee of backwards-compatibility doesn&#8217;t apply to SpongeForge.</p>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Installing SpongeForge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you use (or are planning to use) a game server host, they may have a control panel that can install Sponge for you.</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">When using the Mojang installer, Mojang makes use of their own Java version and not the one you installed on your
-system. The installer currently ships with Java <code class="docutils literal"><span class="pre">1.8.0_25</span></code> for Windows and <code class="docutils literal"><span class="pre">1.8.0_60</span></code> for OSX. Note that Sponge
-requires <strong>at least</strong> <code class="docutils literal"><span class="pre">1.8.0_40</span></code> or above to run properly. You can grab the Launcher without included Java here:
-<a class="reference external" href="https://minecraft.net/download">official Minecraft Launcher</a></p>
-</div>
-<div class="section" id="single-player-in-game-lan-servers">
-<h3>Single Player / In-Game LAN Servers<a class="headerlink" href="#single-player-in-game-lan-servers" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Download the Minecraft Forge installer from the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a>. Make
-sure to use <strong>exactly the same build number</strong> as <a class="reference internal" href=""><em>the one listed in the filename of the Sponge download</em></a>.</li>
-<li>Run the provided Forge installer. A new Forge profile will be created in the Minecraft launcher.</li>
-<li>Open the Minecraft launcher, and select the new Forge profile.</li>
-<li>Click &#8220;Options&#8221; and click &#8220;Open Game Dir&#8221;.</li>
-<li>Download SpongeForge from the Sponge website and put it into the <code class="docutils literal"><span class="pre">mods</span></code> folder. Create the folder if it does
-not yet exist.</li>
-<li>Sponge should work in both in single player and if you open your world to LAN.</li>
-</ol>
-<p>Next, learn how you can <a class="reference internal" href="../../configuration/"><em>configure Sponge</em></a> and how to
-<a class="reference internal" href="../../../management/"><em>manage your instance of Sponge</em></a> (including installing plugins).</p>
-</div>
-<div class="section" id="dedicated-servers">
-<h3>Dedicated Servers<a class="headerlink" href="#dedicated-servers" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you already have a Forge server, just put the Sponge mod into your <code class="docutils literal"><span class="pre">mods</span></code> folder. Remember to update your Forge
-version to match the one that <a class="reference internal" href=""><em>Sponge requires</em></a>.</p>
-</div>
-<div class="section" id="installing-forge-via-commandline">
-<h4>Installing Forge via Commandline<a class="headerlink" href="#installing-forge-via-commandline" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>Visit the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a> and click &#8220;Show all downloads&#8221; to view the full
-set of available options. Identify the version matching the one listed <a class="reference internal" href=""><em>in the filename of the SpongeForge download</em></a>, and hover over the (i) next to &#8220;Installer&#8221; to get the direct download link.</li>
-<li>Use your favorite download method to download the jar to its destination.
-Example: <code class="docutils literal"><span class="pre">wget</span> <span class="pre">http://url.to/forge-version-installer.jar</span></code></li>
-<li>From the folder in which you wish to install Forge, execute the jar with the <code class="docutils literal"><span class="pre">--installServer</span></code> option. Example:
-<code class="docutils literal"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-installer.jar</span> <span class="pre">--installServer</span></code></li>
-<li>Continue to Adding SpongeForge to Forge below.</li>
-</ol>
-</div>
-<div class="section" id="installing-forge-via-gui">
-<h4>Installing Forge via GUI<a class="headerlink" href="#installing-forge-via-gui" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>Download the Minecraft Forge installer from the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a> for the version
-matching the one listed <a class="reference internal" href=""><em>in the filename of the SpongeForge download</em></a>.</li>
-<li>Run the provided Forge installer, select &#8220;Install Server&#8221;, choose an empty folder to place the server&#8217;s files,
-and then click OK.</li>
-<li>Continue to Adding SpongeForge to Forge below.</li>
-</ol>
-</div>
-<div class="section" id="adding-spongeforge-to-forge">
-<h4>Adding SpongeForge to Forge<a class="headerlink" href="#adding-spongeforge-to-forge" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>Download SpongeForge from the Sponge website and put it into the <code class="docutils literal"><span class="pre">mods</span></code> folder in your server directory.
-Create the folder if it does not yet exist.</li>
-<li>You may now launch the server via command or launch script <code class="docutils literal"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-XYZ.jar</span></code>.</li>
-<li>If operating from home, set up <a class="reference internal" href="../../port-forward/"><em>Port Forwarding</em></a> to ensure others can connect.</li>
-</ol>
-<p>Next, learn how you can create and use a <a class="reference internal" href="../../launch-script/"><em>launch-script</em></a>,
-<a class="reference internal" href="../../configuration/"><em>configure Sponge</em></a> and <a class="reference internal" href="../../../management/"><em>manage your server</em></a> (including installing plugins).</p>
-</div>
-</div>
-</div>
-<div class="section" id="links">
-<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://spongepowered.org/">Homepage</a></li>
-<li><a class="reference external" href="https://github.com/SpongePowered/SpongeForge">GitHub</a></li>
-</ul>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../../" >Creating a Server</a></li>
+            <li><a href="../../" >Getting Started</a></li>
+            <li><a href="../" accesskey="U">Choosing an Implementation</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../../search/" method="get">
@@ -686,6 +541,152 @@ Create the folder if it does not yet exist.</li>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="installing-spongeforge">
+<h1>Installing SpongeForge<a class="headerlink" href="#installing-spongeforge" title="Permalink to this headline">¶</a></h1>
+<p>SpongeForge integrates <a class="reference external" href="http://www.minecraftforge.net/">Minecraft Forge</a> so you can also run Minecraft Forge mods.
+In fact, it&#8217;s more like Sponge itself is a Forge mod that then loads Sponge plugins, but this is a technical detail.</p>
+<p>Users who do not want to use Minecraft Forge can consider <a class="reference internal" href="../spongevanilla/"><em>SpongeVanilla</em></a>.</p>
+<div class="section" id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>Check <a class="reference internal" href="../../../../downloads/"><em>Download</em></a> for further information.</p>
+</div>
+<div class="section" id="reading-the-download-filename">
+<h2>Reading the Download Filename<a class="headerlink" href="#reading-the-download-filename" title="Permalink to this headline">¶</a></h2>
+<p>When you download SpongeForge, the name of the file will provide some important version information. It includes a
+Forge build number which this version of SpongeForge is compatible with. Other builds, even ones differing by only a
+few build numbers are not supported.</p>
+<p>However, SpongeForge usually updates to a new Forge build fairly soon after it&#8217;s released, so you needn&#8217;t
+worry about always having to run an outdated Forge version in order to use SpongeForge.</p>
+<p>The format of the filename is <code class="docutils literal"><span class="pre">spongeforge-{MCVersion}-{ForgeVersion}-{SpongeAPIVersion}-{SpongeBuildId}</span></code></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">MCVersion</span></code></td>
+<td>The Minecraft version. Only clients compatible with this version can connect.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">ForgeVersion</span></code></td>
+<td>The version of Forge this file is built for. Preferably your server should run this exact
+version of Forge.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">SpongeAPIVersion</span></code></td>
+<td>The version of the SpongeAPI implemented by this file. This is what Sponge plugins depend on.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">SpongeBuildId</span></code></td>
+<td>The build number of Sponge. This is what you should supply when reporting bugs or seeking
+support.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The file name <code class="docutils literal"><span class="pre">spongeforge-1.8-1577-3.0.0-BETA-1000.jar</span></code> is compatible with Minecraft version <code class="docutils literal"><span class="pre">1.8</span></code>, requires build
+<code class="docutils literal"><span class="pre">1.8-11.14.4.1577</span></code> of Forge, provides SpongeAPI <code class="docutils literal"><span class="pre">3.0.0</span></code> and was build <code class="docutils literal"><span class="pre">1000</span></code> of SpongeForge.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Normal Forge mods can usually run on any build of Forge for a given Minecraft version (e.g. 1.8.0) without
+any problems. However, SpongeForge needs to access, among other things, internal parts of Forge, which
+most mods shouldn&#8217;t be touching, let alone modifying as Sponge does. Since Forge is free to change internal
+code whenever they want to, its normal guarantee of backwards-compatibility doesn&#8217;t apply to SpongeForge.</p>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Installing SpongeForge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you use (or are planning to use) a game server host, they may have a control panel that can install Sponge for you.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">When using the Mojang installer, Mojang makes use of their own Java version and not the one you installed on your
+system. The installer currently ships with Java <code class="docutils literal"><span class="pre">1.8.0_25</span></code> for Windows and <code class="docutils literal"><span class="pre">1.8.0_60</span></code> for OSX. Note that Sponge
+requires <strong>at least</strong> <code class="docutils literal"><span class="pre">1.8.0_40</span></code> or above to run properly. You can grab the Launcher without included Java here:
+<a class="reference external" href="https://minecraft.net/download">official Minecraft Launcher</a></p>
+</div>
+<div class="section" id="single-player-in-game-lan-servers">
+<h3>Single Player / In-Game LAN Servers<a class="headerlink" href="#single-player-in-game-lan-servers" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Download the Minecraft Forge installer from the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a>. Make
+sure to use <strong>exactly the same build number</strong> as <a class="reference internal" href=""><em>the one listed in the filename of the Sponge download</em></a>.</li>
+<li>Run the provided Forge installer. A new Forge profile will be created in the Minecraft launcher.</li>
+<li>Open the Minecraft launcher, and select the new Forge profile.</li>
+<li>Click &#8220;Options&#8221; and click &#8220;Open Game Dir&#8221;.</li>
+<li>Download SpongeForge from the Sponge website and put it into the <code class="docutils literal"><span class="pre">mods</span></code> folder. Create the folder if it does
+not yet exist.</li>
+<li>Sponge should work in both in single player and if you open your world to LAN.</li>
+</ol>
+<p>Next, learn how you can <a class="reference internal" href="../../configuration/"><em>configure Sponge</em></a> and how to
+<a class="reference internal" href="../../../management/"><em>manage your instance of Sponge</em></a> (including installing plugins).</p>
+</div>
+<div class="section" id="dedicated-servers">
+<h3>Dedicated Servers<a class="headerlink" href="#dedicated-servers" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you already have a Forge server, just put the Sponge mod into your <code class="docutils literal"><span class="pre">mods</span></code> folder. Remember to update your Forge
+version to match the one that <a class="reference internal" href=""><em>Sponge requires</em></a>.</p>
+</div>
+<div class="section" id="installing-forge-via-commandline">
+<h4>Installing Forge via Commandline<a class="headerlink" href="#installing-forge-via-commandline" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Visit the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a> and click &#8220;Show all downloads&#8221; to view the full
+set of available options. Identify the version matching the one listed <a class="reference internal" href=""><em>in the filename of the SpongeForge download</em></a>, and hover over the (i) next to &#8220;Installer&#8221; to get the direct download link.</li>
+<li>Use your favorite download method to download the jar to its destination.
+Example: <code class="docutils literal"><span class="pre">wget</span> <span class="pre">http://url.to/forge-version-installer.jar</span></code></li>
+<li>From the folder in which you wish to install Forge, execute the jar with the <code class="docutils literal"><span class="pre">--installServer</span></code> option. Example:
+<code class="docutils literal"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-installer.jar</span> <span class="pre">--installServer</span></code></li>
+<li>Continue to Adding SpongeForge to Forge below.</li>
+</ol>
+</div>
+<div class="section" id="installing-forge-via-gui">
+<h4>Installing Forge via GUI<a class="headerlink" href="#installing-forge-via-gui" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Download the Minecraft Forge installer from the <a class="reference external" href="http://files.minecraftforge.net/">Minecraft Forge website</a> for the version
+matching the one listed <a class="reference internal" href=""><em>in the filename of the SpongeForge download</em></a>.</li>
+<li>Run the provided Forge installer, select &#8220;Install Server&#8221;, choose an empty folder to place the server&#8217;s files,
+and then click OK.</li>
+<li>Continue to Adding SpongeForge to Forge below.</li>
+</ol>
+</div>
+<div class="section" id="adding-spongeforge-to-forge">
+<h4>Adding SpongeForge to Forge<a class="headerlink" href="#adding-spongeforge-to-forge" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Download SpongeForge from the Sponge website and put it into the <code class="docutils literal"><span class="pre">mods</span></code> folder in your server directory.
+Create the folder if it does not yet exist.</li>
+<li>You may now launch the server via command or launch script <code class="docutils literal"><span class="pre">java</span> <span class="pre">-jar</span> <span class="pre">forge-version-XYZ.jar</span></code>.</li>
+<li>If operating from home, set up <a class="reference internal" href="../../port-forward/"><em>Port Forwarding</em></a> to ensure others can connect.</li>
+</ol>
+<p>Next, learn how you can create and use a <a class="reference internal" href="../../launch-script/"><em>launch-script</em></a>,
+<a class="reference internal" href="../../configuration/"><em>configure Sponge</em></a> and <a class="reference internal" href="../../../management/"><em>manage your server</em></a> (including installing plugins).</p>
+</div>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://spongepowered.org/">Homepage</a></li>
+<li><a class="reference external" href="https://github.com/SpongePowered/SpongeForge">GitHub</a></li>
+</ul>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

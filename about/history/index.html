@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>The History of Sponge &mdash; Sponge 4.1.0 documentation</title>
+     <title>The History of Sponge &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="About the Sponge Project" href="../" />
         <link rel="next" title="Download" href="../../downloads/" />
         <link rel="prev" title="Art Assets" href="../assets/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,145 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/about/history.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../assets/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../../downloads/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">About the Sponge Project</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="the-history-of-sponge">
-<h1>The History of Sponge<a class="headerlink" href="#the-history-of-sponge" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt>This page is split into two main parts:</dt>
-<dd><ul class="first last simple">
-<li>the history of the project itself</li>
-<li>the history of our beloved mascot Spongie</li>
-</ul>
-</dd>
-</dl>
-<div class="section" id="the-history-of-the-project">
-<h2>The History of the Project<a class="headerlink" href="#the-history-of-the-project" title="Permalink to this headline">¶</a></h2>
-<p>Sponge was founded as a better alternative to the APIs that were available as of September 2014. The Sponge <a class="reference internal" href="../staff/"><em>Staff</em></a>
-consists of many people from different Communities, eg. Spout/Spoutcraft, Forge, Cauldron and a few others.</p>
-<p>When the development of Bukkit and Cauldron reached an abrupt end, the Minecraft community was shocked. Several
-developers from the above mentioned communities gathered in #nextstep on Esper.NET and discussed the future of Minecraft
-modding. It was decided that there certainly was a demand for a new API as the CraftBukkit repository (Cauldron too)
-was taken down.</p>
-<dl class="docutils">
-<dt>Several goals should be achieved with the new API:</dt>
-<dd><ul class="first last simple">
-<li>consistency</li>
-<li>stability across Minecraft updates</li>
-<li>ease of use</li>
-<li>compliance with the Mojang EULA</li>
-<li>protection against DMCA takedowns</li>
-</ul>
-</dd>
-</dl>
-<p>While the goals were mostly clear, the route to be taken was not. The soon-to-be Project was still nameless too. The
-first mention of Sponge as the projects name was on Sept, 6th by Firehead94. Obviously the name stuck.</p>
-<p>The initial commit to SpongeAPI and SpongeForge was made on September 7th and 8th, 2014 by one of the Sponge
-Project leaders, Zidane. This was the beginning of the development of the SpongeAPI and SpongeForge (named Sponge at the time).</p>
-<p>On September 7th, 2014 the initial commit to Granite, an API based upon Vanilla Minecraft was made. Granite, originally
-started as an independent project, was planned to implement it&#8217;s own API and the SpongeAPI. Granite and SpongeForge
-coexisted until April 20th, 2015.</p>
-<p>The development of SpongeForge and the API gained momentum leading to a first API release on December 1st, 2014. However this
-version was far from feature complete and an API-only release, meaning that there was no official implementation available
-at that time.</p>
-<p>On December 26th, 2014 the Granite Team decided to limit Granite to the usage of SpongeAPI. That made Granite the first
-unofficial Sponge Implementation for Vanilla Minecraft. On March 26th, the Granite Team finally joined the Sponge Team
-and Granite became SpongeVanilla, the official SpongeAPI implementation for Vanilla Minecraft. About a month later the
-unification of the Granite and SpongeForge codebase began in SpongeCommon. SpongeCommon was created to hold all
-shared code between the two implementations while implementation-specific code remains in SpongeVanilla and SpongeForge.</p>
-<p>On April 21st, 2015 SpongeAPI 2.0 was finally released. A week later development builds of SpongeForge were
-finally made available.</p>
-<p>On December 31st, 2015 SpongeAPI 3.0.0 was released, along with SpongeForge entering its beta.</p>
-</div>
-<div class="section" id="spongie-our-mascot">
-<h2>Spongie - our Mascot<a class="headerlink" href="#spongie-our-mascot" title="Permalink to this headline">¶</a></h2>
-<p>Spongie is our friendly, helpful and somewhat soaky mascot. Don&#8217;t make her cry, as she&#8217;s a very sensitive person.</p>
-<div class="section" id="the-history-of-spongie">
-<h3>The History of Spongie<a class="headerlink" href="#the-history-of-spongie" title="Permalink to this headline">¶</a></h3>
-<p>Spongie first appeared in #Sponge on Esper.NET around September 2014. She was created and posted by
-<a class="reference external" href="http://dragonspainter.deviantart.com/">DragonsPainter</a>. Strad, another user, felt that Spongie would look better with
-a moogle-like antenna, a Forge furnace instead of a Cauldron and replaced the Spigot with Spout. An anonymous user then
-removed all labels and introduced her as the icon and background logo for the Sponge reddit section.</p>
-<p>This older version of Spongie sadly isn&#8217;t available as vector graphic. Thus Sponge staff decided to create a new
-vectorized version. Two new drafts were then posted on
-<a class="reference external" href="https://forums.spongepowered.org/t/state-of-spongie-wip/6194">State of Spongie</a>. The currently used assets are
-located <a class="reference internal" href="../assets/"><em>here</em></a>.</p>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">About the Sponge Project</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -618,6 +539,86 @@ located <a class="reference internal" href="../assets/"><em>here</em></a>.</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="the-history-of-sponge">
+<h1>The History of Sponge<a class="headerlink" href="#the-history-of-sponge" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>This page is split into two main parts:</dt>
+<dd><ul class="first last simple">
+<li>the history of the project itself</li>
+<li>the history of our beloved mascot Spongie</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="the-history-of-the-project">
+<h2>The History of the Project<a class="headerlink" href="#the-history-of-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Sponge was founded as a better alternative to the APIs that were available as of September 2014. The Sponge <a class="reference internal" href="../staff/"><em>Staff</em></a>
+consists of many people from different Communities, eg. Spout/Spoutcraft, Forge, Cauldron and a few others.</p>
+<p>When the development of Bukkit and Cauldron reached an abrupt end, the Minecraft community was shocked. Several
+developers from the above mentioned communities gathered in #nextstep on Esper.NET and discussed the future of Minecraft
+modding. It was decided that there certainly was a demand for a new API as the CraftBukkit repository (Cauldron too)
+was taken down.</p>
+<dl class="docutils">
+<dt>Several goals should be achieved with the new API:</dt>
+<dd><ul class="first last simple">
+<li>consistency</li>
+<li>stability across Minecraft updates</li>
+<li>ease of use</li>
+<li>compliance with the Mojang EULA</li>
+<li>protection against DMCA takedowns</li>
+</ul>
+</dd>
+</dl>
+<p>While the goals were mostly clear, the route to be taken was not. The soon-to-be Project was still nameless too. The
+first mention of Sponge as the projects name was on Sept, 6th by Firehead94. Obviously the name stuck.</p>
+<p>The initial commit to SpongeAPI and SpongeForge was made on September 7th and 8th, 2014 by one of the Sponge
+Project leaders, Zidane. This was the beginning of the development of the SpongeAPI and SpongeForge (named Sponge at the time).</p>
+<p>On September 7th, 2014 the initial commit to Granite, an API based upon Vanilla Minecraft was made. Granite, originally
+started as an independent project, was planned to implement it&#8217;s own API and the SpongeAPI. Granite and SpongeForge
+coexisted until April 20th, 2015.</p>
+<p>The development of SpongeForge and the API gained momentum leading to a first API release on December 1st, 2014. However this
+version was far from feature complete and an API-only release, meaning that there was no official implementation available
+at that time.</p>
+<p>On December 26th, 2014 the Granite Team decided to limit Granite to the usage of SpongeAPI. That made Granite the first
+unofficial Sponge Implementation for Vanilla Minecraft. On March 26th, the Granite Team finally joined the Sponge Team
+and Granite became SpongeVanilla, the official SpongeAPI implementation for Vanilla Minecraft. About a month later the
+unification of the Granite and SpongeForge codebase began in SpongeCommon. SpongeCommon was created to hold all
+shared code between the two implementations while implementation-specific code remains in SpongeVanilla and SpongeForge.</p>
+<p>On April 21st, 2015 SpongeAPI 2.0 was finally released. A week later development builds of SpongeForge were
+finally made available.</p>
+<p>On December 31st, 2015 SpongeAPI 3.0.0 was released, along with SpongeForge entering its beta.</p>
+</div>
+<div class="section" id="spongie-our-mascot">
+<h2>Spongie - our Mascot<a class="headerlink" href="#spongie-our-mascot" title="Permalink to this headline">¶</a></h2>
+<p>Spongie is our friendly, helpful and somewhat soaky mascot. Don&#8217;t make her cry, as she&#8217;s a very sensitive person.</p>
+<div class="section" id="the-history-of-spongie">
+<h3>The History of Spongie<a class="headerlink" href="#the-history-of-spongie" title="Permalink to this headline">¶</a></h3>
+<p>Spongie first appeared in #Sponge on Esper.NET around September 2014. She was created and posted by
+<a class="reference external" href="http://dragonspainter.deviantart.com/">DragonsPainter</a>. Strad, another user, felt that Spongie would look better with
+a moogle-like antenna, a Forge furnace instead of a Cauldron and replaced the Spigot with Spout. An anonymous user then
+removed all labels and introduced her as the icon and background logo for the Sponge reddit section.</p>
+<p>This older version of Spongie sadly isn&#8217;t available as vector graphic. Thus Sponge staff decided to create a new
+vectorized version. Two new drafts were then posted on
+<a class="reference external" href="https://forums.spongepowered.org/t/state-of-spongie-wip/6194">State of Spongie</a>. The currently used assets are
+located <a class="reference internal" href="../assets/"><em>here</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

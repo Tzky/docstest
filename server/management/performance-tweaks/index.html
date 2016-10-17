@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Performance Tweaks &mdash; Sponge 4.1.0 documentation</title>
+     <title>Performance Tweaks &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Server Management" href="../" />
         <link rel="next" title="Becoming an Expert Spongineer" href="../../spongineer/" />
         <link rel="prev" title="Exploit Patches" href="../exploit-patches/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,175 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/server/management/performance-tweaks.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../exploit-patches/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../../spongineer/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Server</a></li>
-                <li><a href="../" accesskey="U">Server Management</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="performance-tweaks">
-<h1>Performance Tweaks<a class="headerlink" href="#performance-tweaks" title="Permalink to this headline">¶</a></h1>
-<p>Sponge provides several performance enhancing and tweaking options to help you run a lag-free server, even
-under heavy load.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">While we try to improve the performance of every server, the performance gains depend on your setup. Please run some
-tests to ensure you configured your Sponge server to get the most out of it!</p>
-</div>
-<div class="section" id="entity-activation-range">
-<h2>Entity Activation Range<a class="headerlink" href="#entity-activation-range" title="Permalink to this headline">¶</a></h2>
-<p>This setting will alter the loading behaviour of entities around players. Lowering the value will only load close
-entities, while raising it will also load entities that are far away from the player. Lower this to improve your
-servers performance, especially with high entity and player counts.</p>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">It&#8217;s possible to specify the activation range <em>per mob</em>. You can set <code class="docutils literal"><span class="pre">auto-populate</span></code> to <code class="docutils literal"><span class="pre">true</span></code> and Sponge
-will then add all available mobs to the activation range list, it is advised to disable it after the list is filled.
-If you add new mobs to the game, just repeat the procedure and those new mobs will also be added to the list below.</p>
-</div>
-<div class="highlight-none"><div class="highlight"><pre>entity-activation-range {
-      # If enabled, newly discovered entities will be added to this config with
-      # a default value.
-      auto-populate=false
-
-      # Default activation ranges used for all entities unless overidden.
-      defaults {
-          ambient=32
-          aquatic=32
-          creature=32
-          misc=16
-          monster=32
-      }
-</pre></div>
-</div>
-</div>
-<div class="section" id="lighting-patch-to-ignore-unloaded-chunks">
-<h2>Lighting Patch to Ignore Unloaded Chunks<a class="headerlink" href="#lighting-patch-to-ignore-unloaded-chunks" title="Permalink to this headline">¶</a></h2>
-<p>Enabling this setting avoids loading lighting data from not yet generated chunks. This reduces disk access and chunk
-generation and thus improves performances while applying light levels to blocks.</p>
-<div class="highlight-none"><div class="highlight"><pre>optimizations {
-      # This prevents chunks being loaded for getting light values at specific
-      # block positions. May have side effects.
-      ignore-unloaded-chunks-on-get-light=true
-      }
-</pre></div>
-</div>
-</div>
-<div class="section" id="cache-chunk-lookups">
-<h2>Cache Chunk Lookups<a class="headerlink" href="#cache-chunk-lookups" title="Permalink to this headline">¶</a></h2>
-<p>This setting enables Sponge&#8217;s internal chunk caching to improve the server&#8217;s performance. It uses a small, additional
-amount of memory for caching purposes. If you run out of memory, try to disable it.</p>
-<div class="highlight-none"><div class="highlight"><pre>optimizations {
-      # Caches chunks internally for faster returns when querying at various
-      # positions
-      chunk-map-caching=true
-      }
-</pre></div>
-</div>
-</div>
-<div class="section" id="reduce-hash-lookups-on-blockstate-queries">
-<h2>Reduce Hash Lookups on BlockState Queries<a class="headerlink" href="#reduce-hash-lookups-on-blockstate-queries" title="Permalink to this headline">¶</a></h2>
-<p>Enabling this patch reduces hash lookups. This is achieved by removing a 2nd unnecessary lookup, which the server would
-only need when a blockstate becomes null. If you run into issues, disable this patch to revert the server to vanilla
-behaviour.</p>
-<div class="highlight-none"><div class="highlight"><pre>optimizations {
-      # A simple patch to reduce a few sanity checks for the sake of speed when
-      # performing block state operations
-      fast-blockstate-lookup=true
-      }
-</pre></div>
-</div>
-</div>
-<div class="section" id="auto-saving-interval-adjustment">
-<h2>Auto-Saving Interval Adjustment<a class="headerlink" href="#auto-saving-interval-adjustment" title="Permalink to this headline">¶</a></h2>
-<p>Vanilla Minecraft defaults to saving all chunks every 900 ticks (45 seconds). If you wish to raise or
-lower this interval, then change it in the servers <code class="docutils literal"><span class="pre">global.conf</span></code> file:</p>
-<div class="highlight-none"><div class="highlight"><pre>world {
-      # The auto-save tick interval used when saving global player data.
-      # Set to 0 to disable. (Default: 900) Note: 20 ticks is equivalent to 1 second.
-      auto-player-save-interval=900
-
-      # The auto-save tick interval used to save all loaded chunks in a world.
-      # Set to 0 to disable. (Default: 900) Note: 20 ticks is equivalent to 1 second.
-      auto-save-interval=900
-      }
-</pre></div>
-</div>
-<p>Reducing this interval increases the load on your server&#8217;s CPU and storage, but reduces the data loss that might occur
-if the server locks up or the power fails. Conversely, increasing the auto-save interval reduces the load on the
-hardware, but at the expense of increasing the amount of in-game progress that could be lost in case of server failure.</p>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Server</a></li>
+            <li><a href="../" accesskey="U">Server Management</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -648,6 +540,142 @@ hardware, but at the expense of increasing the amount of in-game progress that c
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="performance-tweaks">
+<h1>Performance Tweaks<a class="headerlink" href="#performance-tweaks" title="Permalink to this headline">¶</a></h1>
+<p>Sponge provides several performance enhancing and tweaking options to help you run a lag-free server, even
+under heavy load.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While we try to improve the performance of every server, the performance gains depend on your setup. Please run some
+tests to ensure you configured your Sponge server to get the most out of it!</p>
+</div>
+<div class="section" id="entity-activation-range">
+<h2>Entity Activation Range<a class="headerlink" href="#entity-activation-range" title="Permalink to this headline">¶</a></h2>
+<p>This setting will alter the loading behaviour of entities around players. Lowering the value will only load close
+entities, while raising it will also load entities that are far away from the player. Lower this to improve your
+servers performance, especially with high entity and player counts.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">It&#8217;s possible to specify the activation range <em>per mob</em>. You can set <code class="docutils literal"><span class="pre">auto-populate</span></code> to <code class="docutils literal"><span class="pre">true</span></code> and Sponge
+will then add all available mobs to the activation range list, it is advised to disable it after the list is filled.
+If you add new mobs to the game, just repeat the procedure and those new mobs will also be added to the list below.</p>
+</div>
+<div class="highlight-none"><div class="highlight"><pre>entity-activation-range {
+      # If enabled, newly discovered entities will be added to this config with
+      # a default value.
+      auto-populate=false
+
+      # Default activation ranges used for all entities unless overidden.
+      defaults {
+          ambient=32
+          aquatic=32
+          creature=32
+          misc=16
+          monster=32
+      }
+</pre></div>
+</div>
+</div>
+<div class="section" id="cache-tameable-owners">
+<h2>Cache Tameable Owners<a class="headerlink" href="#cache-tameable-owners" title="Permalink to this headline">¶</a></h2>
+<p>This setting will cache tameable entities owners&#8217; UUID to save constant lookups from the data watcher.</p>
+<div class="highlight-none"><div class="highlight"><pre>optimizations {
+    # Caches tameable entities owners to avoid constant lookups against data watchers. If mods cause issue, disable.
+    cache-tameable-owners=true
+    }
+</pre></div>
+</div>
+</div>
+<div class="section" id="drops-pre-merge">
+<h2>Drops Pre Merge<a class="headerlink" href="#drops-pre-merge" title="Permalink to this headline">¶</a></h2>
+<p>This setting will pre-process and potentially merge item drops to avoid spawning extra entities that are then merged
+post-spawning.</p>
+<div class="highlight-none"><div class="highlight"><pre>optimizations {
+    # If enabled, block item drops are pre-processed to avoid
+    # having to spawn extra entities that will be merged post spawning.
+    # Usually, Sponge is smart enough to determine when to attempt an item pre-merge
+    # and when not to, however, in certain cases, some mods rely on items not being
+    # pre-merged and actually spawned, in which case, the items will flow right through
+    # without being merged.
+    drops-pre-merge=true
+    }
+</pre></div>
+</div>
+</div>
+<div class="section" id="lighting-patch-to-ignore-unloaded-chunks">
+<h2>Lighting Patch to Ignore Unloaded Chunks<a class="headerlink" href="#lighting-patch-to-ignore-unloaded-chunks" title="Permalink to this headline">¶</a></h2>
+<p>Enabling this setting avoids loading lighting data from not yet generated chunks. This reduces disk access and chunk
+generation and thus improves performances while applying light levels to blocks.</p>
+<div class="highlight-none"><div class="highlight"><pre>optimizations {
+      # This prevents chunks being loaded for getting light values at specific
+      # block positions. May have side effects.
+      ignore-unloaded-chunks-on-get-light=true
+      }
+</pre></div>
+</div>
+</div>
+<div class="section" id="cache-chunk-lookups">
+<h2>Cache Chunk Lookups<a class="headerlink" href="#cache-chunk-lookups" title="Permalink to this headline">¶</a></h2>
+<p>This setting enables Sponge&#8217;s internal chunk caching to improve the server&#8217;s performance. It uses a small, additional
+amount of memory for caching purposes. If you run out of memory, try to disable it.</p>
+<div class="highlight-none"><div class="highlight"><pre>optimizations {
+      # Caches chunks internally for faster returns when querying at various
+      # positions
+      chunk-map-caching=true
+      }
+</pre></div>
+</div>
+</div>
+<div class="section" id="inline-block-position-checks">
+<h2>Inline Block Position Checks<a class="headerlink" href="#inline-block-position-checks" title="Permalink to this headline">¶</a></h2>
+<p>This setting inlines the check for if a block position is valid in a world.</p>
+<div class="highlight-none"><div class="highlight"><pre>optimizations{
+      # Inlines a simple check for whether a BlockPosition is valid
+      # in a world. By patching the check, the JVM can optimize the
+      # method further while reducing the number of operations performed
+      # for such a simple check. This may however break mods that alter
+      # world heights and can thus be disabled in those cases.
+      inline-block-position-checks=true
+      }
+</pre></div>
+</div>
+</div>
+<div class="section" id="auto-saving-interval-adjustment">
+<h2>Auto-Saving Interval Adjustment<a class="headerlink" href="#auto-saving-interval-adjustment" title="Permalink to this headline">¶</a></h2>
+<p>Vanilla Minecraft defaults to saving all chunks every 900 ticks (45 seconds). If you wish to raise or
+lower this interval, then change it in the servers <code class="docutils literal"><span class="pre">global.conf</span></code> file:</p>
+<div class="highlight-none"><div class="highlight"><pre>world {
+      # The auto-save tick interval used when saving global player data.
+      # Set to 0 to disable. (Default: 900) Note: 20 ticks is equivalent to 1 second.
+      auto-player-save-interval=900
+
+      # The auto-save tick interval used to save all loaded chunks in a world.
+      # Set to 0 to disable. (Default: 900) Note: 20 ticks is equivalent to 1 second.
+      auto-save-interval=900
+      }
+</pre></div>
+</div>
+<p>Reducing this interval increases the load on your server&#8217;s CPU and storage, but reduces the data loss that might occur
+if the server locks up or the power fails. Conversely, increasing the auto-save interval reduces the load on the
+hardware, but at the expense of increasing the amount of in-game progress that could be lost in case of server failure.</p>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

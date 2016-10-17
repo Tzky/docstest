@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Configuration Loaders &mdash; Sponge 4.1.0 documentation</title>
+     <title>Configuration Loaders &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Configuring Plugins" href="../" />
         <link rel="next" title="Configuration Nodes" href="../nodes/" />
         <link rel="prev" title="Configuring Plugins" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,180 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/configuration/loaders.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../nodes/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">Configuring Plugins</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="configuration-loaders">
-<h1>Configuration Loaders<a class="headerlink" href="#configuration-loaders" title="Permalink to this headline">¶</a></h1>
-<p>Let&#8217;s break down how Configurate works, beginning with the loading process. Configurate provides
-<a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a>s for common configuration formats, standing as the manager of the physical
-configuration file, allowing you to save and load data from the given resource. They also allow you to load empty
-configurations, giving you the option of hard-coding default values or loading from a pre-written file.</p>
-<div class="section" id="getting-your-loader">
-<h2>Getting your Loader<a class="headerlink" href="#getting-your-loader" title="Permalink to this headline">¶</a></h2>
-<p>First, let&#8217;s grab a new <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a> that points to our configuration file.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.hocon.HoconConfigurationLoader</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="o">;</span>
-
-<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
-<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
-  <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
-</pre></div>
-</div>
-<p>The loader will also hold a generic type depending what kind of node it will build. These <em>Configuration Nodes</em> will be
-discussed in <a class="reference internal" href="../nodes/"><em>a later section</em></a>.</p>
-<p><code class="docutils literal"><span class="pre">ConfigurationLoader</span></code>s usually hold a builder for you to statically access and create a new instance of the loader of
-your desired type. For a basic configuration, we don&#8217;t really need to specify anything other than the file we want to
-load from and/or save to, so all we&#8217;ll do is tell it exactly that, using
-<code class="docutils literal"><span class="pre">HoconConfigurationLoader.builder().setPath(path)</span></code>. We then tell the builder to build the instance (<code class="docutils literal"><span class="pre">build()</span></code>) for
-it and store it in a variable.</p>
-<p>Of course, this isn&#8217;t the only way to load a file. The builder also has the method <code class="docutils literal"><span class="pre">setURL(URL)</span></code>, in case you want
-to load a resource without using a <code class="docutils literal"><span class="pre">Path</span></code> object. Bear in mind that configuration loaders created from an <code class="docutils literal"><span class="pre">URL</span></code>
-are read-only as they have no way of writing back data to the URL.</p>
-<p>This functionality may be used to bundle default configurations with your plugin jar file and load them as initial
-configuration to be edited by the server administrator (or your plugin itself).</p>
-</div>
-<div class="section" id="loading-and-saving">
-<h2>Loading and Saving<a class="headerlink" href="#loading-and-saving" title="Permalink to this headline">¶</a></h2>
-<p>Once you obtained your <code class="docutils literal"><span class="pre">ConfigurationLoader</span></code> you can use it to obtain an empty <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a> using the
-<code class="docutils literal"><span class="pre">createEmptyNode()</span></code> method.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationOptions</span><span class="o">;</span>
-
-<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
-<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
-<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">createEmptyNode</span><span class="o">(</span><span class="n">ConfigurationOptions</span><span class="o">.</span><span class="na">defaults</span><span class="o">());</span>
-</pre></div>
-</div>
-<p>This method expects the <cite>ninja.leaping.configurate.ConfigurationOptions</cite> to use as a parameter. Unless you want to use
-features like custom type serialization, you can just use <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/ConfigurationOptions.html#defaults--">ConfigurationOptions#defaults()</a> to create an
-options object with default values.</p>
-<p>Using the <code class="docutils literal"><span class="pre">load()</span></code> method you can attempt to load the configuration contents from the source specified upon creation
-of the <code class="docutils literal"><span class="pre">ConfigurationLoader</span></code>. It also expects a <code class="docutils literal"><span class="pre">ConfigurationOptions</span></code> instance, but also provides a no-args form
-that is shorthand for <code class="docutils literal"><span class="pre">load(ConfigurationOptions.defaults())</span></code>.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-
-<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
-<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
-<span class="n">ConfigurationNode</span> <span class="n">rootNode</span><span class="o">;</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// error</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>If the <code class="docutils literal"><span class="pre">Path</span></code> given does not exist, the <code class="docutils literal"><span class="pre">load()</span></code> method will create an empty <code class="docutils literal"><span class="pre">ConfigurationNode</span></code>. Any other error
-will lead to an <code class="docutils literal"><span class="pre">IOException</span></code> being thrown which you will need to handle properly.</p>
-<p>Once you modified your <code class="docutils literal"><span class="pre">ConfigurationNode</span></code> to hold the data you like to be saved, you can use the
-<code class="docutils literal"><span class="pre">ConfigurationLoader</span></code> to save the node to the file specified while creating the loader. If that file does not exist,
-it will be created. If it does exist, all contents will be overwritten.</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="k">try</span> <span class="o">{</span>
-    <span class="n">loader</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">rootNode</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// error</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p>Again, errors will be propagated as an <code class="docutils literal"><span class="pre">IOException</span></code> and must be handled.</p>
-</div>
-<div class="section" id="example-loading-a-default-config-from-the-plugin-jar-file">
-<h2>Example: Loading a default config from the plugin jar file<a class="headerlink" href="#example-loading-a-default-config-from-the-plugin-jar-file" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
-
-<span class="n">URL</span> <span class="n">jarConfigFile</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getResource</span><span class="o">(</span><span class="s">&quot;defaultConfig.conf&quot;</span><span class="o">);</span>
-<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
-  <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setURL</span><span class="o">(</span><span class="n">jarConfigFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
-</pre></div>
-</div>
-<p>For this example it is important to note that the <code class="docutils literal"><span class="pre">getResource(...)</span></code> method works relative to the location of the
-class it is called on. So if in the above example the class lies in the package <code class="docutils literal"><span class="pre">me.username.myplugin</span></code>, the
-<code class="docutils literal"><span class="pre">defaultConfig.conf</span></code> file must not lie in the jar file root, but instead in the directory <code class="docutils literal"><span class="pre">me/username/myplugin</span></code>.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Since all Sponge plugins share a single namespace, all resources available to the <code class="docutils literal"><span class="pre">getResource()</span></code> method are
-visible to all other plugins as well. Therefore, resources placed in the root of a jar may overwrite (or be
-overwritten by) identically named resources in another jar. Placing those resources in unique folder structures
-similar to your java packages will mitigate the danger of accidentally having a resource file overwritten by
-another plugin.</p>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">Configuring Plugins</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -653,6 +540,120 @@ another plugin.</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="configuration-loaders">
+<h1>Configuration Loaders<a class="headerlink" href="#configuration-loaders" title="Permalink to this headline">¶</a></h1>
+<p>Let&#8217;s break down how Configurate works, beginning with the loading process. Configurate provides
+<a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/loader/ConfigurationLoader.html">ConfigurationLoader</a>s for common configuration formats, standing as the manager of the physical
+configuration file, allowing you to save and load data from the given resource. They also allow you to load empty
+configurations, giving you the option of hard-coding default values or loading from a pre-written file.</p>
+<div class="section" id="getting-your-loader">
+<h2>Getting your Loader<a class="headerlink" href="#getting-your-loader" title="Permalink to this headline">¶</a></h2>
+<p>First, let&#8217;s grab a new <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/hocon/HoconConfigurationLoader.html">HoconConfigurationLoader</a> that points to our configuration file.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.nio.file.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.commented.CommentedConfigurationNode</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.hocon.HoconConfigurationLoader</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.loader.ConfigurationLoader</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
+  <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>The loader will also hold a generic type depending what kind of node it will build. These <em>Configuration Nodes</em> will be
+discussed in <a class="reference internal" href="../nodes/"><em>a later section</em></a>.</p>
+<p><code class="docutils literal"><span class="pre">ConfigurationLoader</span></code>s usually hold a builder for you to statically access and create a new instance of the loader of
+your desired type. For a basic configuration, we don&#8217;t really need to specify anything other than the file we want to
+load from and/or save to, so all we&#8217;ll do is tell it exactly that, using
+<code class="docutils literal"><span class="pre">HoconConfigurationLoader.builder().setPath(path)</span></code>. We then tell the builder to build the instance (<code class="docutils literal"><span class="pre">build()</span></code>) for
+it and store it in a variable.</p>
+<p>Of course, this isn&#8217;t the only way to load a file. The builder also has the method <code class="docutils literal"><span class="pre">setURL(URL)</span></code>, in case you want
+to load a resource without using a <code class="docutils literal"><span class="pre">Path</span></code> object. Bear in mind that configuration loaders created from an <code class="docutils literal"><span class="pre">URL</span></code>
+are read-only as they have no way of writing back data to the URL.</p>
+<p>This functionality may be used to bundle default configurations with your plugin jar file and load them as initial
+configuration to be edited by the server administrator (or your plugin itself).</p>
+</div>
+<div class="section" id="loading-and-saving">
+<h2>Loading and Saving<a class="headerlink" href="#loading-and-saving" title="Permalink to this headline">¶</a></h2>
+<p>Once you obtained your <code class="docutils literal"><span class="pre">ConfigurationLoader</span></code> you can use it to obtain an empty <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/ConfigurationNode.html">ConfigurationNode</a> using the
+<code class="docutils literal"><span class="pre">createEmptyNode()</span></code> method.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationNode</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">ninja.leaping.configurate.ConfigurationOptions</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">createEmptyNode</span><span class="o">(</span><span class="n">ConfigurationOptions</span><span class="o">.</span><span class="na">defaults</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>This method expects the <cite>ninja.leaping.configurate.ConfigurationOptions</cite> to use as a parameter. Unless you want to use
+features like custom type serialization, you can just use <a class="reference external" href="http://zml2008.github.io/configurate/apidocs/ninja/leaping/configurate/ConfigurationOptions.html#defaults--">ConfigurationOptions#defaults()</a> to create an
+options object with default values.</p>
+<p>Using the <code class="docutils literal"><span class="pre">load()</span></code> method you can attempt to load the configuration contents from the source specified upon creation
+of the <code class="docutils literal"><span class="pre">ConfigurationLoader</span></code>. It also expects a <code class="docutils literal"><span class="pre">ConfigurationOptions</span></code> instance, but also provides a no-args form
+that is shorthand for <code class="docutils literal"><span class="pre">load(ConfigurationOptions.defaults())</span></code>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">potentialFile</span> <span class="o">=</span> <span class="n">getConfigPath</span><span class="o">();</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span> <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setPath</span><span class="o">(</span><span class="n">potentialFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+<span class="n">ConfigurationNode</span> <span class="n">rootNode</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">rootNode</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// error</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>If the <code class="docutils literal"><span class="pre">Path</span></code> given does not exist, the <code class="docutils literal"><span class="pre">load()</span></code> method will create an empty <code class="docutils literal"><span class="pre">ConfigurationNode</span></code>. Any other error
+will lead to an <code class="docutils literal"><span class="pre">IOException</span></code> being thrown which you will need to handle properly.</p>
+<p>Once you modified your <code class="docutils literal"><span class="pre">ConfigurationNode</span></code> to hold the data you like to be saved, you can use the
+<code class="docutils literal"><span class="pre">ConfigurationLoader</span></code> to save the node to the file specified while creating the loader. If that file does not exist,
+it will be created. If it does exist, all contents will be overwritten.</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="k">try</span> <span class="o">{</span>
+    <span class="n">loader</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">rootNode</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// error</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Again, errors will be propagated as an <code class="docutils literal"><span class="pre">IOException</span></code> and must be handled.</p>
+</div>
+<div class="section" id="example-loading-a-default-config-from-the-plugin-jar-file">
+<h2>Example: Loading a default config from the plugin jar file<a class="headerlink" href="#example-loading-a-default-config-from-the-plugin-jar-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span>
+
+<span class="n">URL</span> <span class="n">jarConfigFile</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getResource</span><span class="o">(</span><span class="s">&quot;defaultConfig.conf&quot;</span><span class="o">);</span>
+<span class="n">ConfigurationLoader</span><span class="o">&lt;</span><span class="n">CommentedConfigurationNode</span><span class="o">&gt;</span> <span class="n">loader</span> <span class="o">=</span>
+  <span class="n">HoconConfigurationLoader</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">setURL</span><span class="o">(</span><span class="n">jarConfigFile</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>For this example it is important to note that the <code class="docutils literal"><span class="pre">getResource(...)</span></code> method works relative to the location of the
+class it is called on. So if in the above example the class lies in the package <code class="docutils literal"><span class="pre">me.username.myplugin</span></code>, the
+<code class="docutils literal"><span class="pre">defaultConfig.conf</span></code> file must not lie in the jar file root, but instead in the directory <code class="docutils literal"><span class="pre">me/username/myplugin</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Since all Sponge plugins share a single namespace, all resources available to the <code class="docutils literal"><span class="pre">getResource()</span></code> method are
+visible to all other plugins as well. Therefore, resources placed in the root of a jar may overwrite (or be
+overwritten by) identically named resources in another jar. Placing those resources in unique folder structures
+similar to your java packages will mitigate the danger of accidentally having a resource file overwritten by
+another plugin.</p>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

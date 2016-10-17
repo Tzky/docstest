@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Setting Up Eclipse &mdash; Sponge 4.1.0 documentation</title>
+     <title>Setting Up Eclipse &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../" />
         <link rel="up" title="Setting Up Your Workspace" href="../" />
         <link rel="next" title="Setting Up Your Project" href="../../project/" />
         <link rel="prev" title="Setting Up IntelliJ IDEA" href="../idea/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,186 +66,74 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/workspace/eclipse.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../idea/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../../project/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../" >Creating a Plugin</a></li>
-                <li><a href="../" accesskey="U">Setting Up Your Workspace</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="setting-up-eclipse">
-<h1>Setting Up Eclipse<a class="headerlink" href="#setting-up-eclipse" title="Permalink to this headline">¶</a></h1>
-<p>This article describes how to configure your <strong>Eclipse</strong> workspace for plugin development with SpongeAPI and <a class="reference internal" href="../../buildsystem/"><em>a
-build system such as Maven or Gradle</em></a>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">A tutorial by Mumfrey showing the setup of a Sponge workspace in Eclipse, using the new features in Buildship and ForgeGradle,
-can be viewed <a class="reference external" href="https://www.youtube.com/watch?v=R8NcakQtHVI">here</a>.</p>
-</div>
-<div class="section" id="gradle">
-<h2>Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="creating-your-project">
-<h3>Creating your project<a class="headerlink" href="#creating-your-project" title="Permalink to this headline">¶</a></h3>
-<p>You must first install the <strong>Gradle Integration Plugin</strong> before using Gradle in Eclipse. This only needs to be done
-upon the creation of your first project.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Typically, you do not need the optional Spring modules distributed with this plugin, so you can uncheck them during
-installation.</p>
-</div>
-<ul class="simple">
-<li>Open <strong>Eclipse</strong>.</li>
-<li>Click <code class="docutils literal"><span class="pre">Help</span> <span class="pre">&gt;</span> <span class="pre">Eclipse</span> <span class="pre">Marketplace</span></code>.</li>
-<li>Search for <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">Integration</span> <span class="pre">Plugin</span></code>.</li>
-<li>Install the <strong>Gradle Integration Plugin</strong>.</li>
-</ul>
-<p>You may then proceed to create your project.</p>
-<ul class="simple">
-<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code>.</li>
-<li>Select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code>.</li>
-<li>Click <code class="docutils literal"><span class="pre">Next</span></code>.</li>
-<li>Enter a project name, then click <code class="docutils literal"><span class="pre">Finish</span></code>.</li>
-</ul>
-</div>
-<div class="section" id="editing-the-build-script">
-<h3>Editing the build script<a class="headerlink" href="#editing-the-build-script" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Open <code class="docutils literal"><span class="pre">build.gradle</span></code> in the navigator.</li>
-<li>Edit the build script according to the instructions at <a class="reference internal" href="../../project/gradle/"><em>Setting Up Gradle</em></a>.</li>
-<li>Right-click your project, and select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Refresh</span> <span class="pre">Dependencies</span></code>.</li>
-</ul>
-</div>
-<div class="section" id="importing-your-project">
-<h3>Importing your project<a class="headerlink" href="#importing-your-project" title="Permalink to this headline">¶</a></h3>
-<p>If you&#8217;ve already started with your project and want to import it again at a later point you need to import it instead
-of re-creating it inside your IDE:</p>
-<ul class="simple">
-<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
-<li>Select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code></li>
-<li>Navigate to the root folder of the project</li>
-<li>Click Finish</li>
-</ul>
-</div>
-</div>
-<div class="section" id="maven">
-<h2>Maven<a class="headerlink" href="#maven" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Creating your project<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Open <strong>Eclipse</strong>.</li>
-<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code>.</li>
-<li>Select <code class="docutils literal"><span class="pre">Maven</span></code> on the left side of the popup, and select <code class="docutils literal"><span class="pre">Maven</span> <span class="pre">Project</span></code> on the right side.</li>
-<li>Click <code class="docutils literal"><span class="pre">Next</span></code>.</li>
-<li>Select <code class="docutils literal"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">simple</span> <span class="pre">project</span></code>, unless you require a more advanced setup.</li>
-<li>Enter your <strong>Group ID</strong>, <strong>Artifact ID</strong>, <strong>Version</strong>, project name, and project description.<ul>
-<li>Your <strong>Group ID</strong> should usually correspond to your Java package name. See <a class="reference internal" href="../../plugin-class/"><em>Main Plugin Class</em></a> for details.</li>
-<li>Your <strong>Artifact ID</strong> should usually correspond to your <strong>plugin ID</strong> you chose earlier, e.g. <code class="docutils literal"><span class="pre">myplugin</span></code>.</li>
-<li>Your <strong>Version</strong> is up to you.</li>
-</ul>
-</li>
-<li>Click <code class="docutils literal"><span class="pre">Finish</span></code>.</li>
-</ul>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Eclipse often does not open new projects after creating them. If this happens, try closing the Eclipse welcome
-screen; your project should be open behind it.</p>
-</div>
-</div>
-<div class="section" id="editing-the-project-configuration">
-<h3>Editing the project configuration<a class="headerlink" href="#editing-the-project-configuration" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Open <code class="docutils literal"><span class="pre">pom.xml</span></code> in the navigator.</li>
-<li>Edit the build configuration according to the instructions at <a class="reference internal" href="../../project/maven/"><em>Setting Up Maven</em></a>.</li>
-<li>Refresh your Maven project.</li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h3>Importing your project<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>If you&#8217;ve already started with your project and want to import it again at a later point you need to import it instead
-of re-creating it inside your IDE:</p>
-<ul class="simple">
-<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
-<li>Select <code class="docutils literal"><span class="pre">Maven</span> <span class="pre">&gt;</span> <span class="pre">Existing</span> <span class="pre">Maven</span> <span class="pre">Projects</span></code></li>
-<li>Navigate to the root folder of the project</li>
-<li>Click Finish</li>
-</ul>
-</div>
-</div>
-<div class="section" id="git-integration">
-<h2>Git Integration<a class="headerlink" href="#git-integration" title="Permalink to this headline">¶</a></h2>
-<p>The Eclipse Foundation offers documentation on using Eclipse&#8217;s EGit plugin:</p>
-<p><a class="reference external" href="http://www.eclipse.org/egit/documentation/">http://www.eclipse.org/egit/documentation/</a></p>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../" >Creating a Plugin</a></li>
+            <li><a href="../" accesskey="U">Setting Up Your Workspace</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../search/" method="get">
@@ -659,6 +540,126 @@ of re-creating it inside your IDE:</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="setting-up-eclipse">
+<h1>Setting Up Eclipse<a class="headerlink" href="#setting-up-eclipse" title="Permalink to this headline">¶</a></h1>
+<p>This article describes how to configure your <strong>Eclipse</strong> workspace for plugin development with SpongeAPI and <a class="reference internal" href="../../buildsystem/"><em>a
+build system such as Maven or Gradle</em></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A tutorial by Mumfrey showing the setup of a Sponge workspace in Eclipse, using the new features in Buildship and ForgeGradle,
+can be viewed <a class="reference external" href="https://www.youtube.com/watch?v=R8NcakQtHVI">here</a>.</p>
+</div>
+<div class="section" id="gradle">
+<h2>Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-your-project">
+<h3>Creating your project<a class="headerlink" href="#creating-your-project" title="Permalink to this headline">¶</a></h3>
+<p>You must first install the <strong>Gradle Integration Plugin</strong> before using Gradle in Eclipse. This only needs to be done
+upon the creation of your first project.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Typically, you do not need the optional Spring modules distributed with this plugin, so you can uncheck them during
+installation.</p>
+</div>
+<ul class="simple">
+<li>Open <strong>Eclipse</strong>.</li>
+<li>Click <code class="docutils literal"><span class="pre">Help</span> <span class="pre">&gt;</span> <span class="pre">Eclipse</span> <span class="pre">Marketplace</span></code>.</li>
+<li>Search for <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">Integration</span> <span class="pre">Plugin</span></code>.</li>
+<li>Install the <strong>Gradle Integration Plugin</strong>.</li>
+</ul>
+<p>You may then proceed to create your project.</p>
+<ul class="simple">
+<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code>.</li>
+<li>Select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code>.</li>
+<li>Click <code class="docutils literal"><span class="pre">Next</span></code>.</li>
+<li>Enter a project name, then click <code class="docutils literal"><span class="pre">Finish</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="editing-the-build-script">
+<h3>Editing the build script<a class="headerlink" href="#editing-the-build-script" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Open <code class="docutils literal"><span class="pre">build.gradle</span></code> in the navigator.</li>
+<li>Edit the build script according to the instructions at <a class="reference internal" href="../../project/gradle/"><em>Setting Up Gradle</em></a>.</li>
+<li>Right-click your project, and select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Refresh</span> <span class="pre">Dependencies</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="importing-your-project">
+<h3>Importing your project<a class="headerlink" href="#importing-your-project" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;ve already started with your project and want to import it again at a later point you need to import it instead
+of re-creating it inside your IDE:</p>
+<ul class="simple">
+<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
+<li>Select <code class="docutils literal"><span class="pre">Gradle</span> <span class="pre">&gt;</span> <span class="pre">Gradle</span> <span class="pre">Project</span></code></li>
+<li>Navigate to the root folder of the project</li>
+<li>Click Finish</li>
+</ul>
+</div>
+</div>
+<div class="section" id="maven">
+<h2>Maven<a class="headerlink" href="#maven" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Creating your project<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Open <strong>Eclipse</strong>.</li>
+<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">&gt;</span> <span class="pre">Other</span></code>.</li>
+<li>Select <code class="docutils literal"><span class="pre">Maven</span></code> on the left side of the popup, and select <code class="docutils literal"><span class="pre">Maven</span> <span class="pre">Project</span></code> on the right side.</li>
+<li>Click <code class="docutils literal"><span class="pre">Next</span></code>.</li>
+<li>Select <code class="docutils literal"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">simple</span> <span class="pre">project</span></code>, unless you require a more advanced setup.</li>
+<li>Enter your <strong>Group ID</strong>, <strong>Artifact ID</strong>, <strong>Version</strong>, project name, and project description.<ul>
+<li>Your <strong>Group ID</strong> should usually correspond to your Java package name. See <a class="reference internal" href="../../plugin-class/"><em>Main Plugin Class</em></a> for details.</li>
+<li>Your <strong>Artifact ID</strong> should usually correspond to your <strong>plugin ID</strong> you chose earlier, e.g. <code class="docutils literal"><span class="pre">myplugin</span></code>.</li>
+<li>Your <strong>Version</strong> is up to you.</li>
+</ul>
+</li>
+<li>Click <code class="docutils literal"><span class="pre">Finish</span></code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Eclipse often does not open new projects after creating them. If this happens, try closing the Eclipse welcome
+screen; your project should be open behind it.</p>
+</div>
+</div>
+<div class="section" id="editing-the-project-configuration">
+<h3>Editing the project configuration<a class="headerlink" href="#editing-the-project-configuration" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Open <code class="docutils literal"><span class="pre">pom.xml</span></code> in the navigator.</li>
+<li>Edit the build configuration according to the instructions at <a class="reference internal" href="../../project/maven/"><em>Setting Up Maven</em></a>.</li>
+<li>Refresh your Maven project.</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Importing your project<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;ve already started with your project and want to import it again at a later point you need to import it instead
+of re-creating it inside your IDE:</p>
+<ul class="simple">
+<li>Click <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code></li>
+<li>Select <code class="docutils literal"><span class="pre">Maven</span> <span class="pre">&gt;</span> <span class="pre">Existing</span> <span class="pre">Maven</span> <span class="pre">Projects</span></code></li>
+<li>Navigate to the root folder of the project</li>
+<li>Click Finish</li>
+</ul>
+</div>
+</div>
+<div class="section" id="git-integration">
+<h2>Git Integration<a class="headerlink" href="#git-integration" title="Permalink to this headline">¶</a></h2>
+<p>The Eclipse Foundation offers documentation on using Eclipse&#8217;s EGit plugin:</p>
+<p><a class="reference external" href="http://www.eclipse.org/egit/documentation/">http://www.eclipse.org/egit/documentation/</a></p>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

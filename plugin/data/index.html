@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>The Data API &mdash; Sponge 4.1.0 documentation</title>
+     <title>The Data API &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="Creating a Plugin" href="../" />
         <link rel="next" title="Using Keys" href="keys/" />
         <link rel="prev" title="TextTemplates" href="../text/templates/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,161 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/data/index.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../text/templates/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="keys/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">Creating a Plugin</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="the-data-api">
-<h1>The Data API<a class="headerlink" href="#the-data-api" title="Permalink to this headline">¶</a></h1>
-<p>The unified Data API aims to provide a consistent way of accessing and modifying data. &#8216;Data&#8217;, in this context
-means any data that is consistently synchronized between client and server. It can be changed server-side and
-then those changes will be synchronized to the connected clients. This includes, among many others, the text on
-a sign, the looks of a horse or the health of any living entity.</p>
-<p>Where other approaches define the available data using interfaces and inheritance (like a <code class="docutils literal"><span class="pre">LivingEntity</span></code>
-interface providing getter and setter functions for current and maximum health), in Sponge every entity, block
-etc. is completely oblivious to what data it holds. While this may appear less straightforward than direct
-accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
-specific values is no less straightforward.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">As of writing, the Data API is not yet fully implemented. Refer to the <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">Implementation Tracker</a>, ask in the <code class="docutils literal"><span class="pre">#spongedev</span></code> IRC channel or on the
-<a class="reference external" href="https://forums.spongepowered.org">Forums</a> to find out if the data you need to work with is available yet.</p>
-</div>
-<div class="section" id="concepts">
-<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
-<p>On first glance at the API docs, the data API threatens to overwhelm you with lots of interfaces and packages. But
-to simply use the data API, you will not have to deal with many of them, as most interfaces found there are just
-specific data manipulators.</p>
-<div class="section" id="dataholder">
-<h3>DataHolder<a class="headerlink" href="#dataholder" title="Permalink to this headline">¶</a></h3>
-<p>A data holder is just that - something that holds data. It provides methods to retrieve and offer back data. The
-interface itself is completely oblivious to the type of data held. Since only the implementations will possess
-this knowledge, it is possible to ask a <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> to provide data it does not have or to accept data it
-cannot use. In those cases, the return values of the methods will provide the information that data is not available
-(via <code class="docutils literal"><span class="pre">Optional.empty()</span></code>) or not accepted (via the <a class="reference internal" href="transactions/"><em>DataTransactionResult</em></a>).</p>
-</div>
-<div class="section" id="property">
-<h3>Property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
-<p>A property too is data, but not synchronized between server and clients. Therefore, it can only be
-changed by modifications present on both client and server. Since Sponge is not intended to require a
-client-side counterpart, properties are not modifiable.
-Examples of properties are the harvesting ablities on tools (represented as <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
-absorption of an equippable armor item (represented as <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
-</div>
-<div class="section" id="datamanipulator">
-<h3>DataManipulator<a class="headerlink" href="#datamanipulator" title="Permalink to this headline">¶</a></h3>
-<p>A data manipulator represents points of cohesive data that describes a certain component of its holder. For
-example <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>, which contains both current and maximum health. If a data holder has <code class="docutils literal"><span class="pre">HealthData</span></code>, it
-has health that can somehow be depleted and replenished and can die if that health is depleted. This allows for the
-re-use of such components over the API and prevents duplication of accessor methods. For example, sheep, stained glass
-blocks and leather armor all can share the <a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/manipulator/mutable/DyeableData.html">DyeableData</a> holding the color they are dyed in.</p>
-</div>
-<div class="section" id="key">
-<h3>Key<a class="headerlink" href="#key" title="Permalink to this headline">¶</a></h3>
-<p>A <code class="docutils literal"><span class="pre">Key</span></code> is a unique identifier for a single point of data and can be used to directly read or set that point of
-data without worrying about data manipulators. It was designed to provide a convenient way of accessing data
-similar to direct getter/setter methods. All keys used within Sponge are listed as constants in the
-<a class="reference external" href="https://jd.spongepowered.org/4.1.0/org/spongepowered/api/data/key/Keys.html">Keys</a> utility class.</p>
-</div>
-<div class="section" id="value">
-<h3>Value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
-<p>Within the Data API, a value referred to by a <code class="docutils literal"><span class="pre">Key</span></code> is encoded in a container object. For this documentation,
-it is referred to as &#8216;keyed value&#8217; to avoid confusion with the actual value. A keyed value encapsulates the
-actual data value (if it is present), a default value (to be used if no direct value is present) and the Key by
-which the value is identified.</p>
-</div>
-</div>
-<div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="keys/">Using Keys</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="datamanipulators/">Data Manipulators</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="transactions/">Transactions</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="serialization/">Serializing Data</a><ul class="simple">
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">Creating a Plugin</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -634,6 +539,102 @@ which the value is identified.</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="the-data-api">
+<h1>The Data API<a class="headerlink" href="#the-data-api" title="Permalink to this headline">¶</a></h1>
+<p>The unified Data API aims to provide a consistent way of accessing and modifying data. &#8216;Data&#8217;, in this context
+means any data that is consistently synchronized between client and server. It can be changed server-side and
+then those changes will be synchronized to the connected clients. This includes, among many others, the text on
+a sign, the looks of a horse or the health of any living entity.</p>
+<p>Where other approaches define the available data using interfaces and inheritance (like a <code class="docutils literal"><span class="pre">LivingEntity</span></code>
+interface providing getter and setter functions for current and maximum health), in Sponge every entity, block
+etc. is completely oblivious to what data it holds. While this may appear less straightforward than direct
+accessor methods, it is foremost far more extensible. And thanks to the addition of <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/key/Key.html">Key</a>s, simply accessing
+specific values is no less straightforward.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As of writing, the Data API is not yet fully implemented. Refer to the <a class="reference external" href="https://github.com/SpongePowered/SpongeCommon/issues/8">Implementation Tracker</a>, ask in the <code class="docutils literal"><span class="pre">#spongedev</span></code> IRC channel or on the
+<a class="reference external" href="https://forums.spongepowered.org">Forums</a> to find out if the data you need to work with is available yet.</p>
+</div>
+<div class="section" id="concepts">
+<h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
+<p>On first glance at the API docs, the data API threatens to overwhelm you with lots of interfaces and packages. But
+to simply use the data API, you will not have to deal with many of them, as most interfaces found there are just
+specific data manipulators.</p>
+<div class="section" id="dataholder">
+<h3>DataHolder<a class="headerlink" href="#dataholder" title="Permalink to this headline">¶</a></h3>
+<p>A data holder is just that - something that holds data. It provides methods to retrieve and offer back data. The
+interface itself is completely oblivious to the type of data held. Since only the implementations will possess
+this knowledge, it is possible to ask a <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/DataHolder.html">DataHolder</a> to provide data it does not have or to accept data it
+cannot use. In those cases, the return values of the methods will provide the information that data is not available
+(via <code class="docutils literal"><span class="pre">Optional.empty()</span></code>) or not accepted (via the <a class="reference internal" href="transactions/"><em>DataTransactionResult</em></a>).</p>
+</div>
+<div class="section" id="property">
+<h3>Property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
+<p>A property too is data, but not synchronized between server and clients. Therefore, it can only be
+changed by modifications present on both client and server. Since Sponge is not intended to require a
+client-side counterpart, properties are not modifiable.
+Examples of properties are the harvesting ablities on tools (represented as <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/property/item/HarvestingProperty.html">HarvestingProperty</a> or the damage
+absorption of an equippable armor item (represented as <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/property/item/DamageAbsorptionProperty.html">DamageAbsorptionProperty</a>).</p>
+</div>
+<div class="section" id="datamanipulator">
+<h3>DataManipulator<a class="headerlink" href="#datamanipulator" title="Permalink to this headline">¶</a></h3>
+<p>A data manipulator represents points of cohesive data that describes a certain component of its holder. For
+example <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/entity/HealthData.html">HealthData</a>, which contains both current and maximum health. If a data holder has <code class="docutils literal"><span class="pre">HealthData</span></code>, it
+has health that can somehow be depleted and replenished and can die if that health is depleted. This allows for the
+re-use of such components over the API and prevents duplication of accessor methods. For example, sheep, stained glass
+blocks and leather armor all can share the <a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/manipulator/mutable/DyeableData.html">DyeableData</a> holding the color they are dyed in.</p>
+</div>
+<div class="section" id="key">
+<h3>Key<a class="headerlink" href="#key" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal"><span class="pre">Key</span></code> is a unique identifier for a single point of data and can be used to directly read or set that point of
+data without worrying about data manipulators. It was designed to provide a convenient way of accessing data
+similar to direct getter/setter methods. All keys used within Sponge are listed as constants in the
+<a class="reference external" href="https://jd.spongepowered.org/5.0.0/org/spongepowered/api/data/key/Keys.html">Keys</a> utility class.</p>
+</div>
+<div class="section" id="value">
+<h3>Value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<p>Within the Data API, a value referred to by a <code class="docutils literal"><span class="pre">Key</span></code> is encoded in a container object. For this documentation,
+it is referred to as &#8216;keyed value&#8217; to avoid confusion with the actual value. A keyed value encapsulates the
+actual data value (if it is present), a default value (to be used if no direct value is present) and the Key by
+which the value is identified.</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="keys/">Using Keys</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="datamanipulators/">Data Manipulators</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transactions/">Transactions</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialization/">Serializing Data</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

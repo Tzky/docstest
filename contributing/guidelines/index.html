@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>Contribution Guidelines &mdash; Sponge 4.1.0 documentation</title>
+     <title>Contribution Guidelines &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../" />
         <link rel="up" title="Contributing to Sponge" href="../" />
         <link rel="next" title="How to Git(Hub)" href="../howtogit/" />
         <link rel="prev" title="Contributing to Sponge" href="../" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,122 +66,73 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/contributing/guidelines.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../howtogit/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../" accesskey="U">Contributing to Sponge</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="contribution-guidelines">
-<h1>Contribution Guidelines<a class="headerlink" href="#contribution-guidelines" title="Permalink to this headline">¶</a></h1>
-<p>There will always be a need for developers to help us improve SpongeAPI. There is no such thing as a perfect project and
-things can always be improved. If you are a developer and are interested in helping then please do not hesitate. Just
-make sure you follow our guidelines.</p>
-<div class="section" id="general-steps">
-<h2>General steps<a class="headerlink" href="#general-steps" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Setup your workspace as described in <a class="reference internal" href="../../preparing/"><em>Preparing for Development</em></a>.</li>
-<li>Make sure you&#8217;re familiar with Git and GitHub. If your knowledge needs a refresh, take a look here: <a class="reference internal" href="../howtogit/"><em>How to Git(Hub)</em></a></li>
-<li>Check for existing issues in the <a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/issues">SpongeAPI</a>,
-<a class="reference external" href="https://github.com/SpongePowered/SpongeCommon">SpongeCommon</a>,
-<a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a>,
-<a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a>, and
-<a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a> repositories. There is possibly someone else already
-working on the same thing. You can also check
-<a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/labels/help%20wanted">issues marked with &#8220;help wanted&#8221;</a> for existing
-issues we need your help with.</li>
-</ol>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Please don&#8217;t submit pull request for small changes under 20 lines. Instead, <a class="reference external" href="https://webchat.esper.net/?channels=sponge">join #sponge on IRC (irc.esper.net)</a> or <a class="reference external" href="https://webchat.esper.net/?channels=spongedev">join #spongedev on IRC (irc.esper.net)</a> and we&#8217;ll change it together with the other smaller changes.</p>
-</div>
-<ol class="arabic simple" start="4">
-<li>If the issue requires a bigger change you may want to submit the issues without the necessary changes first, so we
-can confirm the issue and know that you&#8217;re working on fixing it. You should also create a WIP (work in process) pull
-request prefixed with <code class="docutils literal"><span class="pre">[WIP]</span></code> early so we can already start reviewing them.</li>
-<li>Fork the project, clone it and make your changes in an extra branch.</li>
-<li>Test your changes (make sure it compiles!), commit and push them to your fork.</li>
-<li>Submit the pull request with a short summary what you&#8217;ve changed and why it should be changed in that way.</li>
-<li>If you make additional changes, push new commits to your branch. <strong>Do not squash your changes</strong>, that makes it
-extremely hard to see what you&#8217;ve changed compared to the previous version of your pull request.</li>
-<li>Make sure your PR is rebased to the latest changes of the branch you&#8217;re intending to merge it into. If you need help
-rebasing it, just ask!</li>
-</ol>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">If you&#8217;re unsure which branch you should base your work on, read about our <a class="reference internal" href="../versioning/"><em>Versioning System and Repository Branch Layout</em></a> before submitting your PR.</p>
-</div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../" accesskey="U">Contributing to Sponge</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../search/" method="get">
@@ -595,6 +539,63 @@ rebasing it, just ask!</li>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="contribution-guidelines">
+<h1>Contribution Guidelines<a class="headerlink" href="#contribution-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>There will always be a need for developers to help us improve SpongeAPI. There is no such thing as a perfect project and
+things can always be improved. If you are a developer and are interested in helping then please do not hesitate. Just
+make sure you follow our guidelines.</p>
+<div class="section" id="general-steps">
+<h2>General steps<a class="headerlink" href="#general-steps" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Setup your workspace as described in <a class="reference internal" href="../../preparing/"><em>Preparing for Development</em></a>.</li>
+<li>Make sure you&#8217;re familiar with Git and GitHub. If your knowledge needs a refresh, take a look here: <a class="reference internal" href="../howtogit/"><em>How to Git(Hub)</em></a></li>
+<li>Check for existing issues in the <a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/issues">SpongeAPI</a>,
+<a class="reference external" href="https://github.com/SpongePowered/SpongeCommon">SpongeCommon</a>,
+<a class="reference external" href="https://github.com/SpongePowered/SpongeForge">SpongeForge</a>,
+<a class="reference external" href="https://github.com/SpongePowered/SpongeVanilla">SpongeVanilla</a>, and
+<a class="reference external" href="https://github.com/SpongePowered/SpongeDocs">SpongeDocs</a> repositories. There is possibly someone else already
+working on the same thing. You can also check
+<a class="reference external" href="https://github.com/SpongePowered/SpongeAPI/labels/help%20wanted">issues marked with &#8220;help wanted&#8221;</a> for existing
+issues we need your help with.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please don&#8217;t submit pull request for small changes under 20 lines. Instead, <a class="reference external" href="https://webchat.esper.net/?channels=sponge">join #sponge on IRC (irc.esper.net)</a> or <a class="reference external" href="https://webchat.esper.net/?channels=spongedev">join #spongedev on IRC (irc.esper.net)</a> and we&#8217;ll change it together with the other smaller changes.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li>If the issue requires a bigger change you may want to submit the issues without the necessary changes first, so we
+can confirm the issue and know that you&#8217;re working on fixing it. You should also create a WIP (work in process) pull
+request prefixed with <code class="docutils literal"><span class="pre">[WIP]</span></code> early so we can already start reviewing them.</li>
+<li>Fork the project, clone it and make your changes in an extra branch.</li>
+<li>Test your changes (make sure it compiles!), commit and push them to your fork.</li>
+<li>Submit the pull request with a short summary what you&#8217;ve changed and why it should be changed in that way.</li>
+<li>If you make additional changes, push new commits to your branch. <strong>Do not squash your changes</strong>, that makes it
+extremely hard to see what you&#8217;ve changed compared to the previous version of your pull request.</li>
+<li>Make sure your PR is rebased to the latest changes of the branch you&#8217;re intending to merge it into. If you need help
+rebasing it, just ask!</li>
+</ol>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you&#8217;re unsure which branch you should base your work on, read about our <a class="reference internal" href="../versioning/"><em>Versioning System and Repository Branch Layout</em></a> before submitting your PR.</p>
+</div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">

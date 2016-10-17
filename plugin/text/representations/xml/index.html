@@ -12,7 +12,7 @@
     <meta name="author" content="SpongePowered">
 
     
-     <title>TextXML Format &mdash; Sponge 4.1.0 documentation</title>
+     <title>TextXML Format &mdash; Sponge 5.0.0 documentation</title>
     
   <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/sponge.css" type="text/css" />
@@ -25,7 +25,7 @@
   <script type="text/javascript">
     var DOCUMENTATION_OPTIONS = {
       URL_ROOT:    '../../../../',
-      VERSION:     '4.1.0',
+      VERSION:     '5.0.0',
       COLLAPSE_INDEX: false,
       FILE_SUFFIX: '',
       HAS_SOURCE:  true
@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../../../../_static/store.min.js"></script>
     <script type="text/javascript" src="../../../../_static/lights.js"></script>
       <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
-        <link rel="top" title="Sponge 4.1.0 documentation" href="../../../../" />
+        <link rel="top" title="Sponge 5.0.0 documentation" href="../../../../" />
         <link rel="up" title="Text Serializers" href="../" />
         <link rel="next" title="JSON Format" href="../json/" />
         <link rel="prev" title="Formatting Code &amp; Legacy Format" href="../formatting-code-legacy/" />
@@ -51,14 +51,7 @@
     ga('create', 'UA-59476017-2', 'auto');
     ga('send', 'pageview');
 
-  </script>
-    
-  {§#curver§}
-  {|#langs|}
-  <link rel="alternate" hreflang="{|crowdin_code|}" href="/{§currentversion§}/{|crowdin_code|}/">
-  {|/langs|}
-  {§/curver§}
-  <link rel="alternate" hreflang="x-default" href="/"> 
+  </script> 
   </head>
 
   <body role="document" id="page-top">
@@ -73,160 +66,75 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Sponge</a>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false">
+          Sponge <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Javadocs</a></li>
+            <li><a href="#">Bugtracker</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <!-- <li class="active"><a href="/index">Home <span class="sr-only">(current)</span></a></li> -->
-      <li><a href="/">Home</a></li>
-      <li><a href="/downloads">Downloads</a></li>
-      <li><a href="https://ore-staging.spongepowered.org">Plugins</a></li>
-      <li><a href="https://forums.spongepowered.org">Community</a></li>
+      
+      <li><a href="https://github.com/SpongePowered/SpongeDocs/blob/master/source/plugin/text/representations/xml.rst" title="Edit on GitHub"><i class="fa fa-fw fa-github"></i></a></li>
+      
+      
+      <li><a href="../formatting-code-legacy/" title="Previous Page"><i class="fa fa-fw fa-arrow-left"></i></a></li>
+      
+      <li><a href="../../../../" title="Home"><i class="fa fa-fw fa-home"></i></a></li>
+      <li><a href="#top" title="To the top"><i class="fa fa-fw fa-arrow-up"></i></a></li>
+
+      
+      <li><a href="../json/" title="Next Page"><i class="fa fa-fw fa-arrow-right"></i></a></li>
+      
+      <li><a title="Toggle syntax highlighting between light and dark" class="lights"><i class="fa fa-fw fa-lightbulb-o"></i></a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Code <span class="caret"></span>
+          Version <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Javadocs</a></li>
-            <!-- <li class="divider"></li> -->
-            <li><a href="#">Bugtracker</a></li>
+            <li><a href="/master/en/"><i class="fa fa-fw fa-tag"></i> latest</a></li>
+            {[#vers]}
+            <li><a href="/{[apiversion]}/en/"><i class="fa fa-fw fa-tag"></i> {[apiversion]}</a></li>
+            {[/vers]}
           </ul>
       </li>
-      <li><a href="https://docs.spongepowered.org">Documentation</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <i class="fa fa-fw fa-globe"></i> <span class="caret"></span>
+        </a>
+          <ul class="dropdown-menu" role="menu">
+            {§#curver§}
+            {|#langs|}
+            <li><a href="/{§currentversion§}/{|crowdin_code|}/" class="lang"><img src="//d1ztvzf22lmr1j.cloudfront.net/images/flags/{|crowdin_code|}.png" alt="Flag for {|name|}"/></a></li>
+            {|/langs|}
+            {§/curver§}
+          </ul>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
     </div>
 
-    <div class="container col-lg-8 col-lg-offset-2">
-      <div class="col-lg-8">
-        <div class="row">
-          <div class="col-lg-9">
-<div id="searchbox" style="display: none" role="search">
-    <form class="search" action="../../../../search/" method="get">
-      <div class="form-group">
-        <input class="form-control" name="q" placeholder="Search" autocomplete="off" type="text">
-        <input name="check_keywords" value="yes" type="hidden">
-        <input name="area" value="default" type="hidden">
-      </div>
-      <button type="submit" class="btn btn-default submit"><i class="fa fa-fw fa-search"></i></button>
-    </form>
-    <p class="searchtip" style="font-size: 90%"></p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-          </div>
-          <div class="col-lg-3">
-            <ul class="pagination pagination-sm pull-right">
-              <li><a href="#"><i class="fa fa-fw fa-arrow-left"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-home"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-up"></i></a></li>
-              <li><a href="#"><i class="fa fa-fw fa-arrow-right"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="../../../../">Sponge 4.1.0 documentation</a></li>
-                <li><a href="../../../" >Creating a Plugin</a></li>
-                <li><a href="../../" >Text</a></li>
-                <li><a href="../" accesskey="U">Text Serializers</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="document">
-              <div class="documentwrapper">
-                <div class="bodywrapper">
-                  <div class="body" role="main">
-                    
-  <div class="section" id="textxml-format">
-<h1>TextXML Format<a class="headerlink" href="#textxml-format" title="Permalink to this headline">¶</a></h1>
-<p>Sponge uses a predefined form of <a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a> called &#8220;TextXML&#8221; to denote the coloring
-and styling of text. A description of the elements and attributes are as follows:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="9%" />
-<col width="74%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Element</th>
-<th class="head">Attribute</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>a (anchor)</td>
-<td>href</td>
-<td>anchor element; Indicates that this text will open the link in the <code class="docutils literal"><span class="pre">href</span></code> attribute
-when clicked.</td>
-</tr>
-<tr class="row-odd"><td>b (bold)</td>
-<td>&nbsp;</td>
-<td><strong>Bolds</strong> the text.</td>
-</tr>
-<tr class="row-even"><td>c (color)</td>
-<td>n</td>
-<td>Applies a color indicated by the <code class="docutils literal"><span class="pre">n</span></code> (name) attribute to the text.</td>
-</tr>
-<tr class="row-odd"><td>i (italics)</td>
-<td>&nbsp;</td>
-<td><em>Italicizes</em> the text.</td>
-</tr>
-<tr class="row-even"><td>o (obfuscated)</td>
-<td>&nbsp;</td>
-<td>Obfuscates the text (replaces the characters with random characters that change
-continuously).</td>
-</tr>
-<tr class="row-odd"><td>s (strikethrough)</td>
-<td>&nbsp;</td>
-<td>Strikes through the text.</td>
-</tr>
-<tr class="row-even"><td>span</td>
-<td>onClick,
-onHover</td>
-<td>Generic holder element that can have click and/or hover actions indicated by the
-<code class="docutils literal"><span class="pre">onClick</span></code> and <code class="docutils literal"><span class="pre">onHover</span></code> attributes, respectively</td>
-</tr>
-<tr class="row-odd"><td>tr (translation)</td>
-<td>key</td>
-<td>Indicates a text translation</td>
-</tr>
-<tr class="row-even"><td>u (underline)</td>
-<td>&nbsp;</td>
-<td>Underlines the text.</td>
-</tr>
-</tbody>
-</table>
-<p>For example, the text &#8220;Hello World!&#8221;, formatted with the color red and an underline would have the following representation
-in the TextXML format:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;c</span> <span class="na">n=</span><span class="s">&quot;red&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;u&gt;</span>Hello World!<span class="nt">&lt;/u&gt;</span>
-<span class="nt">&lt;/c&gt;</span>
-</pre></div>
-</div>
-<p>This output can be produced using the following code:</p>
-<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.serializer.TextSerializers</span><span class="o">;</span>
-
-<span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">RED</span><span class="o">,</span> <span class="n">TextStyles</span><span class="o">.</span><span class="na">UNDERLINE</span><span class="o">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="o">);</span>
-<span class="n">String</span> <span class="n">xmlText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="o">.</span><span class="na">TEXT_XML</span><span class="o">.</span><span class="na">serialize</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
-</pre></div>
-</div>
-</div>
-
-
-                  </div>
-                </div>
-              </div>
-              <div class="clearer"></div>
-            </div>
-
+    <div class="container col-lg-8 col-lg-offset-2" id="contentwrapper">
+      <div class="col-lg-12">
+        <ul class="breadcrumb">
+            <li><a href="../../../../">Sponge 5.0.0 documentation</a></li>
+            <li><a href="../../../" >Creating a Plugin</a></li>
+            <li><a href="../../" >Text</a></li>
+            <li><a href="../" accesskey="U">Text Serializers</a></li>
+        </ul>
       </div> 
-    <div class="sphinxsidebar col-lg-3 col-lg-offset-1" role="navigation" aria-label="main navigation">
+    <div class="sphinxsidebar col-lg-3" role="navigation" aria-label="main navigation">
       <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
     <form class="search" action="../../../../search/" method="get">
@@ -633,6 +541,99 @@ in the TextXML format:</p>
 
       </div>
     </div> 
+
+      <div class="col-lg-8 col-lg-offset-1">
+          <div class="document">
+              <div class="documentwrapper">
+                <div class="bodywrapper">
+                  <div class="body" role="main">
+                    
+  <div class="section" id="textxml-format">
+<h1>TextXML Format<a class="headerlink" href="#textxml-format" title="Permalink to this headline">¶</a></h1>
+<p>Sponge uses a predefined form of <a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a> called &#8220;TextXML&#8221; to denote the coloring
+and styling of text. A description of the elements and attributes are as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="9%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Element</th>
+<th class="head">Attribute</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>a (anchor)</td>
+<td>href</td>
+<td>anchor element; Indicates that this text will open the link in the <code class="docutils literal"><span class="pre">href</span></code> attribute
+when clicked.</td>
+</tr>
+<tr class="row-odd"><td>b (bold)</td>
+<td>&nbsp;</td>
+<td><strong>Bolds</strong> the text.</td>
+</tr>
+<tr class="row-even"><td>c (color)</td>
+<td>n</td>
+<td>Applies a color indicated by the <code class="docutils literal"><span class="pre">n</span></code> (name) attribute to the text.</td>
+</tr>
+<tr class="row-odd"><td>i (italics)</td>
+<td>&nbsp;</td>
+<td><em>Italicizes</em> the text.</td>
+</tr>
+<tr class="row-even"><td>o (obfuscated)</td>
+<td>&nbsp;</td>
+<td>Obfuscates the text (replaces the characters with random characters that change
+continuously).</td>
+</tr>
+<tr class="row-odd"><td>s (strikethrough)</td>
+<td>&nbsp;</td>
+<td>Strikes through the text.</td>
+</tr>
+<tr class="row-even"><td>span</td>
+<td>onClick,
+onHover</td>
+<td>Generic holder element that can have click and/or hover actions indicated by the
+<code class="docutils literal"><span class="pre">onClick</span></code> and <code class="docutils literal"><span class="pre">onHover</span></code> attributes, respectively</td>
+</tr>
+<tr class="row-odd"><td>tr (translation)</td>
+<td>key</td>
+<td>Indicates a text translation</td>
+</tr>
+<tr class="row-even"><td>u (underline)</td>
+<td>&nbsp;</td>
+<td>Underlines the text.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, the text &#8220;Hello World!&#8221;, formatted with the color red and an underline would have the following representation
+in the TextXML format:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;c</span> <span class="na">n=</span><span class="s">&quot;red&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;u&gt;</span>Hello World!<span class="nt">&lt;/u&gt;</span>
+<span class="nt">&lt;/c&gt;</span>
+</pre></div>
+</div>
+<p>This output can be produced using the following code:</p>
+<div class="highlight-java"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">org.spongepowered.api.text.Text</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextColors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.format.TextStyles</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.spongepowered.api.text.serializer.TextSerializers</span><span class="o">;</span>
+
+<span class="n">Text</span> <span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">TextColors</span><span class="o">.</span><span class="na">RED</span><span class="o">,</span> <span class="n">TextStyles</span><span class="o">.</span><span class="na">UNDERLINE</span><span class="o">,</span> <span class="s">&quot;Hello World!&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">xmlText</span> <span class="o">=</span> <span class="n">TextSerializers</span><span class="o">.</span><span class="na">TEXT_XML</span><span class="o">.</span><span class="na">serialize</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="clearer"></div>
+            </div>
+
+      </div>
     </div>
     <footer class="col-lg-12">
         <div class="footer" role="contentinfo">
